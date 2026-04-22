@@ -17,12 +17,38 @@ const site = {
     "Lexden",
     "Braiswick",
     "West Bergholt",
+    "Holland-on-Sea",
     "Layer-de-la-Haye",
     "Ardleigh",
     "Boxted",
     "Great Horkesley",
     "Langham",
     "Dedham",
+    "Kelvedon",
+    "Brightlingsea",
+    "East Bergholt",
+    "Marks Tey",
+    "Alresford",
+    "Feering",
+    "Tiptree",
+    "Copford",
+    "Eight Ash Green",
+    "Lawford",
+    "Manningtree",
+    "Nayland",
+    "Mersea Island",
+    "Frating",
+    "Thorrington",
+    "Great Bentley",
+    "Fingringhoe",
+    "Weeley",
+    "Thorpe-le-Soken",
+    "Stratford St Mary",
+    "Holton St Mary",
+    "Elmstead",
+    "Elmstead Market",
+    "Abberton",
+    "Heckfordbridge",
   ],
   openingHours: [
     [["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"], "07:00", "14:00"],
@@ -55,9 +81,9 @@ const pageMeta = {
     serviceType: "Selected commercial window cleaning for local businesses",
   },
   areas: {
-    title: "Window Cleaner Near Colchester | Wivenhoe, Lexden, Dedham And Nearby Areas",
+    title: "Window Cleaner Near Colchester | Brightlingsea, Mersea Island, Kelvedon And Nearby Areas",
     description:
-      "Local window cleaner covering Colchester and nearby areas including Wivenhoe, Lexden, West Bergholt, Dedham, and Rowhedge.",
+      "Local window cleaner covering Colchester and nearby areas including Wivenhoe, Mersea Island, Brightlingsea, Dedham, Manningtree, Marks Tey, Tiptree, Kelvedon, and surrounding villages.",
     path: "/window-cleaner-near-colchester.html",
     serviceName: "Window Cleaner Near Colchester",
     serviceType: "Residential window cleaning across Colchester and nearby villages",
@@ -101,6 +127,238 @@ const pageMeta = {
     path: "/window-cleaner-rowhedge.html",
     serviceName: "Window Cleaner Rowhedge",
     serviceType: "Residential window cleaning in Rowhedge",
+  },
+  hollandonsea: {
+    title: "Window Cleaner Holland-on-Sea | Residential Window Cleaning",
+    description:
+      "Window cleaner in Holland-on-Sea for regular residential work, family homes, and reliable local service from SJ Windows.",
+    path: "/window-cleaner-holland-on-sea.html",
+    serviceName: "Window Cleaner Holland-on-Sea",
+    serviceType: "Residential window cleaning in Holland-on-Sea",
+  },
+  kelvedon: {
+    title: "Window Cleaner Kelvedon | Residential Window Cleaning",
+    description:
+      "Window cleaner in Kelvedon for regular residential window cleaning, direct contact, and dependable local service from SJ Windows.",
+    path: "/window-cleaner-kelvedon.html",
+    serviceName: "Window Cleaner Kelvedon",
+    serviceType: "Residential window cleaning in Kelvedon",
+  },
+  brightlingsea: {
+    title: "Window Cleaner Brightlingsea | Residential Window Cleaning",
+    description:
+      "Window cleaner in Brightlingsea for regular residential window cleaning, seaside homes, and reliable direct service from SJ Windows.",
+    path: "/window-cleaner-brightlingsea.html",
+    serviceName: "Window Cleaner Brightlingsea",
+    serviceType: "Residential window cleaning in Brightlingsea",
+  },
+  eastbergholt: {
+    title: "Window Cleaner East Bergholt | Residential Window Cleaning",
+    description:
+      "Window cleaner in East Bergholt for village homes, larger properties, and regular residential window cleaning from SJ Windows.",
+    path: "/window-cleaner-east-bergholt.html",
+    serviceName: "Window Cleaner East Bergholt",
+    serviceType: "Residential window cleaning in East Bergholt",
+  },
+  markstey: {
+    title: "Window Cleaner Marks Tey | Residential Window Cleaning",
+    description:
+      "Window cleaner in Marks Tey for regular residential work and dependable local service near Colchester.",
+    path: "/window-cleaner-marks-tey.html",
+    serviceName: "Window Cleaner Marks Tey",
+    serviceType: "Residential window cleaning in Marks Tey",
+  },
+  alresford: {
+    title: "Window Cleaner Alresford | Residential Window Cleaning",
+    description:
+      "Window cleaner in Alresford for regular residential window cleaning and reliable visits on the wider Colchester route.",
+    path: "/window-cleaner-alresford.html",
+    serviceName: "Window Cleaner Alresford",
+    serviceType: "Residential window cleaning in Alresford",
+  },
+  feering: {
+    title: "Window Cleaner Feering | Residential Window Cleaning",
+    description:
+      "Window cleaner in Feering for village homes and regular residential window cleaning near Colchester and Kelvedon.",
+    path: "/window-cleaner-feering.html",
+    serviceName: "Window Cleaner Feering",
+    serviceType: "Residential window cleaning in Feering",
+  },
+  tiptree: {
+    title: "Window Cleaner Tiptree | Residential Window Cleaning",
+    description:
+      "Window cleaner in Tiptree for family homes, regular residential work, and direct local contact from SJ Windows.",
+    path: "/window-cleaner-tiptree.html",
+    serviceName: "Window Cleaner Tiptree",
+    serviceType: "Residential window cleaning in Tiptree",
+  },
+  copford: {
+    title: "Window Cleaner Copford | Residential Window Cleaning",
+    description:
+      "Window cleaner in Copford for homes near Colchester that want careful, regular window cleaning and a reliable local service.",
+    path: "/window-cleaner-copford.html",
+    serviceName: "Window Cleaner Copford",
+    serviceType: "Residential window cleaning in Copford",
+  },
+  eightashgreen: {
+    title: "Window Cleaner Eight Ash Green | Residential Window Cleaning",
+    description:
+      "Window cleaner in Eight Ash Green for village homes and regular residential window cleaning west of Colchester.",
+    path: "/window-cleaner-eight-ash-green.html",
+    serviceName: "Window Cleaner Eight Ash Green",
+    serviceType: "Residential window cleaning in Eight Ash Green",
+  },
+  lawford: {
+    title: "Window Cleaner Lawford | Residential Window Cleaning",
+    description:
+      "Window cleaner in Lawford for regular residential work and dependable local service near Manningtree.",
+    path: "/window-cleaner-lawford.html",
+    serviceName: "Window Cleaner Lawford",
+    serviceType: "Residential window cleaning in Lawford",
+  },
+  manningtree: {
+    title: "Window Cleaner Manningtree | Residential Window Cleaning",
+    description:
+      "Window cleaner in Manningtree for homes that want reliable regular window cleaning and direct contact with SJ Windows.",
+    path: "/window-cleaner-manningtree.html",
+    serviceName: "Window Cleaner Manningtree",
+    serviceType: "Residential window cleaning in Manningtree",
+  },
+  nayland: {
+    title: "Window Cleaner Nayland | Residential Window Cleaning",
+    description:
+      "Window cleaner in Nayland for village and country homes on the wider northern route from Colchester.",
+    path: "/window-cleaner-nayland.html",
+    serviceName: "Window Cleaner Nayland",
+    serviceType: "Residential window cleaning in Nayland",
+  },
+  greathorkesley: {
+    title: "Window Cleaner Great Horkesley | Residential Window Cleaning",
+    description:
+      "Window cleaner in Great Horkesley for village homes and regular residential window cleaning north of Colchester.",
+    path: "/window-cleaner-great-horkesley.html",
+    serviceName: "Window Cleaner Great Horkesley",
+    serviceType: "Residential window cleaning in Great Horkesley",
+  },
+  layerdelahaye: {
+    title: "Window Cleaner Layer-de-la-Haye | Residential Window Cleaning",
+    description:
+      "Window cleaner in Layer-de-la-Haye for homes south of Colchester that want regular exterior window cleaning and direct local service.",
+    path: "/window-cleaner-layer-de-la-haye.html",
+    serviceName: "Window Cleaner Layer-de-la-Haye",
+    serviceType: "Residential window cleaning in Layer-de-la-Haye",
+  },
+  merseaisland: {
+    title: "Window Cleaner Mersea Island | Residential Window Cleaning",
+    description:
+      "Window cleaner in Mersea Island for homes looking for regular residential window cleaning and straightforward direct service.",
+    path: "/window-cleaner-mersea-island.html",
+    serviceName: "Window Cleaner Mersea Island",
+    serviceType: "Residential window cleaning in Mersea Island",
+  },
+  ardleigh: {
+    title: "Window Cleaner Ardleigh | Residential Window Cleaning",
+    description:
+      "Window cleaner in Ardleigh for homes and regular residential work on the eastern side of Colchester.",
+    path: "/window-cleaner-ardleigh.html",
+    serviceName: "Window Cleaner Ardleigh",
+    serviceType: "Residential window cleaning in Ardleigh",
+  },
+  frating: {
+    title: "Window Cleaner Frating | Residential Window Cleaning",
+    description:
+      "Window cleaner in Frating for village homes and regular residential window cleaning on the route toward Brightlingsea.",
+    path: "/window-cleaner-frating.html",
+    serviceName: "Window Cleaner Frating",
+    serviceType: "Residential window cleaning in Frating",
+  },
+  thorrington: {
+    title: "Window Cleaner Thorrington | Residential Window Cleaning",
+    description:
+      "Window cleaner in Thorrington for homes needing reliable regular window cleaning on the wider Brightlingsea route.",
+    path: "/window-cleaner-thorrington.html",
+    serviceName: "Window Cleaner Thorrington",
+    serviceType: "Residential window cleaning in Thorrington",
+  },
+  greatbentley: {
+    title: "Window Cleaner Great Bentley | Residential Window Cleaning",
+    description:
+      "Window cleaner in Great Bentley for regular residential work and reliable local service on the wider eastern route.",
+    path: "/window-cleaner-great-bentley.html",
+    serviceName: "Window Cleaner Great Bentley",
+    serviceType: "Residential window cleaning in Great Bentley",
+  },
+  fingringhoe: {
+    title: "Window Cleaner Fingringhoe | Residential Window Cleaning",
+    description:
+      "Window cleaner in Fingringhoe for village homes and regular window cleaning south-east of Colchester.",
+    path: "/window-cleaner-fingringhoe.html",
+    serviceName: "Window Cleaner Fingringhoe",
+    serviceType: "Residential window cleaning in Fingringhoe",
+  },
+  weeley: {
+    title: "Window Cleaner Weeley | Residential Window Cleaning",
+    description:
+      "Window cleaner in Weeley for regular residential window cleaning for homes on the wider eastern route from Colchester.",
+    path: "/window-cleaner-weeley.html",
+    serviceName: "Window Cleaner Weeley",
+    serviceType: "Residential window cleaning in Weeley",
+  },
+  thorpelesoken: {
+    title: "Window Cleaner Thorpe-le-Soken | Residential Window Cleaning",
+    description:
+      "Window cleaner in Thorpe-le-Soken for homes that fit the broader eastern route from Colchester.",
+    path: "/window-cleaner-thorpe-le-soken.html",
+    serviceName: "Window Cleaner Thorpe-le-Soken",
+    serviceType: "Residential window cleaning in Thorpe-le-Soken",
+  },
+  stratfordstmary: {
+    title: "Window Cleaner Stratford St Mary | Residential Window Cleaning",
+    description:
+      "Window cleaner in Stratford St Mary for village and country homes near the Dedham Vale route from Colchester.",
+    path: "/window-cleaner-stratford-st-mary.html",
+    serviceName: "Window Cleaner Stratford St Mary",
+    serviceType: "Residential window cleaning in Stratford St Mary",
+  },
+  holtonstmary: {
+    title: "Window Cleaner Holton St Mary | Residential Window Cleaning",
+    description:
+      "Window cleaner in Holton St Mary for regular residential work for village homes on the wider northern route.",
+    path: "/window-cleaner-holton-st-mary.html",
+    serviceName: "Window Cleaner Holton St Mary",
+    serviceType: "Residential window cleaning in Holton St Mary",
+  },
+  elmstead: {
+    title: "Window Cleaner Elmstead | Residential Window Cleaning",
+    description:
+      "Window cleaner in Elmstead for homes near Colchester that want regular, careful window cleaning and direct local service.",
+    path: "/window-cleaner-elmstead.html",
+    serviceName: "Window Cleaner Elmstead",
+    serviceType: "Residential window cleaning in Elmstead",
+  },
+  elmsteadmarket: {
+    title: "Window Cleaner Elmstead Market | Residential Window Cleaning",
+    description:
+      "Window cleaner in Elmstead Market for residential window cleaning and reliable local service east of Colchester.",
+    path: "/window-cleaner-elmstead-market.html",
+    serviceName: "Window Cleaner Elmstead Market",
+    serviceType: "Residential window cleaning in Elmstead Market",
+  },
+  abberton: {
+    title: "Window Cleaner Abberton | Residential Window Cleaning",
+    description:
+      "Window cleaner in Abberton for village homes and regular residential work south of Colchester.",
+    path: "/window-cleaner-abberton.html",
+    serviceName: "Window Cleaner Abberton",
+    serviceType: "Residential window cleaning in Abberton",
+  },
+  heckfordbridge: {
+    title: "Window Cleaner Heckfordbridge | Residential Window Cleaning",
+    description:
+      "Window cleaner in Heckfordbridge for homes near Colchester looking for reliable regular window cleaning and direct contact.",
+    path: "/window-cleaner-heckfordbridge.html",
+    serviceName: "Window Cleaner Heckfordbridge",
+    serviceType: "Residential window cleaning in Heckfordbridge",
   },
 };
 
