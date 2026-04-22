@@ -370,7 +370,7 @@ const quote = {
   },
   extra: {
     frames_sills: [
-      "Heavy frame or sill stain removal",
+      "Paint or heavy stain removal on frames and sills",
       "f",
       0,
       30,
@@ -811,7 +811,7 @@ function calculator() {
           `<li><span>${esc(label)}</span><strong>${minutes < 0 ? "-" : ""}${Math.abs(minutes)} min</strong></li>`
       )
       .join("");
-    suggestions.innerHTML = `${result.selected.length ? `<p><strong>Included:</strong> ${esc(result.selected.join(", "))}</p>` : "<p><strong>Included:</strong> Exterior glass only.</p>"}<p><strong>You might also want:</strong></p>${result.suggested.length ? `<div class="tag-list">${result.suggested.map((x) => `<span class="tag">${esc(x.label)}</span>`).join("")}</div>` : "<p>No other extras suggested for this setup.</p>"}`;
+    suggestions.innerHTML = `${result.selected.length ? `<p><strong>Included:</strong> Standard frame and sill clean, plus ${esc(result.selected.join(", "))}</p>` : "<p><strong>Included:</strong> Exterior glass, frames, and sills.</p>"}<p><strong>You might also want:</strong></p>${result.suggested.length ? `<div class="tag-list">${result.suggested.map((x) => `<span class="tag">${esc(x.label)}</span>`).join("")}</div>` : "<p>No other extras suggested for this setup.</p>"}`;
   };
 
   const quoteEmailBody = (data, result, name, address) => [

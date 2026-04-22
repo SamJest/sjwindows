@@ -379,6 +379,49 @@ strong {
   color: rgba(255, 255, 255, 0.88);
 }
 
+.about-story {
+  align-items: center;
+  gap: 1.75rem;
+}
+
+.about-photo-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--radius);
+  border: 1px solid rgba(17, 39, 63, 0.1);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(245, 251, 255, 0.9));
+  box-shadow: var(--shadow);
+}
+
+.about-photo {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1023 / 1537;
+  object-fit: cover;
+  object-position: center top;
+}
+
+.about-copy {
+  max-width: 42rem;
+}
+
+.about-intro {
+  font-size: 1.08rem;
+  color: var(--ink);
+}
+
+.about-actions {
+  margin-bottom: 1.5rem;
+}
+
+.about-trust {
+  margin-top: 0.25rem;
+}
+
+.about-trust .mini-card h3 {
+  margin-bottom: 0.55rem;
+}
+
 .hero-card__logo-wrap {
   width: min(100%, 17rem);
   margin-bottom: 1.2rem;
