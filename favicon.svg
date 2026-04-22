@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Window cleaning icon">
+  <defs>
+    <linearGradient id="glass" x1="0%" x2="100%" y1="0%" y2="100%">
+      <stop offset="0%" stop-color="#d8eef7" />
+      <stop offset="100%" stop-color="#85b4c9" />
+    </linearGradient>
+    <linearGradient id="frame" x1="0%" x2="100%" y1="0%" y2="100%">
+      <stop offset="0%" stop-color="#152534" />
+      <stop offset="100%" stop-color="#2e4e65" />
+    </linearGradient>
+  </defs>
+  <rect x="10" y="8" width="44" height="48" rx="8" fill="url(#frame)" />
+  <rect x="16" y="14" width="14" height="16" rx="2" fill="url(#glass)" />
+  <rect x="34" y="14" width="14" height="16" rx="2" fill="url(#glass)" />
+  <rect x="16" y="34" width="14" height="16" rx="2" fill="url(#glass)" />
+  <rect x="34" y="34" width="14" height="16" rx="2" fill="url(#glass)" />
+  <path d="M20 44 45 19" stroke="#f6cc7e" stroke-linecap="round" stroke-width="4" />
+  <path d="M43 17h7v7" fill="none" stroke="#f6cc7e" stroke-linecap="round" stroke-linejoin="round" stroke-width="4" />
+</svg>
