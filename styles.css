@@ -380,6 +380,7 @@ strong {
 }
 
 .about-story {
+  grid-template-columns: minmax(260px, 0.8fr) minmax(0, 1.2fr);
   align-items: center;
   gap: 1.75rem;
 }
@@ -394,9 +395,10 @@ strong {
 }
 
 .about-photo {
+  display: block;
   width: 100%;
   height: auto;
-  aspect-ratio: 1023 / 1537;
+  aspect-ratio: 1024 / 1536;
   object-fit: cover;
   object-position: center top;
 }
