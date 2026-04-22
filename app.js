@@ -618,12 +618,12 @@ const quote = {
     quarterly: [
       "Quarterly",
       1.1,
-      "More of a light maintenance option for homes that do not need frequent cleans.",
+      "More of a light maintenance option for homes that don't need frequent cleans.",
     ],
     one_off: [
       "One-off visit",
       1.4,
-      "One-off cleans usually take a bit longer because there is no regular round behind them.",
+      "One-off cleans usually take a bit longer because there's no regular round behind them.",
     ],
   },
   extra: {
@@ -981,7 +981,7 @@ function calc(data) {
     units: units.toFixed(1).replace(".0", ""),
     windowCount: String(windowCount),
     compare: data.frequency === "one_off" ? "This guide is based on a one-off clean." : `If you wanted this as a one-off clean, it would usually be around ${money(oneOffPrice)}.`,
-    recommendation: `${worked <= 20 ? "This looks like a smaller job." : worked >= 150 ? "This looks like a bigger job, probably because there is a lot of glass or the property is more involved." : "This looks about average for the kind of property you have entered."} ${f[2]}`,
+    recommendation: `${worked <= 20 ? "This looks like a smaller job." : worked >= 150 ? "This looks like a bigger job, probably because there's a lot of glass or the property is more involved." : "This looks about average for the kind of property you have entered."} ${f[2]}`,
     breakdown: [
       ["Preparation and route time", Math.round(prep)],
       ["Exterior glass and core work", Math.round(base)],
@@ -1096,7 +1096,7 @@ function calculator() {
     `Travel zone: ${data.travelZone === "extended" ? "Nearby village / outer route" : "Colchester / core route"}`,
     `Extras: ${result.selected.length ? result.selected.join(", ") : "None selected"}`,
     ``,
-    `I understand this is a guide price. The website says it is usually quite accurate, but may vary by around 20%, often on the lower side once you have seen the property.`,
+    `I understand this is a guide price. The website says it's usually quite accurate, but may vary by around 20%, often on the lower side once you have seen the property.`,
   ].join("\n");
 
   const update = (state, text) => {
@@ -1138,7 +1138,7 @@ function calculator() {
   });
   update(
     "neutral",
-    "Guide price updates as you change the details. If you are happy with it, you can email it over below."
+    "Guide price updates as you change the details. If you're happy with it, you can email it over below."
   );
   applyPropertyDefaults(form.propertyType.value);
   draw(calc(read()));
