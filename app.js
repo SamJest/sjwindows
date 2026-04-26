@@ -291,8 +291,8 @@ const quote = {
     ],
     quarterly: [
       "Quarterly",
-      1.1,
-      "More of a light maintenance option for homes that don't need frequent cleans.",
+      1.5,
+      "This prices at 50% more than the standard 6-weekly guide because each visit usually needs more catching up.",
     ],
     one_off: [
       "One-off visit",
@@ -735,7 +735,10 @@ function calc(data) {
   const adjustedBase = base * access[1] * condition[1];
   const standardWorked = prep + adjustedBase + extraMinutes;
   const regularCycleFactor =
-    data.frequency === "every4" || data.frequency === "every6" || data.frequency === "every8"
+    data.frequency === "every4" ||
+    data.frequency === "every6" ||
+    data.frequency === "every8" ||
+    data.frequency === "quarterly"
       ? frequency[1]
       : null;
   const worked = Math.max(
