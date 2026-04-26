@@ -1,365 +1,39 @@
 const site = {
   businessName: "SJ Windows",
+  ownerName: "Sam Jones",
   phoneDisplay: "07756 514110",
-  phoneHref: "tel:+447756514110",
+  phoneDigits: "07756514110",
+  phoneInternational: "447756514110",
+  phoneHref: "tel:07756514110",
+  smsHref: "sms:07756514110",
   email: "sjwindows2020@gmail.com",
   websiteUrl: "https://sjwindowscolchester.co.uk",
+  ogImagePath: "/sam-about-photo-real.png",
   description:
-    "Friendly window cleaning in Colchester for homes that want a careful finish and an easy service.",
-  addressLine1: "",
-  addressLocality: "Colchester",
-  addressRegion: "Essex",
-  postalCode: "CO4",
-  country: "GB",
+    "Friendly, local window cleaning in Colchester and nearby villages, with direct contact from Sam Jones and a sensible guide-price tool.",
   serviceAreas: [
+    "Colchester",
     "Wivenhoe",
-    "Rowhedge",
     "Lexden",
-    "Braiswick",
+    "Stanway",
+    "Greenstead",
+    "Highwoods",
+    "Mile End",
+    "Prettygate",
+    "Rowhedge",
     "West Bergholt",
-    "Holland-on-Sea",
-    "Layer-de-la-Haye",
-    "Ardleigh",
-    "Boxted",
-    "Great Horkesley",
-    "Langham",
-    "Dedham",
-    "Kelvedon",
     "Brightlingsea",
-    "East Bergholt",
-    "Marks Tey",
-    "Alresford",
-    "Feering",
-    "Tiptree",
-    "Copford",
-    "Eight Ash Green",
-    "Lawford",
-    "Manningtree",
-    "Nayland",
     "Mersea Island",
-    "Frating",
-    "Thorrington",
-    "Great Bentley",
-    "Fingringhoe",
-    "Weeley",
-    "Thorpe-le-Soken",
-    "Stratford St Mary",
-    "Holton St Mary",
-    "Elmstead",
-    "Elmstead Market",
+    "Manningtree",
+    "Tiptree",
+    "Marks Tey",
+    "Kelvedon",
+    "Dedham",
+    "Ardleigh",
+    "Layer-de-la-Haye",
     "Abberton",
-    "Heckfordbridge",
+    "Fingringhoe",
   ],
-  openingHours: [
-    [["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"], "07:00", "14:00"],
-  ],
-};
-
-const pageMeta = {
-  home: {
-    title: "Window Cleaner Colchester | Friendly Local Window Cleaning",
-    description:
-      "Friendly window cleaning in Colchester for everything from flats and terraces to larger detached and period homes.",
-    path: "/",
-    serviceName: "Window Cleaning Colchester",
-    serviceType: "Residential window cleaning and exterior cleaning in Colchester",
-  },
-  residential: {
-    title: "Residential Window Cleaning Colchester | Friendly Local Service",
-    description:
-      "Residential window cleaning in Colchester with direct contact, careful work, and regular rounds for all sorts of homes.",
-    path: "/residential-window-cleaning-colchester.html",
-    serviceName: "Residential Window Cleaning Colchester",
-    serviceType: "Residential window cleaning for detached, executive, and period homes",
-  },
-  commercial: {
-    title: "Commercial Window Cleaning Colchester | Local Business Window Cleaning",
-    description:
-      "Commercial window cleaning in Colchester for local businesses that want reliable visits and direct contact.",
-    path: "/commercial-window-cleaning-colchester.html",
-    serviceName: "Commercial Window Cleaning Colchester",
-    serviceType: "Selected commercial window cleaning for local businesses",
-  },
-  areas: {
-    title: "Window Cleaner Near Colchester | Brightlingsea, Mersea Island, Kelvedon And Nearby Areas",
-    description:
-      "Local window cleaner covering Colchester and nearby areas including Wivenhoe, Mersea Island, Brightlingsea, Dedham, Manningtree, Marks Tey, Tiptree, Kelvedon, and surrounding villages.",
-    path: "/window-cleaner-near-colchester.html",
-    serviceName: "Window Cleaner Near Colchester",
-    serviceType: "Residential window cleaning across Colchester and nearby villages",
-  },
-  wivenhoe: {
-    title: "Window Cleaner Wivenhoe | Regular Window Cleaning Near Colchester",
-    description:
-      "Window cleaner in Wivenhoe offering regular residential window cleaning with friendly direct service from a local Colchester business.",
-    path: "/window-cleaner-wivenhoe.html",
-    serviceName: "Window Cleaner Wivenhoe",
-    serviceType: "Residential window cleaning in Wivenhoe",
-  },
-  lexden: {
-    title: "Window Cleaner Lexden | Residential Window Cleaning",
-    description:
-      "Window cleaner in Lexden for family homes, detached houses, and regular exterior window cleaning with direct local service.",
-    path: "/window-cleaner-lexden.html",
-    serviceName: "Window Cleaner Lexden",
-    serviceType: "Residential window cleaning in Lexden",
-  },
-  westbergholt: {
-    title: "Window Cleaner West Bergholt | Local Window Cleaning Service",
-    description:
-      "Window cleaner in West Bergholt for regular rounds and careful exterior cleaning from a friendly local Colchester business.",
-    path: "/window-cleaner-west-bergholt.html",
-    serviceName: "Window Cleaner West Bergholt",
-    serviceType: "Residential window cleaning in West Bergholt",
-  },
-  dedham: {
-    title: "Window Cleaner Dedham | Window Cleaning For Village And Country Homes",
-    description:
-      "Window cleaner in Dedham for village homes, period properties, and regular residential window cleaning near Colchester.",
-    path: "/window-cleaner-dedham.html",
-    serviceName: "Window Cleaner Dedham",
-    serviceType: "Residential window cleaning in Dedham",
-  },
-  rowhedge: {
-    title: "Window Cleaner Rowhedge | Local Residential Window Cleaning",
-    description:
-      "Window cleaner in Rowhedge for regular residential work and friendly direct service from a local Colchester business.",
-    path: "/window-cleaner-rowhedge.html",
-    serviceName: "Window Cleaner Rowhedge",
-    serviceType: "Residential window cleaning in Rowhedge",
-  },
-  hollandonsea: {
-    title: "Window Cleaner Holland-on-Sea | Residential Window Cleaning",
-    description:
-      "Window cleaner in Holland-on-Sea for regular residential work, family homes, and reliable local service from SJ Windows.",
-    path: "/window-cleaner-holland-on-sea.html",
-    serviceName: "Window Cleaner Holland-on-Sea",
-    serviceType: "Residential window cleaning in Holland-on-Sea",
-  },
-  kelvedon: {
-    title: "Window Cleaner Kelvedon | Residential Window Cleaning",
-    description:
-      "Window cleaner in Kelvedon for regular residential window cleaning, direct contact, and dependable local service from SJ Windows.",
-    path: "/window-cleaner-kelvedon.html",
-    serviceName: "Window Cleaner Kelvedon",
-    serviceType: "Residential window cleaning in Kelvedon",
-  },
-  brightlingsea: {
-    title: "Window Cleaner Brightlingsea | Residential Window Cleaning",
-    description:
-      "Window cleaner in Brightlingsea for regular residential window cleaning, seaside homes, and reliable direct service from SJ Windows.",
-    path: "/window-cleaner-brightlingsea.html",
-    serviceName: "Window Cleaner Brightlingsea",
-    serviceType: "Residential window cleaning in Brightlingsea",
-  },
-  eastbergholt: {
-    title: "Window Cleaner East Bergholt | Residential Window Cleaning",
-    description:
-      "Window cleaner in East Bergholt for village homes, larger properties, and regular residential window cleaning from SJ Windows.",
-    path: "/window-cleaner-east-bergholt.html",
-    serviceName: "Window Cleaner East Bergholt",
-    serviceType: "Residential window cleaning in East Bergholt",
-  },
-  markstey: {
-    title: "Window Cleaner Marks Tey | Residential Window Cleaning",
-    description:
-      "Window cleaner in Marks Tey for regular residential work and dependable local service near Colchester.",
-    path: "/window-cleaner-marks-tey.html",
-    serviceName: "Window Cleaner Marks Tey",
-    serviceType: "Residential window cleaning in Marks Tey",
-  },
-  alresford: {
-    title: "Window Cleaner Alresford | Residential Window Cleaning",
-    description:
-      "Window cleaner in Alresford for regular residential window cleaning and reliable visits on the wider Colchester route.",
-    path: "/window-cleaner-alresford.html",
-    serviceName: "Window Cleaner Alresford",
-    serviceType: "Residential window cleaning in Alresford",
-  },
-  feering: {
-    title: "Window Cleaner Feering | Residential Window Cleaning",
-    description:
-      "Window cleaner in Feering for village homes and regular residential window cleaning near Colchester and Kelvedon.",
-    path: "/window-cleaner-feering.html",
-    serviceName: "Window Cleaner Feering",
-    serviceType: "Residential window cleaning in Feering",
-  },
-  tiptree: {
-    title: "Window Cleaner Tiptree | Residential Window Cleaning",
-    description:
-      "Window cleaner in Tiptree for family homes, regular residential work, and direct local contact from SJ Windows.",
-    path: "/window-cleaner-tiptree.html",
-    serviceName: "Window Cleaner Tiptree",
-    serviceType: "Residential window cleaning in Tiptree",
-  },
-  copford: {
-    title: "Window Cleaner Copford | Residential Window Cleaning",
-    description:
-      "Window cleaner in Copford for homes near Colchester that want careful, regular window cleaning and a reliable local service.",
-    path: "/window-cleaner-copford.html",
-    serviceName: "Window Cleaner Copford",
-    serviceType: "Residential window cleaning in Copford",
-  },
-  eightashgreen: {
-    title: "Window Cleaner Eight Ash Green | Residential Window Cleaning",
-    description:
-      "Window cleaner in Eight Ash Green for village homes and regular residential window cleaning west of Colchester.",
-    path: "/window-cleaner-eight-ash-green.html",
-    serviceName: "Window Cleaner Eight Ash Green",
-    serviceType: "Residential window cleaning in Eight Ash Green",
-  },
-  lawford: {
-    title: "Window Cleaner Lawford | Residential Window Cleaning",
-    description:
-      "Window cleaner in Lawford for regular residential work and dependable local service near Manningtree.",
-    path: "/window-cleaner-lawford.html",
-    serviceName: "Window Cleaner Lawford",
-    serviceType: "Residential window cleaning in Lawford",
-  },
-  manningtree: {
-    title: "Window Cleaner Manningtree | Residential Window Cleaning",
-    description:
-      "Window cleaner in Manningtree for homes that want reliable regular window cleaning and direct contact with SJ Windows.",
-    path: "/window-cleaner-manningtree.html",
-    serviceName: "Window Cleaner Manningtree",
-    serviceType: "Residential window cleaning in Manningtree",
-  },
-  nayland: {
-    title: "Window Cleaner Nayland | Residential Window Cleaning",
-    description:
-      "Window cleaner in Nayland for village and country homes on the wider northern route from Colchester.",
-    path: "/window-cleaner-nayland.html",
-    serviceName: "Window Cleaner Nayland",
-    serviceType: "Residential window cleaning in Nayland",
-  },
-  greathorkesley: {
-    title: "Window Cleaner Great Horkesley | Residential Window Cleaning",
-    description:
-      "Window cleaner in Great Horkesley for village homes and regular residential window cleaning north of Colchester.",
-    path: "/window-cleaner-great-horkesley.html",
-    serviceName: "Window Cleaner Great Horkesley",
-    serviceType: "Residential window cleaning in Great Horkesley",
-  },
-  layerdelahaye: {
-    title: "Window Cleaner Layer-de-la-Haye | Residential Window Cleaning",
-    description:
-      "Window cleaner in Layer-de-la-Haye for homes south of Colchester that want regular exterior window cleaning and direct local service.",
-    path: "/window-cleaner-layer-de-la-haye.html",
-    serviceName: "Window Cleaner Layer-de-la-Haye",
-    serviceType: "Residential window cleaning in Layer-de-la-Haye",
-  },
-  merseaisland: {
-    title: "Window Cleaner Mersea Island | Residential Window Cleaning",
-    description:
-      "Window cleaner in Mersea Island for homes looking for regular residential window cleaning and straightforward direct service.",
-    path: "/window-cleaner-mersea-island.html",
-    serviceName: "Window Cleaner Mersea Island",
-    serviceType: "Residential window cleaning in Mersea Island",
-  },
-  ardleigh: {
-    title: "Window Cleaner Ardleigh | Residential Window Cleaning",
-    description:
-      "Window cleaner in Ardleigh for homes and regular residential work on the eastern side of Colchester.",
-    path: "/window-cleaner-ardleigh.html",
-    serviceName: "Window Cleaner Ardleigh",
-    serviceType: "Residential window cleaning in Ardleigh",
-  },
-  frating: {
-    title: "Window Cleaner Frating | Residential Window Cleaning",
-    description:
-      "Window cleaner in Frating for village homes and regular residential window cleaning on the route toward Brightlingsea.",
-    path: "/window-cleaner-frating.html",
-    serviceName: "Window Cleaner Frating",
-    serviceType: "Residential window cleaning in Frating",
-  },
-  thorrington: {
-    title: "Window Cleaner Thorrington | Residential Window Cleaning",
-    description:
-      "Window cleaner in Thorrington for homes needing reliable regular window cleaning on the wider Brightlingsea route.",
-    path: "/window-cleaner-thorrington.html",
-    serviceName: "Window Cleaner Thorrington",
-    serviceType: "Residential window cleaning in Thorrington",
-  },
-  greatbentley: {
-    title: "Window Cleaner Great Bentley | Residential Window Cleaning",
-    description:
-      "Window cleaner in Great Bentley for regular residential work and reliable local service on the wider eastern route.",
-    path: "/window-cleaner-great-bentley.html",
-    serviceName: "Window Cleaner Great Bentley",
-    serviceType: "Residential window cleaning in Great Bentley",
-  },
-  fingringhoe: {
-    title: "Window Cleaner Fingringhoe | Residential Window Cleaning",
-    description:
-      "Window cleaner in Fingringhoe for village homes and regular window cleaning south-east of Colchester.",
-    path: "/window-cleaner-fingringhoe.html",
-    serviceName: "Window Cleaner Fingringhoe",
-    serviceType: "Residential window cleaning in Fingringhoe",
-  },
-  weeley: {
-    title: "Window Cleaner Weeley | Residential Window Cleaning",
-    description:
-      "Window cleaner in Weeley for regular residential window cleaning for homes on the wider eastern route from Colchester.",
-    path: "/window-cleaner-weeley.html",
-    serviceName: "Window Cleaner Weeley",
-    serviceType: "Residential window cleaning in Weeley",
-  },
-  thorpelesoken: {
-    title: "Window Cleaner Thorpe-le-Soken | Residential Window Cleaning",
-    description:
-      "Window cleaner in Thorpe-le-Soken for homes that fit the broader eastern route from Colchester.",
-    path: "/window-cleaner-thorpe-le-soken.html",
-    serviceName: "Window Cleaner Thorpe-le-Soken",
-    serviceType: "Residential window cleaning in Thorpe-le-Soken",
-  },
-  stratfordstmary: {
-    title: "Window Cleaner Stratford St Mary | Residential Window Cleaning",
-    description:
-      "Window cleaner in Stratford St Mary for village and country homes near the Dedham Vale route from Colchester.",
-    path: "/window-cleaner-stratford-st-mary.html",
-    serviceName: "Window Cleaner Stratford St Mary",
-    serviceType: "Residential window cleaning in Stratford St Mary",
-  },
-  holtonstmary: {
-    title: "Window Cleaner Holton St Mary | Residential Window Cleaning",
-    description:
-      "Window cleaner in Holton St Mary for regular residential work for village homes on the wider northern route.",
-    path: "/window-cleaner-holton-st-mary.html",
-    serviceName: "Window Cleaner Holton St Mary",
-    serviceType: "Residential window cleaning in Holton St Mary",
-  },
-  elmstead: {
-    title: "Window Cleaner Elmstead | Residential Window Cleaning",
-    description:
-      "Window cleaner in Elmstead for homes near Colchester that want regular, careful window cleaning and direct local service.",
-    path: "/window-cleaner-elmstead.html",
-    serviceName: "Window Cleaner Elmstead",
-    serviceType: "Residential window cleaning in Elmstead",
-  },
-  elmsteadmarket: {
-    title: "Window Cleaner Elmstead Market | Residential Window Cleaning",
-    description:
-      "Window cleaner in Elmstead Market for residential window cleaning and reliable local service east of Colchester.",
-    path: "/window-cleaner-elmstead-market.html",
-    serviceName: "Window Cleaner Elmstead Market",
-    serviceType: "Residential window cleaning in Elmstead Market",
-  },
-  abberton: {
-    title: "Window Cleaner Abberton | Residential Window Cleaning",
-    description:
-      "Window cleaner in Abberton for village homes and regular residential work south of Colchester.",
-    path: "/window-cleaner-abberton.html",
-    serviceName: "Window Cleaner Abberton",
-    serviceType: "Residential window cleaning in Abberton",
-  },
-  heckfordbridge: {
-    title: "Window Cleaner Heckfordbridge | Residential Window Cleaning",
-    description:
-      "Window cleaner in Heckfordbridge for homes near Colchester looking for reliable regular window cleaning and direct contact.",
-    path: "/window-cleaner-heckfordbridge.html",
-    serviceName: "Window Cleaner Heckfordbridge",
-    serviceType: "Residential window cleaning in Heckfordbridge",
-  },
 };
 
 const quote = {
@@ -618,12 +292,12 @@ const quote = {
     quarterly: [
       "Quarterly",
       1.1,
-      "More of a light maintenance option for homes that don't need frequent cleans.",
+      "More of a light maintenance option for homes that do not need frequent cleans.",
     ],
     one_off: [
       "One-off visit",
       1.4,
-      "One-off cleans usually take a bit longer because there's no regular round behind them.",
+      "One-off cleans usually take a bit longer because there is no regular round behind them.",
     ],
   },
   extra: {
@@ -672,38 +346,27 @@ const quote = {
   },
 };
 
-const days = {
-  Monday: "https://schema.org/Monday",
-  Tuesday: "https://schema.org/Tuesday",
-  Wednesday: "https://schema.org/Wednesday",
-  Thursday: "https://schema.org/Thursday",
-  Friday: "https://schema.org/Friday",
-  Saturday: "https://schema.org/Saturday",
-  Sunday: "https://schema.org/Sunday",
-};
+const $ = (selector, parent = document) => parent.querySelector(selector);
+const $$ = (selector, parent = document) => [...parent.querySelectorAll(selector)];
 
-const $ = (s, p = document) => p.querySelector(s);
-const $$ = (s, p = document) => [...p.querySelectorAll(s)];
-const esc = (v) =>
-  String(v ?? "")
+const esc = (value) =>
+  String(value ?? "")
     .replaceAll("&", "&amp;")
     .replaceAll("<", "&lt;")
     .replaceAll(">", "&gt;")
     .replaceAll('"', "&quot;")
     .replaceAll("'", "&#39;");
-const clamp = (v, min, max) => Math.min(max, Math.max(min, Number.parseInt(v, 10) || min));
-const round5 = (v) => Math.ceil(v / 5) * 5;
-const money = (v) => `\u00a3${Math.round(v)}`;
-const trimSlash = (v) => String(v ?? "").trim().replace(/\/+$/, "");
-const time = (m) => {
-  const h = Math.floor(m / 60);
-  const n = m % 60;
-  return h ? `${h} hr${n ? ` ${n} min` : ""}` : `${n} min`;
-};
 
-function currentPageMeta() {
-  return pageMeta[document.body?.dataset.page] || pageMeta.home;
-}
+const clamp = (value, min, max) =>
+  Math.min(max, Math.max(min, Number.parseInt(value, 10) || min));
+const round5 = (value) => Math.ceil(value / 5) * 5;
+const money = (value) => `\u00a3${Math.round(value)}`;
+const trimSlash = (value) => String(value ?? "").trim().replace(/\/+$/, "");
+const time = (minutes) => {
+  const hours = Math.floor(minutes / 60);
+  const remainder = minutes % 60;
+  return hours ? `${hours} hr${remainder ? ` ${remainder} min` : ""}` : `${remainder} min`;
+};
 
 function siteBaseUrl() {
   const configured = trimSlash(site.websiteUrl);
@@ -718,6 +381,46 @@ function absoluteUrl(path = "/") {
   const base = siteBaseUrl();
   if (!base) return "";
   return new URL(path, `${base}/`).toString();
+}
+
+function currentPath() {
+  const canonical = $('link[rel="canonical"]')?.getAttribute("href");
+  if (canonical) {
+    try {
+      return new URL(canonical).pathname || "/";
+    } catch {}
+  }
+  const ogUrl = $('meta[property="og:url"]')?.getAttribute("content");
+  if (ogUrl) {
+    try {
+      return new URL(ogUrl).pathname || "/";
+    } catch {}
+  }
+  if (document.body?.dataset.path) return document.body.dataset.path;
+  if (typeof location !== "undefined" && /^https?:$/.test(location.protocol)) {
+    return location.pathname || "/";
+  }
+  return "/";
+}
+
+function currentMeta() {
+  return {
+    title: document.title.trim() || site.businessName,
+    description:
+      $('meta[name="description"]')?.getAttribute("content")?.trim() || site.description,
+    path: currentPath(),
+    pageType: document.body?.dataset.pageType || "general",
+    serviceName:
+      document.body?.dataset.serviceName ||
+      $("h1")?.textContent?.trim() ||
+      document.title.trim() ||
+      site.businessName,
+    serviceType:
+      document.body?.dataset.serviceType ||
+      $("h1")?.textContent?.trim() ||
+      $('meta[name="description"]')?.getAttribute("content")?.trim() ||
+      site.description,
+  };
 }
 
 function ensureMeta(attr, key, content) {
@@ -743,8 +446,10 @@ function ensureLink(rel, href) {
 }
 
 function headMeta() {
-  const meta = currentPageMeta();
+  const meta = currentMeta();
   const url = absoluteUrl(meta.path);
+  const imageUrl = absoluteUrl(site.ogImagePath);
+
   document.title = meta.title;
   ensureMeta("name", "description", meta.description);
   ensureMeta("name", "robots", "index,follow");
@@ -753,15 +458,41 @@ function headMeta() {
   ensureMeta("property", "og:title", meta.title);
   ensureMeta("property", "og:description", meta.description);
   ensureMeta("property", "og:url", url);
-  ensureMeta("name", "twitter:card", "summary");
+  ensureMeta("property", "og:image", imageUrl);
+  ensureMeta("name", "twitter:card", "summary_large_image");
   ensureMeta("name", "twitter:title", meta.title);
   ensureMeta("name", "twitter:description", meta.description);
+  ensureMeta("name", "twitter:image", imageUrl);
   ensureLink("canonical", url);
+}
+
+function note(el, text, state = "neutral") {
+  if (!el) return;
+  el.textContent = text;
+  el.dataset.state = state;
+}
+
+function buildWhatsAppHref(message) {
+  return `https://wa.me/${site.phoneInternational}?text=${encodeURIComponent(message)}`;
+}
+
+function buildSmsHref(message) {
+  return `${site.smsHref}?body=${encodeURIComponent(message)}`;
+}
+
+function syncChoiceCards(parent = document) {
+  $$(".choice-card", parent).forEach((card) => {
+    const input = $("input", card);
+    card.classList.toggle("is-selected", Boolean(input?.checked));
+  });
 }
 
 function faq() {
   $$(".faq-toggle").forEach((el) => {
-    el.onclick = () => el.setAttribute("aria-expanded", el.getAttribute("aria-expanded") !== "true");
+    el.onclick = () => {
+      const expanded = el.getAttribute("aria-expanded") === "true";
+      el.setAttribute("aria-expanded", String(!expanded));
+    };
   });
 }
 
@@ -769,87 +500,87 @@ function nav() {
   const button = $(".nav-toggle");
   const menu = $(".site-nav");
   if (!button || !menu) return;
+
   button.onclick = () => {
     const open = button.getAttribute("aria-expanded") !== "true";
-    button.setAttribute("aria-expanded", open);
+    button.setAttribute("aria-expanded", String(open));
     menu.classList.toggle("is-open", open);
   };
-}
 
-function note(el, text, state = "neutral") {
-  if (el) {
-    el.textContent = text;
-    el.dataset.state = state;
-  }
+  $$("a", menu).forEach((link) => {
+    link.addEventListener("click", () => {
+      button.setAttribute("aria-expanded", "false");
+      menu.classList.remove("is-open");
+    });
+  });
 }
 
 function mailBody(form) {
   return [
-    ["Name", form.name.value],
+    ["Name", form.name?.value],
     ["Property type", form.propertyType?.value],
-    ["Postcode", form.postcode.value],
-    ["Contact", form.contact.value],
-    ["Details", form.details.value],
-    ["Source", location.href],
+    ["Postcode", form.postcode?.value],
+    ["Contact", form.contact?.value],
+    ["Details", form.details?.value],
+    ["Source", absoluteUrl(currentPath()) || currentPath()],
   ]
-    .filter(([, v]) => v)
-    .map(([k, v]) => `${k}: ${v}`)
+    .filter(([, value]) => value)
+    .map(([label, value]) => `${label}: ${value}`)
     .join("\n");
 }
 
 function forms() {
   $$("[data-quote-form]").forEach((form) => {
-    const el = $("[data-form-feedback]", form);
-    el && !el.textContent.trim() && note(el, "This opens a pre-filled email with your enquiry details.");
-    form.onsubmit = (e) => {
-      e.preventDefault();
+    const feedback = $("[data-form-feedback]", form);
+    if (feedback && !feedback.textContent.trim()) {
+      note(feedback, "This opens a pre-filled email with your enquiry details.");
+    }
+    form.onsubmit = (event) => {
+      event.preventDefault();
       location.href = `mailto:${site.email}?subject=${encodeURIComponent(
         `Window cleaning enquiry for ${site.businessName}`
       )}&body=${encodeURIComponent(mailBody(form))}`;
-      note(el, "Your email app should open with everything filled in for you.", "success");
+      note(feedback, "Your email app should open with everything filled in for you.", "success");
     };
   });
 }
 
+function breadcrumbItems() {
+  const links = $$(".breadcrumbs a").map((link, index) => ({
+    name: link.textContent.trim(),
+    item: absoluteUrl(link.getAttribute("href")),
+    position: index + 1,
+  }));
+  const current = $(".breadcrumbs [aria-current='page']");
+  if (current) {
+    links.push({
+      name: current.textContent.trim(),
+      item: absoluteUrl(currentPath()),
+      position: links.length + 1,
+    });
+  }
+  return links.filter((item) => item.name && item.item);
+}
+
 function schema() {
-  if (!site.postalCode) return;
-  const meta = currentPageMeta();
+  const meta = currentMeta();
   const baseUrl = siteBaseUrl();
   const pageUrl = absoluteUrl(meta.path);
   const businessId = baseUrl ? `${baseUrl}/#business` : "#business";
-  const address = {
-    "@type": "PostalAddress",
-    addressLocality: site.addressLocality,
-    addressRegion: site.addressRegion,
-    postalCode: site.postalCode,
-    addressCountry: site.country,
-  };
-  if (site.addressLine1) {
-    address.streetAddress = site.addressLine1;
-  }
-  const business = {
-    "@context": "https://schema.org",
-    "@type": ["ProfessionalService", "LocalBusiness"],
-    "@id": businessId,
-    name: site.businessName,
-    description: site.description,
-    telephone: site.phoneHref.replace(/^tel:/, "") || site.phoneDisplay,
-    email: site.email,
-    priceRange: "\u00a3\u00a3",
-    areaServed: site.serviceAreas.map((name) => ({ "@type": "Place", name })),
-    address,
-    openingHoursSpecification: site.openingHours.map(([d, opens, closes]) => ({
-      "@type": "OpeningHoursSpecification",
-      dayOfWeek: d.map((v) => days[v]).filter(Boolean),
-      opens,
-      closes,
-    })),
-  };
-  if (baseUrl) {
-    business.url = baseUrl;
-  }
+  const existing = $("script[data-generated-schema]");
+  existing?.remove();
 
-  const nodes = [business];
+  const nodes = [
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      name: meta.title,
+      description: meta.description,
+      ...(pageUrl ? { url: pageUrl } : {}),
+      ...(baseUrl ? { isPartOf: { "@id": `${baseUrl}/#website` } } : {}),
+    },
+  ];
+
   if (baseUrl) {
     nodes.push({
       "@context": "https://schema.org",
@@ -860,42 +591,76 @@ function schema() {
       description: site.description,
     });
   }
-  nodes.push({
-    "@context": "https://schema.org",
-    "@type": "WebPage",
-    name: meta.title,
-    description: meta.description,
-    ...(pageUrl ? { url: pageUrl } : {}),
-    ...(baseUrl ? { isPartOf: { "@id": `${baseUrl}/#website` } } : {}),
-    about: { "@id": businessId },
-  });
-  nodes.push({
-    "@context": "https://schema.org",
-    "@type": "Service",
-    name: meta.serviceName,
-    serviceType: meta.serviceType,
-    description: meta.description,
-    provider: { "@id": businessId },
-    areaServed: [
-      { "@type": "Place", name: "Colchester" },
-      ...site.serviceAreas.map((name) => ({ "@type": "Place", name })),
-    ],
-    ...(pageUrl ? { url: pageUrl } : {}),
-  });
 
-  const faqs = $$(".faq-item").map((item) => {
-    const question = $(".faq-toggle", item)?.textContent?.trim();
-    const answer = $(".faq-answer", item)?.textContent?.replace(/\s+/g, " ").trim();
-    if (!question || !answer) return null;
-    return {
-      "@type": "Question",
-      name: question,
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: answer,
-      },
-    };
-  }).filter(Boolean);
+  if (meta.pageType === "home") {
+    nodes.push({
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "@id": businessId,
+      name: site.businessName,
+      url: baseUrl || undefined,
+      telephone: `+${site.phoneInternational}`,
+      email: site.email,
+      image: absoluteUrl(site.ogImagePath),
+      description: site.description,
+      serviceType: "Window cleaning",
+      areaServed: site.serviceAreas.map((name) => ({ "@type": "Place", name })),
+    });
+  }
+
+  if (["service", "area", "prices", "residential", "services"].includes(meta.pageType)) {
+    nodes.push({
+      "@context": "https://schema.org",
+      "@type": "Service",
+      name: meta.serviceName,
+      serviceType: meta.serviceType,
+      description: meta.description,
+      ...(pageUrl ? { url: pageUrl } : {}),
+      provider: baseUrl
+        ? {
+            "@id": businessId,
+            "@type": "LocalBusiness",
+            name: site.businessName,
+            url: baseUrl,
+          }
+        : {
+            "@type": "LocalBusiness",
+            name: site.businessName,
+          },
+      areaServed: site.serviceAreas.map((name) => ({ "@type": "Place", name })),
+    });
+  }
+
+  const breadcrumbs = breadcrumbItems();
+  if (breadcrumbs.length) {
+    nodes.push({
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      itemListElement: breadcrumbs.map((item) => ({
+        "@type": "ListItem",
+        position: item.position,
+        name: item.name,
+        item: item.item,
+      })),
+    });
+  }
+
+  const faqs = $$(".faq-item")
+    .map((item) => {
+      const question = $(".faq-toggle", item)?.textContent?.trim();
+      const answer = $(".faq-answer", item)?.textContent?.replace(/\s+/g, " ").trim();
+      if (!question || !answer) return null;
+      return {
+        "@type": "Question",
+        name: question,
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: answer,
+        },
+      };
+    })
+    .filter(Boolean);
+
   if (faqs.length) {
     nodes.push({
       "@context": "https://schema.org",
@@ -906,19 +671,21 @@ function schema() {
 
   const script = document.createElement("script");
   script.type = "application/ld+json";
+  script.dataset.generatedSchema = "true";
   script.textContent = JSON.stringify(nodes);
   document.head.appendChild(script);
 }
 
 function calc(data) {
-  const p = quote.property[data.propertyType] || quote.property.detached_family;
-  const minPrice = p.minPrice || 15;
-  const s = quote.storey[data.storeys] || quote.storey[2];
-  const a = quote.access[data.accessLevel] || quote.access.standard;
-  const c = quote.condition[data.conditionLevel] || quote.condition.standard;
-  const f = quote.frequency[data.frequency] || quote.frequency.every8;
+  const property = quote.property[data.propertyType] || quote.property.detached_family;
+  const minPrice = property.minPrice || 15;
+  const storey = quote.storey[data.storeys] || quote.storey[2];
+  const access = quote.access[data.accessLevel] || quote.access.standard;
+  const condition = quote.condition[data.conditionLevel] || quote.condition.standard;
+  const frequency = quote.frequency[data.frequency] || quote.frequency.every8;
   const travel = quote.travel[data.travelZone] ?? quote.travel.core;
-  const windowCount = data.smallWindows + data.mediumWindows + data.largeWindows + data.bayWindows;
+  const windowCount =
+    data.smallWindows + data.mediumWindows + data.largeWindows + data.bayWindows;
   const units =
     data.smallWindows * quote.windowWeights.small +
     data.mediumWindows * quote.windowWeights.medium +
@@ -927,19 +694,19 @@ function calc(data) {
     data.frenchDoors * 1.2 +
     data.bifoldSets * 1.4 +
     data.skylights * 5.5;
-  const glass = units * p.unitRate;
-  const base = glass + s[1];
-  const prep = p.prep + travel;
-  const adjust = base * a[1] * c[1] * f[1] - base;
+  const glass = units * property.unitRate;
+  const base = glass + storey[1];
+  const prep = property.prep + travel;
+  const adjust = base * access[1] * condition[1] * frequency[1] - base;
   const extras = data.selectedExtras
     .map((key) => {
-      const x = quote.extra[key];
-      if (!x) return null;
+      const extra = quote.extra[key];
+      if (!extra) return null;
       const minutes =
-        x[1] === "m"
-          ? glass * x[2] * (p.extraFactor || 1)
-          : x[1] === "f"
-            ? x[3] +
+        extra[1] === "m"
+          ? glass * extra[2] * (property.extraFactor || 1)
+          : extra[1] === "f"
+            ? extra[3] +
               (key === "frames_sills"
                 ? data.propertyType === "country_home" || data.propertyType === "period_property"
                   ? 30
@@ -947,48 +714,57 @@ function calc(data) {
                     ? 15
                     : 0
                 : 0)
-            : x[1] === "u"
-              ? Math.max(windowCount * 1.2, units * x[2] * (p.extraFactor || 1))
-            : data.solarPanels
-              ? data.solarPanels * x[2]
-              : 0;
-      return minutes ? { key, label: x[0], minutes: Math.round(minutes) } : null;
+            : extra[1] === "u"
+              ? Math.max(windowCount * 1.2, units * extra[2] * (property.extraFactor || 1))
+              : data.solarPanels
+                ? data.solarPanels * extra[2]
+                : 0;
+
+      return minutes ? { key, label: extra[0], minutes: Math.round(minutes) } : null;
     })
     .filter(Boolean);
-  const extraMinutes = extras.reduce((n, x) => n + x.minutes, 0);
+
+  const extraMinutes = extras.reduce((total, item) => total + item.minutes, 0);
   const worked = Math.max(quote.visit, prep + base + adjust + extraMinutes);
   const total = round5(worked);
   const price = Math.max(minPrice, Math.round((worked / 60) * quote.rate));
   const oneOffWorked = Math.max(
     quote.visit,
-    prep + base * a[1] * c[1] * quote.frequency.one_off[1] + extraMinutes
+    prep + base * access[1] * condition[1] * quote.frequency.one_off[1] + extraMinutes
   );
   const oneOff = round5(oneOffWorked);
   const oneOffPrice = Math.max(minPrice, Math.round((oneOffWorked / 60) * quote.rate));
   const suggested = Object.entries(quote.extra)
     .filter(([key]) => !data.selectedExtras.includes(key))
-      .filter(([key]) =>
-        key === "conservatory_roof" ? data.conservatoryPanels : key === "solar_panels" ? data.solarPanels : 1
-      )
-      .slice(0, 3)
-      .map(([key, x]) => ({ key, label: x[0] }));
+    .filter(([key]) =>
+      key === "conservatory_roof"
+        ? data.conservatoryPanels
+        : key === "solar_panels"
+          ? data.solarPanels
+          : 1
+    )
+    .slice(0, 3)
+    .map(([key, extra]) => ({ key, label: extra[0] }));
 
   return {
     price: money(price),
     duration: time(total),
-    cycle: f[0],
-    property: p.label,
+    cycle: frequency[0],
+    property: property.label,
     units: units.toFixed(1).replace(".0", ""),
     windowCount: String(windowCount),
-    compare: data.frequency === "one_off" ? "This guide is based on a one-off clean." : `If you wanted this as a one-off clean, it would usually be around ${money(oneOffPrice)}.`,
-    recommendation: `${worked <= 20 ? "This looks like a smaller job." : worked >= 150 ? "This looks like a bigger job, probably because there's a lot of glass or the property is more involved." : "This looks about average for the kind of property you have entered."} ${f[2]}`,
+    compare:
+      data.frequency === "one_off"
+        ? "This guide is based on a one-off clean."
+        : `If you wanted this as a one-off clean, it would usually be around ${money(oneOffPrice)}.`,
+    recommendation: `${worked <= 20 ? "This looks like a smaller job." : worked >= 150 ? "This looks like a bigger job, probably because there is a lot of glass or the property is more involved." : "This looks about average for the kind of property you have entered."} ${frequency[2]}`,
     breakdown: [
       ["Preparation and route time", Math.round(prep)],
       ["Exterior glass and core work", Math.round(base)],
       ["Access, height, condition and frequency adjustment", Math.round(adjust)],
-      ...extras.map((x) => [x.label, x.minutes]),
+      ...extras.map((item) => [item.label, item.minutes]),
     ],
-    selected: extras.map((x) => x.label),
+    selected: extras.map((item) => item.label),
     suggested,
   };
 }
@@ -1005,8 +781,10 @@ function calculator() {
   const breakdown = $("[data-quote-breakdown]");
   const suggestions = $("[data-quote-suggestions]");
   const metrics = $("[data-quote-metrics]");
+  const smsButton = $("[data-quote-sms]");
+  const whatsappButton = $("[data-quote-whatsapp]");
   const emailButton = $("[data-quote-email]");
-  const emailFeedback = $("[data-quote-email-feedback]");
+  const actionFeedback = $("[data-quote-action-feedback]");
   const customerName = $("[name='quoteCustomerName']");
   const customerAddress = $("[name='quoteCustomerAddress']");
 
@@ -1031,6 +809,7 @@ function calculator() {
     $$('[name="selectedExtras"]', form).forEach((el) => {
       el.checked = false;
     });
+    syncChoiceCards(form);
   };
 
   const read = () => ({
@@ -1052,7 +831,31 @@ function calculator() {
     selectedExtras: $$('[name="selectedExtras"]:checked', form).map((el) => el.value),
   });
 
-  const draw = (result) => {
+  const quoteMessage = (data, result) => {
+    const address = customerAddress?.value.trim();
+    const name = customerName?.value.trim();
+    return [
+      "Hi Sam, I used the Smart Quote tool and wanted to check what looks realistic from here.",
+      name ? `Name: ${name}` : "",
+      address ? `Postcode/address: ${address}` : "",
+      `Guide price shown: ${result.price}`,
+      `Property type: ${result.property}`,
+      `Frequency: ${result.cycle}`,
+      `Selected extras: ${result.selected.length ? result.selected.join(", ") : "None selected"}`,
+      `Window mix: ${data.smallWindows} small, ${data.mediumWindows} medium, ${data.largeWindows} large, ${data.bayWindows} bay`,
+      `French doors: ${data.frenchDoors}`,
+      `Bifold sets: ${data.bifoldSets}`,
+      `Skylights: ${data.skylights}`,
+      `Conservatory panels: ${data.conservatoryPanels}`,
+      `Solar panels: ${data.solarPanels}`,
+      `Estimated visit time: ${result.duration}`,
+      "I understand this is a guide price rather than a fixed quote.",
+    ]
+      .filter(Boolean)
+      .join("\n");
+  };
+
+  const draw = (result, data) => {
     price.textContent = result.price;
     duration.textContent = result.duration;
     comparison.textContent = result.compare;
@@ -1069,79 +872,86 @@ function calculator() {
           `<li><span>${esc(label)}</span><strong>${minutes < 0 ? "-" : ""}${Math.abs(minutes)} min</strong></li>`
       )
       .join("");
-    suggestions.innerHTML = `${result.selected.length ? `<p><strong>Included:</strong> Standard frame and sill clean, plus ${esc(result.selected.join(", "))}</p>` : "<p><strong>Included:</strong> Exterior glass, frames, and sills.</p>"}<p><strong>You might also want:</strong></p>${result.suggested.length ? `<div class="tag-list">${result.suggested.map((x) => `<span class="tag">${esc(x.label)}</span>`).join("")}</div>` : "<p>No other extras suggested for this setup.</p>"}`;
+    suggestions.innerHTML = `${
+      result.selected.length
+        ? `<p><strong>Included:</strong> Standard frame and sill clean, plus ${esc(result.selected.join(", "))}.</p>`
+        : "<p><strong>Included:</strong> Exterior glass, frames, and sills.</p>"
+    }<p><strong>You might also want:</strong></p>${
+      result.suggested.length
+        ? `<div class="tag-list">${result.suggested
+            .map((item) => `<span class="tag">${esc(item.label)}</span>`)
+            .join("")}</div>`
+        : "<p>No other extras suggested for this setup.</p>"
+    }`;
+
+    const message = quoteMessage(data, result);
+    if (smsButton) smsButton.href = buildSmsHref(message);
+    if (whatsappButton) whatsappButton.href = buildWhatsAppHref(message);
+    if (emailButton) {
+      emailButton.href = `mailto:${site.email}?subject=${encodeURIComponent(
+        "Smart Quote guide price enquiry"
+      )}&body=${encodeURIComponent(message)}`;
+    }
   };
 
-  const quoteEmailBody = (data, result, name, address) => [
-    `Hi Sam,`,
-    ``,
-    `I have used the guide price calculator on the website. Please could you let me know if you would like to visit to confirm the price and arrange the first clean? If not, please let me know the next available date.`,
-    ``,
-    `Name: ${name}`,
-    `Address: ${address}`,
-    ``,
-    `Guide price shown: ${result.price}`,
-    `Estimated visit time: ${result.duration}`,
-    `Property type: ${result.property}`,
-    `Window mix: ${data.smallWindows} small, ${data.mediumWindows} medium, ${data.largeWindows} large, ${data.bayWindows} bay`,
-    `French doors: ${data.frenchDoors}`,
-    `Bifold sets: ${data.bifoldSets}`,
-    `Skylights: ${data.skylights}`,
-    `Conservatory panels: ${data.conservatoryPanels}`,
-    `Solar panels: ${data.solarPanels}`,
-    `Storeys: ${quote.storey[data.storeys]?.[0] || data.storeys}`,
-    `Access: ${quote.access[data.accessLevel]?.[0] || data.accessLevel}`,
-    `Condition: ${quote.condition[data.conditionLevel]?.[0] || data.conditionLevel}`,
-    `Frequency: ${result.cycle}`,
-    `Travel zone: ${data.travelZone === "extended" ? "Nearby village / outer route" : "Colchester / core route"}`,
-    `Extras: ${result.selected.length ? result.selected.join(", ") : "None selected"}`,
-    ``,
-    `I understand this is a guide price. The website says it's usually quite accurate, but may vary by around 20%, often on the lower side once you have seen the property.`,
-  ].join("\n");
-
   const update = (state, text) => {
-    draw(calc(read()));
-    text && note(feedback, text, state);
+    const data = read();
+    const result = calc(data);
+    draw(result, data);
+    if (text) note(feedback, text, state);
+    return { data, result };
   };
 
   const live = () =>
     update(
       "neutral",
-      "Guide price updates as you change the details."
+      "Guide price updates as you change the details. Use the action buttons on the right when you are ready to message Sam."
     );
+
   form.propertyType.addEventListener("change", () => {
     applyPropertyDefaults(form.propertyType.value);
     live();
   });
-  form.oninput = live;
-  form.onchange = live;
-  form.onsubmit = (e) => {
-    e.preventDefault();
+
+  form.addEventListener("input", () => {
+    syncChoiceCards(form);
+    live();
+  });
+
+  form.addEventListener("change", () => {
+    syncChoiceCards(form);
+    live();
+  });
+
+  [customerName, customerAddress].forEach((field) => {
+    field?.addEventListener("input", () => {
+      const { data, result } = update("neutral");
+      draw(result, data);
+      note(
+        actionFeedback,
+        "The message links now include the latest guide price and any address details you have added."
+      );
+    });
+  });
+
+  form.onsubmit = (event) => {
+    event.preventDefault();
     update(
       "success",
-      "Guide price updated. The final price can still change slightly once I have seen the exact access and any extras."
+      "Guide price updated. Final price can still move once Sam has seen the property, but this gives you a sensible starting point."
     );
   };
-  emailButton?.addEventListener("click", () => {
-    const name = customerName?.value.trim();
-    const address = customerAddress?.value.trim();
-    if (!name || !address) {
-      note(emailFeedback, "Please add your name and property address first.", "warning");
-      return;
-    }
-    const data = read();
-    const result = calc(data);
-    location.href = `mailto:${site.email}?subject=${encodeURIComponent(
-      `Guide price enquiry for ${address}`
-    )}&body=${encodeURIComponent(quoteEmailBody(data, result, name, address))}`;
-    note(emailFeedback, "Your email app should open with the guide price already filled in.", "success");
-  });
-  update(
-    "neutral",
-    "Guide price updates as you change the details. If you're happy with it, you can email it over below."
+
+  note(
+    actionFeedback,
+    "Text, WhatsApp, or email the guide price over when you are ready. Adding a postcode or address helps Sam tell which property the estimate is for."
   );
   applyPropertyDefaults(form.propertyType.value);
-  draw(calc(read()));
+  syncChoiceCards(form);
+  update(
+    "neutral",
+    "Guide price updates as you change the details. Use the action buttons on the right when you are ready to message Sam."
+  );
 }
 
 faq();
@@ -1150,3 +960,4 @@ forms();
 headMeta();
 schema();
 calculator();
+syncChoiceCards();
