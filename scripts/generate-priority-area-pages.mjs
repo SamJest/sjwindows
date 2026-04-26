@@ -157,7 +157,7 @@ const areas = [
     routeCopy:
       "Mile End sits on the north side of Colchester and works best where it links naturally with Highwoods, West Bergholt, and other nearby local routes.",
     priceCopy:
-      "The guide price for Mile End still depends on the property setup rather than the postcode alone, especially the amount of glass, access, and whether it is regular or one-off work.",
+      "The guide price for Mile End still depends on the property setup rather than the postcode alone, especially the amount of glass, access, and whether it's regular or one-off work.",
     nearbySummary:
       "Nearby links usually include Highwoods, West Bergholt, Lexden, and the rest of Colchester.",
     nearby: [
@@ -317,7 +317,7 @@ const areas = [
     routeCopy:
       "Marks Tey sits on the western side of the route and works best where it links naturally with Stanway, Kelvedon, Tiptree, and other nearby areas.",
     priceCopy:
-      "Guide prices in Marks Tey still depend on property size, access, glass, and frequency, but the wider route helps decide whether it is a strong fit for regular work.",
+      "Guide prices in Marks Tey still depend on property size, access, glass, and frequency, but the wider route helps decide whether it's a strong fit for regular work.",
     nearbySummary:
       "Nearby overlaps usually include Stanway, Kelvedon, Tiptree, and Copford-side routes.",
     nearby: [
@@ -337,7 +337,7 @@ const areas = [
     routeCopy:
       "Kelvedon usually works best when it sits as part of the Tiptree and Marks Tey side of the wider route, rather than as an isolated one-off job.",
     priceCopy:
-      "Kelvedon guide prices vary with the layout of the property, access, amount of glass, and whether it is a regular round or a first clean after a gap.",
+      "Kelvedon guide prices vary with the layout of the property, access, amount of glass, and whether it's a regular round or a first clean after a gap.",
     nearbySummary:
       "Nearby route-fit pages often include Tiptree, Marks Tey, Feering-side villages, and the wider western run.",
     nearby: [
@@ -608,7 +608,7 @@ function page(area) {
           </div>
           <div class="stacked-cards">
             <article class="mini-card"><h3>Keep it dependable</h3><p>Staying within a sensible route helps keep communication and repeat visits reliable.</p></article>
-            <article class="mini-card"><h3>Good for regular rounds</h3><p>It is usually the regular jobs that fit best, rather than pretending every one-off works perfectly.</p></article>
+            <article class="mini-card"><h3>Good for regular rounds</h3><p>It's usually the regular jobs that fit best, rather than pretending every one-off works perfectly.</p></article>
           </div>
         </div>
       </section>
@@ -634,7 +634,7 @@ function page(area) {
             <p class="eyebrow">Nearby Areas Covered</p>
             <h2>${escapeHtml(area.nearbySummary)}</h2>
             <p>
-              If you are searching around ${escapeHtml(
+              If you're searching around ${escapeHtml(
                 area.area
               )} but your actual postcode is in one of the nearby places below, use the most relevant page or just send the postcode and I’ll let you know.
             </p>

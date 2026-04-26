@@ -292,12 +292,12 @@ const quote = {
     quarterly: [
       "Quarterly",
       1.1,
-      "More of a light maintenance option for homes that do not need frequent cleans.",
+      "More of a light maintenance option for homes that don't need frequent cleans.",
     ],
     one_off: [
       "One-off visit",
       1.4,
-      "One-off cleans usually take a bit longer because there is no regular round behind them.",
+      "One-off cleans usually take a bit longer because there's no regular round behind them.",
     ],
   },
   extra: {
@@ -757,7 +757,7 @@ function calc(data) {
       data.frequency === "one_off"
         ? "This guide is based on a one-off clean."
         : `If you wanted this as a one-off clean, it would usually be around ${money(oneOffPrice)}.`,
-    recommendation: `${worked <= 20 ? "This looks like a smaller job." : worked >= 150 ? "This looks like a bigger job, probably because there is a lot of glass or the property is more involved." : "This looks about average for the kind of property you have entered."} ${frequency[2]}`,
+    recommendation: `${worked <= 20 ? "This looks like a smaller job." : worked >= 150 ? "This looks like a bigger job, probably because there's a lot of glass or the property is more involved." : "This looks about average for the kind of property you have entered."} ${frequency[2]}`,
     breakdown: [
       ["Preparation and route time", Math.round(prep)],
       ["Exterior glass and core work", Math.round(base)],
@@ -905,7 +905,7 @@ function calculator() {
   const live = () =>
     update(
       "neutral",
-      "Guide price updates as you change the details. Use the action buttons on the right when you are ready to message me."
+      "Guide price updates as you change the details. Use the action buttons on the right when you're ready to message me."
     );
 
   form.propertyType.addEventListener("change", () => {
@@ -944,13 +944,13 @@ function calculator() {
 
   note(
     actionFeedback,
-    "Text, WhatsApp, or email the guide price over when you are ready. Adding a postcode or address helps me tell which property the estimate is for."
+    "Text, WhatsApp, or email the guide price over when you're ready. Adding a postcode or address helps me tell which property the estimate is for."
   );
   applyPropertyDefaults(form.propertyType.value);
   syncChoiceCards(form);
   update(
     "neutral",
-    "Guide price updates as you change the details. Use the action buttons on the right when you are ready to message me."
+    "Guide price updates as you change the details. Use the action buttons on the right when you're ready to message me."
   );
 }
 
