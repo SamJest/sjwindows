@@ -10,7 +10,7 @@ const site = {
   websiteUrl: "https://sjwindowscolchester.co.uk",
   ogImagePath: "/sam-about-photo-real.png",
   description:
-    "Friendly, local window cleaning in Colchester and nearby villages, with direct contact from Sam Jones and a sensible guide-price tool.",
+    "Friendly, local window cleaning in Colchester and nearby villages, where you deal directly with me and can get a sensible guide price online.",
   serviceAreas: [
     "Colchester",
     "Wivenhoe",
@@ -905,7 +905,7 @@ function calculator() {
   const live = () =>
     update(
       "neutral",
-      "Guide price updates as you change the details. Use the action buttons on the right when you are ready to message Sam."
+      "Guide price updates as you change the details. Use the action buttons on the right when you are ready to message me."
     );
 
   form.propertyType.addEventListener("change", () => {
@@ -938,19 +938,19 @@ function calculator() {
     event.preventDefault();
     update(
       "success",
-      "Guide price updated. Final price can still move once Sam has seen the property, but this gives you a sensible starting point."
+      "Guide price updated. Final price can still move once I've seen the property, but this gives you a sensible starting point."
     );
   };
 
   note(
     actionFeedback,
-    "Text, WhatsApp, or email the guide price over when you are ready. Adding a postcode or address helps Sam tell which property the estimate is for."
+    "Text, WhatsApp, or email the guide price over when you are ready. Adding a postcode or address helps me tell which property the estimate is for."
   );
   applyPropertyDefaults(form.propertyType.value);
   syncChoiceCards(form);
   update(
     "neutral",
-    "Guide price updates as you change the details. Use the action buttons on the right when you are ready to message Sam."
+    "Guide price updates as you change the details. Use the action buttons on the right when you are ready to message me."
   );
 }
 
