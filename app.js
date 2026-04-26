@@ -66,7 +66,7 @@ const quote = {
         storeys: "1",
         accessLevel: "straightforward",
         conditionLevel: "maintained",
-        frequency: "every8",
+        frequency: "every6",
         travelZone: "core",
       },
     },
@@ -89,7 +89,7 @@ const quote = {
         storeys: "2",
         accessLevel: "standard",
         conditionLevel: "maintained",
-        frequency: "every8",
+        frequency: "every6",
         travelZone: "core",
       },
     },
@@ -250,7 +250,7 @@ const quote = {
         storeys: "2",
         accessLevel: "awkward",
         conditionLevel: "standard",
-        frequency: "every8",
+        frequency: "every6",
         travelZone: "extended",
       },
     },
@@ -276,18 +276,18 @@ const quote = {
   frequency: {
     every4: [
       "Every 4 weeks",
-      0.9,
-      "A good option if you like things kept on top of and looking tidy.",
+      0.7,
+      "This prices at 30% less than the standard 6-weekly guide because the windows stay on top of the build-up.",
     ],
     every6: [
       "Every 6 weeks",
-      0.96,
-      "Usually a good balance between keeping the windows looking right and keeping the cost sensible.",
+      1,
+      "This is the standard guide and usually the best balance for most homes.",
     ],
     every8: [
       "Every 8 weeks",
-      1.02,
-      "Works well if you still want regular upkeep, just not quite so often.",
+      1.4,
+      "This prices at 40% more than the standard 6-weekly guide because each visit usually takes more catching up.",
     ],
     quarterly: [
       "Quarterly",
@@ -360,7 +360,14 @@ const esc = (value) =>
 const clamp = (value, min, max) =>
   Math.min(max, Math.max(min, Number.parseInt(value, 10) || min));
 const round5 = (value) => Math.ceil(value / 5) * 5;
-const money = (value) => `\u00a3${Math.round(value)}`;
+const round10p = (value) => Math.round(value * 10) / 10;
+const money = (value) =>
+  new Intl.NumberFormat("en-GB", {
+    style: "currency",
+    currency: "GBP",
+    minimumFractionDigits: 2,
+    maximumFractionDigits: 2,
+  }).format(value);
 const trimSlash = (value) => String(value ?? "").trim().replace(/\/+$/, "");
 const time = (minutes) => {
   const hours = Math.floor(minutes / 60);
@@ -682,7 +689,7 @@ function calc(data) {
   const storey = quote.storey[data.storeys] || quote.storey[2];
   const access = quote.access[data.accessLevel] || quote.access.standard;
   const condition = quote.condition[data.conditionLevel] || quote.condition.standard;
-  const frequency = quote.frequency[data.frequency] || quote.frequency.every8;
+  const frequency = quote.frequency[data.frequency] || quote.frequency.every6;
   const travel = quote.travel[data.travelZone] ?? quote.travel.core;
   const windowCount =
     data.smallWindows + data.mediumWindows + data.largeWindows + data.bayWindows;
@@ -725,15 +732,27 @@ function calc(data) {
     .filter(Boolean);
 
   const extraMinutes = extras.reduce((total, item) => total + item.minutes, 0);
-  const worked = Math.max(quote.visit, prep + base + adjust + extraMinutes);
+  const adjustedBase = base * access[1] * condition[1];
+  const standardWorked = prep + adjustedBase + extraMinutes;
+  const regularCycleFactor =
+    data.frequency === "every4" || data.frequency === "every6" || data.frequency === "every8"
+      ? frequency[1]
+      : null;
+  const worked = Math.max(
+    quote.visit,
+    regularCycleFactor ? standardWorked * regularCycleFactor : prep + base + adjust + extraMinutes
+  );
   const total = round5(worked);
-  const price = Math.max(minPrice, Math.round((worked / 60) * quote.rate));
+  const price = Math.max(minPrice, round10p((worked / 60) * quote.rate));
   const oneOffWorked = Math.max(
     quote.visit,
-    prep + base * access[1] * condition[1] * quote.frequency.one_off[1] + extraMinutes
+    prep + adjustedBase * quote.frequency.one_off[1] + extraMinutes
   );
   const oneOff = round5(oneOffWorked);
-  const oneOffPrice = Math.max(minPrice, Math.round((oneOffWorked / 60) * quote.rate));
+  const oneOffPrice = Math.max(minPrice, round10p((oneOffWorked / 60) * quote.rate));
+  const conditionAdjust = adjustedBase - base;
+  const frequencyAdjust =
+    regularCycleFactor === null ? adjust - conditionAdjust : worked - standardWorked;
   const suggested = Object.entries(quote.extra)
     .filter(([key]) => !data.selectedExtras.includes(key))
     .filter(([key]) =>
@@ -761,7 +780,8 @@ function calc(data) {
     breakdown: [
       ["Preparation and route time", Math.round(prep)],
       ["Exterior glass and core work", Math.round(base)],
-      ["Access, height, condition and frequency adjustment", Math.round(adjust)],
+      ["Access, height, and condition adjustment", Math.round(conditionAdjust)],
+      ["Cleaning cycle adjustment", Math.round(frequencyAdjust)],
       ...extras.map((item) => [item.label, item.minutes]),
     ],
     selected: extras.map((item) => item.label),
