@@ -8,7 +8,8 @@ const site = {
   smsHref: "sms:07756514110",
   email: "sjwindows2020@gmail.com",
   websiteUrl: "https://sjwindowscolchester.co.uk",
-  ogImagePath: "/sam-about-photo-real.png",
+  ogImagePath: "/sj-windows-social.jpg",
+  priceRange: "Guide prices by property",
   description:
     "Friendly, local window cleaning in Colchester and nearby villages, where you deal directly with me and can get a sensible guide price online.",
   serviceAreas: [
@@ -28,11 +29,29 @@ const site = {
     "Tiptree",
     "Marks Tey",
     "Kelvedon",
+    "Copford",
     "Dedham",
+    "East Bergholt",
+    "Eight Ash Green",
+    "Elmstead",
+    "Elmstead Market",
+    "Feering",
+    "Frating",
+    "Great Bentley",
+    "Great Horkesley",
+    "Heckfordbridge",
+    "Holland-on-Sea",
+    "Holton St Mary",
+    "Lawford",
     "Ardleigh",
     "Layer-de-la-Haye",
     "Abberton",
     "Fingringhoe",
+    "Nayland",
+    "Stratford St Mary",
+    "Thorpe-le-Soken",
+    "Thorrington",
+    "Weeley",
   ],
 };
 
@@ -411,19 +430,35 @@ function currentPath() {
 }
 
 function currentMeta() {
+  const legacyArea = document.body?.dataset.page;
+  const path = currentPath();
+  const pageType =
+    document.body?.dataset.pageType ||
+    (legacyArea ? "area" : "") ||
+    (path.includes("window-cleaner-") ? "area" : "general");
+  const areaName = legacyArea
+    ? legacyArea
+        .split("-")
+        .filter(Boolean)
+        .map((part) => part.charAt(0).toUpperCase() + part.slice(1))
+        .join(" ")
+    : "";
+
   return {
     title: document.title.trim() || site.businessName,
     description:
       $('meta[name="description"]')?.getAttribute("content")?.trim() || site.description,
-    path: currentPath(),
-    pageType: document.body?.dataset.pageType || "general",
+    path,
+    pageType,
     serviceName:
       document.body?.dataset.serviceName ||
+      (areaName ? `Window cleaner in ${areaName}` : "") ||
       $("h1")?.textContent?.trim() ||
       document.title.trim() ||
       site.businessName,
     serviceType:
       document.body?.dataset.serviceType ||
+      (areaName ? `Residential window cleaning in ${areaName}` : "") ||
       $("h1")?.textContent?.trim() ||
       $('meta[name="description"]')?.getAttribute("content")?.trim() ||
       site.description,
@@ -544,11 +579,58 @@ function forms() {
     }
     form.onsubmit = (event) => {
       event.preventDefault();
+      trackConversion("quote_form_prepare", {
+        method: "email",
+        page_path: currentPath(),
+      });
       location.href = `mailto:${site.email}?subject=${encodeURIComponent(
         `Window cleaning enquiry for ${site.businessName}`
       )}&body=${encodeURIComponent(mailBody(form))}`;
       note(feedback, "Your email app should open with everything filled in for you.", "success");
     };
+  });
+}
+
+function trackConversion(eventName, params = {}) {
+  const payload = {
+    event_category: "engagement",
+    page_path: currentPath(),
+    ...params,
+  };
+
+  if (typeof window.gtag === "function") {
+    window.gtag("event", eventName, payload);
+  }
+
+  window.dataLayer = window.dataLayer || [];
+  window.dataLayer.push({ event: eventName, ...payload });
+  window.dispatchEvent(new CustomEvent("sjwindows:conversion", { detail: { eventName, ...payload } }));
+}
+
+function conversionTracking() {
+  document.addEventListener("click", (event) => {
+    if (!(event.target instanceof Element)) return;
+    const link = event.target.closest("a[href]");
+    if (!link) return;
+
+    const href = link.getAttribute("href") || "";
+    const label = link.textContent.replace(/\s+/g, " ").trim();
+    const detail = {
+      link_url: link.href || href,
+      link_text: label,
+    };
+
+    if (href.startsWith("tel:")) {
+      trackConversion("click_call", { method: "phone", ...detail });
+    } else if (href.startsWith("sms:")) {
+      trackConversion("click_text", { method: "sms", ...detail });
+    } else if (href.includes("wa.me/")) {
+      trackConversion("click_whatsapp", { method: "whatsapp", ...detail });
+    } else if (href.startsWith("mailto:")) {
+      trackConversion("click_email", { method: "email", ...detail });
+    } else if (href.includes("#calculator")) {
+      trackConversion("click_smart_quote", { method: "calculator", ...detail });
+    }
   });
 }
 
@@ -599,8 +681,7 @@ function schema() {
     });
   }
 
-  if (meta.pageType === "home") {
-    nodes.push({
+  const localBusiness = {
       "@context": "https://schema.org",
       "@type": "LocalBusiness",
       "@id": businessId,
@@ -610,10 +691,21 @@ function schema() {
       email: site.email,
       image: absoluteUrl(site.ogImagePath),
       description: site.description,
+      priceRange: site.priceRange,
       serviceType: "Window cleaning",
       areaServed: site.serviceAreas.map((name) => ({ "@type": "Place", name })),
-    });
-  }
+      contactPoint: [
+        {
+          "@type": "ContactPoint",
+          telephone: `+${site.phoneInternational}`,
+          contactType: "customer enquiries",
+          areaServed: "GB",
+          availableLanguage: "en-GB",
+        },
+      ],
+    };
+
+  nodes.push(localBusiness);
 
   if (["service", "area", "prices", "residential", "services"].includes(meta.pageType)) {
     nodes.push({
@@ -959,6 +1051,10 @@ function calculator() {
 
   form.onsubmit = (event) => {
     event.preventDefault();
+    trackConversion("smart_quote_update", {
+      method: "calculator",
+      page_path: currentPath(),
+    });
     update(
       "success",
       "Guide price updated. Final price can still move once I've seen the property, but this gives you a sensible starting point."
@@ -982,5 +1078,6 @@ nav();
 forms();
 headMeta();
 schema();
+conversionTracking();
 calculator();
 syncChoiceCards();

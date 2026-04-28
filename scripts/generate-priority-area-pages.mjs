@@ -484,21 +484,23 @@ function reviewCards(keys) {
 
 function page(area) {
   const nearbyNames = area.nearby.map(([, name]) => name).join(", ");
+  const metaTitle = `Window Cleaner ${area.area} | SJ Windows`;
+  const metaDescription = `Window cleaner in ${area.area} with direct contact from Sam at SJ Windows. Route-fit regular cleans, guide prices, and simple text or WhatsApp quotes.`;
   return `<!DOCTYPE html>
 <html lang="en-GB">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>${escapeHtml(area.title)}</title>
-    <meta name="description" content="${escapeHtml(area.description)}" />
+    <title>${escapeHtml(metaTitle)}</title>
+    <meta name="description" content="${escapeHtml(metaDescription)}" />
     <meta name="robots" content="index,follow" />
     <meta name="theme-color" content="#132331" />
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="en_GB" />
-    <meta property="og:title" content="${escapeHtml(area.title)}" />
-    <meta property="og:description" content="${escapeHtml(area.description)}" />
+    <meta property="og:title" content="${escapeHtml(metaTitle)}" />
+    <meta property="og:description" content="${escapeHtml(metaDescription)}" />
     <meta property="og:url" content="https://sjwindowscolchester.co.uk/${escapeHtml(area.slug)}" />
-    <meta property="og:image" content="https://sjwindowscolchester.co.uk/sam-about-photo-real.png" />
+    <meta property="og:image" content="https://sjwindowscolchester.co.uk/sj-windows-social.jpg" />
     <meta name="twitter:card" content="summary_large_image" />
     <link rel="canonical" href="https://sjwindowscolchester.co.uk/${escapeHtml(area.slug)}" />
     <link rel="icon" href="favicon.svg" type="image/svg+xml" />
