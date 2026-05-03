@@ -11,7 +11,7 @@ const site = {
   ogImagePath: "/sj-windows-social.jpg",
   priceRange: "Guide prices by property",
   description:
-    "Friendly, local window cleaning in Colchester and nearby villages, where you deal directly with me and can get a sensible guide price online.",
+    "Friendly, local window cleaning and selected exterior cleaning in Colchester and nearby villages, where you deal directly with me and can get a sensible guide price online.",
   serviceAreas: [
     "Colchester",
     "Wivenhoe",
@@ -21,6 +21,13 @@ const site = {
     "Highwoods",
     "Mile End",
     "Prettygate",
+    "Shrub End",
+    "Old Heath",
+    "New Town",
+    "Berechurch",
+    "Blackheath",
+    "St John's",
+    "St Anne's",
     "Rowhedge",
     "West Bergholt",
     "Brightlingsea",
@@ -354,6 +361,12 @@ const quote = {
       "Solar panel clean",
       "i",
       4,
+      0,
+    ],
+    car_cleaning_note: [
+      "Car cleaning quoted separately",
+      "n",
+      0,
       0,
     ],
     leaded_windows: [
@@ -692,7 +705,8 @@ function schema() {
       image: absoluteUrl(site.ogImagePath),
       description: site.description,
       priceRange: site.priceRange,
-      serviceType: "Window cleaning",
+      serviceType:
+        "Residential window cleaning, gutter cleaning, conservatory roof cleaning, solar panel cleaning and selected exterior cleaning",
       areaServed: site.serviceAreas.map((name) => ({ "@type": "Place", name })),
       contactPoint: [
         {
@@ -802,7 +816,9 @@ function calc(data) {
       const extra = quote.extra[key];
       if (!extra) return null;
       const minutes =
-        extra[1] === "m"
+        extra[1] === "n"
+          ? 0
+          : extra[1] === "m"
           ? glass * extra[2] * (property.extraFactor || 1)
           : extra[1] === "f"
             ? extra[3] +
@@ -819,6 +835,7 @@ function calc(data) {
                 ? data.solarPanels * extra[2]
                 : 0;
 
+      if (extra[1] === "n") return { key, label: extra[0], minutes: 0, noteOnly: true };
       return minutes ? { key, label: extra[0], minutes: Math.round(minutes) } : null;
     })
     .filter(Boolean);
@@ -877,9 +894,10 @@ function calc(data) {
       ["Exterior glass and core work", Math.round(base)],
       ["Access, height, and condition adjustment", Math.round(conditionAdjust)],
       ["Cleaning cycle adjustment", Math.round(frequencyAdjust)],
-      ...extras.map((item) => [item.label, item.minutes]),
+      ...extras.filter((item) => !item.noteOnly).map((item) => [item.label, item.minutes]),
     ],
-    selected: extras.map((item) => item.label),
+    selected: extras.filter((item) => !item.noteOnly).map((item) => item.label),
+    notes: extras.filter((item) => item.noteOnly).map((item) => item.label),
     suggested,
   };
 }
@@ -957,6 +975,7 @@ function calculator() {
       `Property type: ${result.property}`,
       `Frequency: ${result.cycle}`,
       `Selected extras: ${result.selected.length ? result.selected.join(", ") : "None selected"}`,
+      result.notes.length ? `Other notes: ${result.notes.join(", ")}` : "",
       `Window mix: ${data.smallWindows} small, ${data.mediumWindows} medium, ${data.largeWindows} large, ${data.bayWindows} bay`,
       `French doors: ${data.frenchDoors}`,
       `Bifold sets: ${data.bifoldSets}`,
@@ -991,6 +1010,10 @@ function calculator() {
       result.selected.length
         ? `<p><strong>Included:</strong> Standard frame and sill clean, plus ${esc(result.selected.join(", "))}.</p>`
         : "<p><strong>Included:</strong> Exterior glass, frames, and sills.</p>"
+    }${
+      result.notes.length
+        ? `<p><strong>Also noted:</strong> ${esc(result.notes.join(", "))}.</p>`
+        : ""
     }<p><strong>You might also want:</strong></p>${
       result.suggested.length
         ? `<div class="tag-list">${result.suggested

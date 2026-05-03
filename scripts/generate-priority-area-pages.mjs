@@ -55,9 +55,9 @@ const areas = [
     description:
       "Looking for a reliable window cleaner in Wivenhoe? I’m Sam from SJ Windows, covering Wivenhoe where it fits the Colchester route. Get a guide price or message me directly.",
     routeCopy:
-      "Wivenhoe works well because it sits neatly with Greenstead, Hythe-side Colchester, Rowhedge, and nearby route-fit village work. That makes regular window cleaning much easier to keep dependable than trying to stretch too far in every direction.",
+      "Wivenhoe works well because it sits neatly with Greenstead, Hythe-side Colchester, Rowhedge, and nearby village work. That makes regular window cleaning much easier to keep dependable than trying to stretch too far in every direction.",
     priceCopy:
-      "Guide prices in Wivenhoe still come down to the property size, amount of glass, access, frequency, condition, and exactly where the postcode sits on the wider route.",
+      "Guide prices in Wivenhoe still come down to the property size, amount of glass, access, frequency, condition, and exactly where the postcode sits on the local round.",
     nearbySummary:
       "Nearby searches often overlap with Rowhedge, Greenstead, Hythe-side Colchester, and Alresford.",
     nearby: [
@@ -75,7 +75,7 @@ const areas = [
     description:
       "Looking for a reliable window cleaner in Lexden? I’m Sam from SJ Windows, covering Lexden as part of the core Colchester route. Get a guide price or message me directly.",
     routeCopy:
-      "Lexden is one of the clearest route-fit areas because it sits right inside the core Colchester working patch. That makes it a strong option for regular residential window cleaning and straightforward repeat visits.",
+      "Lexden is one of the clearest nearby areas because it sits right inside the core Colchester working patch. That makes it a strong option for regular residential window cleaning and straightforward repeat visits.",
     priceCopy:
       "Prices in Lexden still vary with property size, window layout, access, and how often you want the work done, but the route itself is usually one of the simpler parts.",
     nearbySummary:
@@ -93,13 +93,13 @@ const areas = [
     area: "Stanway",
     title: "Window Cleaner Stanway | Regular Local Window Cleaning | SJ Windows",
     description:
-      "Looking for a local window cleaner in Stanway? I’m Sam from SJ Windows, covering Stanway where it fits the wider Colchester route. Check the Smart Quote or send the postcode.",
+      "Looking for a local window cleaner in Stanway? I’m Sam from SJ Windows, covering Stanway when I can fit it into the round. Check the Smart Quote or send the postcode.",
     routeCopy:
       "Stanway sits well on the west side of Colchester, especially where regular rounds link naturally into Lexden, Prettygate, Marks Tey-side routes, and other nearby work.",
     priceCopy:
       "Stanway guide prices depend on the amount of glass, access, and property type just as much as postcode, but the local route usually works well for regular cleaning.",
     nearbySummary:
-      "Nearby route-fit searches often include Lexden, Prettygate, West Bergholt, and Marks Tey-side work.",
+      "Nearby nearby searches often include Lexden, Prettygate, West Bergholt, and Marks Tey-side work.",
     nearby: [
       ["window-cleaner-lexden.html", "Lexden"],
       ["window-cleaner-prettygate.html", "Prettygate"],
@@ -117,7 +117,7 @@ const areas = [
     routeCopy:
       "Greenstead sits firmly within the Colchester side of the route, which makes it practical for regular cleans and easy to link with Wivenhoe, Rowhedge, and nearby neighbourhood work.",
     priceCopy:
-      "Greenstead prices still come down to window count, access, height, condition, and how often you want the clean, but the area itself is usually a straightforward local fit.",
+      "Greenstead prices still come down to window count, access, height, condition, and how often you want the clean, but the area itself is usually a straightforward local area.",
     nearbySummary:
       "Greenstead often overlaps naturally with Wivenhoe, Rowhedge, Highwoods, and Hythe-side Colchester.",
     nearby: [
@@ -133,13 +133,13 @@ const areas = [
     area: "Highwoods",
     title: "Window Cleaner Highwoods | SJ Windows Colchester",
     description:
-      "Looking for a local window cleaner in Highwoods? I’m Sam from SJ Windows, covering Highwoods where it fits the wider Colchester route. Get a guide price or ask directly.",
+      "Looking for a local window cleaner in Highwoods? I’m Sam from SJ Windows, covering Highwoods when I can fit it into the round. Get a guide price or ask directly.",
     routeCopy:
       "Highwoods works well when it sits alongside nearby north and north-east Colchester work such as Mile End, Greenstead, and Ardleigh-side routes.",
     priceCopy:
       "Guide prices in Highwoods depend on the same practical things as anywhere else: glass, access, frequency, height, condition, and whether there are extras to add on.",
     nearbySummary:
-      "Nearby overlaps often include Mile End, Greenstead, Ardleigh, and the wider Colchester route.",
+      "Nearby overlaps often include Mile End, Greenstead, Ardleigh, and the local round.",
     nearby: [
       ["window-cleaner-mile-end-colchester.html", "Mile End"],
       ["window-cleaner-greenstead.html", "Greenstead"],
@@ -153,7 +153,7 @@ const areas = [
     area: "Mile End",
     title: "Window Cleaner Mile End Colchester | SJ Windows",
     description:
-      "Need a window cleaner in Mile End, Colchester? I’m Sam from SJ Windows, covering Mile End where it fits the local route. Get a guide price or message me directly.",
+      "Need a window cleaner in Mile End, Colchester? I’m Sam from SJ Windows, covering Mile End where it works with the round. Get a guide price or message me directly.",
     routeCopy:
       "Mile End sits on the north side of Colchester and works best where it links naturally with Highwoods, West Bergholt, and other nearby local routes.",
     priceCopy:
@@ -179,7 +179,7 @@ const areas = [
     priceCopy:
       "As with the rest of Colchester, guide prices in Prettygate are driven by the size of the job, amount of glass, access, and whether you want regular upkeep or a one-off visit.",
     nearbySummary:
-      "Nearby route-fit pages often include Lexden, Stanway, West Bergholt, and the wider Colchester patch.",
+      "Nearby nearby pages often include Lexden, Stanway, West Bergholt, and the wider Colchester patch.",
     nearby: [
       ["window-cleaner-lexden.html", "Lexden"],
       ["window-cleaner-stanway.html", "Stanway"],
@@ -197,7 +197,7 @@ const areas = [
     routeCopy:
       "Rowhedge works best when it links naturally with Wivenhoe, Greenstead, and other nearby eastern Colchester routes. That helps keep regular cleans practical and dependable.",
     priceCopy:
-      "Rowhedge prices still come down to property size, glass, access, condition, and frequency, with the exact postcode position helping determine how neatly it fits the wider route.",
+      "Rowhedge prices still come down to property size, glass, access, condition, and frequency, with the exact postcode position helping determine how neatly it fits the local round.",
     nearbySummary:
       "Nearby overlap often includes Wivenhoe, Greenstead, Hythe-side Colchester, and Mersea-side routes.",
     nearby: [
@@ -213,13 +213,13 @@ const areas = [
     area: "West Bergholt",
     title: "Window Cleaner West Bergholt | SJ Windows Colchester",
     description:
-      "Looking for a window cleaner in West Bergholt? I’m Sam from SJ Windows, covering West Bergholt where it fits the wider Colchester route. Get a guide price or ask directly.",
+      "Looking for a window cleaner in West Bergholt? I’m Sam from SJ Windows, covering West Bergholt when I can fit it into the round. Get a guide price or ask directly.",
     routeCopy:
       "West Bergholt usually works best when it ties in with Lexden, Mile End, Stanway-side routes, and other nearby north-west Colchester work.",
     priceCopy:
       "Guide prices in West Bergholt vary with glass, property style, access, and frequency, especially on larger village homes or places with more detail work.",
     nearbySummary:
-      "Nearby route-fit pages often include Lexden, Stanway, Mile End, and Dedham-side links.",
+      "Nearby nearby pages often include Lexden, Stanway, Mile End, and Dedham-side links.",
     nearby: [
       ["window-cleaner-lexden.html", "Lexden"],
       ["window-cleaner-stanway.html", "Stanway"],
@@ -233,11 +233,11 @@ const areas = [
     area: "Brightlingsea",
     title: "Window Cleaner Brightlingsea | Regular Local Window Cleaning | SJ Windows",
     description:
-      "Looking for a local window cleaner in Brightlingsea? I’m Sam from SJ Windows, covering Brightlingsea where it fits the wider Colchester route. Get a guide price or message me directly.",
+      "Looking for a local window cleaner in Brightlingsea? I’m Sam from SJ Windows, covering Brightlingsea when I can fit it into the round. Get a guide price or message me directly.",
     routeCopy:
-      "Brightlingsea is part of the wider eastern route, so regular work needs to fit sensibly with nearby places like Wivenhoe, Rowhedge, Alresford-side work, and the rest of the run.",
+      "Brightlingsea is part of the eastern side of the round, so regular work needs to fit sensibly with nearby places like Wivenhoe, Rowhedge, Alresford-side work, and the rest of the run.",
     priceCopy:
-      "Guide prices in Brightlingsea depend on the same practical things as everywhere else, with route-fit, access, and the amount of glass doing most of the heavy lifting.",
+      "Guide prices in Brightlingsea depend on the same practical things as everywhere else, with access, the amount of glass, and the postcode doing most of the heavy lifting.",
     nearbySummary:
       "Nearby overlap often includes Wivenhoe, Rowhedge, Alresford-side routes, and the wider Colchester run.",
     nearby: [
@@ -253,13 +253,13 @@ const areas = [
     area: "Mersea Island",
     title: "Window Cleaner Mersea Island | SJ Windows Colchester",
     description:
-      "Looking for a local window cleaner on Mersea Island? I’m Sam from SJ Windows, covering Mersea where it fits the wider Colchester route. Get a guide price or message me directly.",
+      "Looking for a local window cleaner on Mersea Island? I’m Sam from SJ Windows, covering Mersea when I can fit it into the round. Get a guide price or message me directly.",
     routeCopy:
-      "Mersea work is always best judged as part of the wider route. West Mersea, East Mersea, Abberton, Fingringhoe, and Tiptree-side links can all matter when working out what is practical.",
+      "Mersea work is always best judged as part of the local round. West Mersea, East Mersea, Abberton, Fingringhoe, and Tiptree-side links can all matter when working out what is practical.",
     priceCopy:
       "Guide prices on Mersea Island depend on the property itself first, then on how neatly the postcode fits with the rest of the route and whether the work is regular.",
     nearbySummary:
-      "Nearby route-fit links often include West Mersea, East Mersea, Abberton, Fingringhoe, and the wider south-side run.",
+      "Nearby nearby links often include West Mersea, East Mersea, Abberton, Fingringhoe, and the wider south-side run.",
     nearby: [
       ["window-cleaner-abberton.html", "Abberton"],
       ["window-cleaner-fingringhoe.html", "Fingringhoe"],
@@ -273,13 +273,13 @@ const areas = [
     area: "Manningtree",
     title: "Window Cleaner Manningtree | SJ Windows Colchester",
     description:
-      "Looking for a window cleaner in Manningtree? I’m Sam from SJ Windows, covering Manningtree where it fits the wider Colchester route. Get a guide price or ask directly.",
+      "Looking for a window cleaner in Manningtree? I’m Sam from SJ Windows, covering Manningtree when I can fit it into the round. Get a guide price or ask directly.",
     routeCopy:
       "Manningtree tends to work best when it links in sensibly with Lawford, Dedham-side routes, Ardleigh, and other north-east village work rather than sitting on its own.",
     priceCopy:
-      "Manningtree guide prices depend on the house itself first, but the wider route also matters when working out whether regular rounds are practical.",
+      "Manningtree guide prices depend on the house itself first, but the local round also matters when working out whether regular rounds are practical.",
     nearbySummary:
-      "Nearby route-fit pages often include Lawford, Dedham, Ardleigh, and East Bergholt-side work.",
+      "Nearby nearby pages often include Lawford, Dedham, Ardleigh, and East Bergholt-side work.",
     nearby: [
       ["window-cleaner-dedham.html", "Dedham"],
       ["window-cleaner-ardleigh.html", "Ardleigh"],
@@ -293,11 +293,11 @@ const areas = [
     area: "Tiptree",
     title: "Window Cleaner Tiptree | Regular Local Window Cleaning | SJ Windows",
     description:
-      "Need a window cleaner in Tiptree? I’m Sam from SJ Windows, covering Tiptree where it fits the wider Colchester route. Check the Smart Quote or send the postcode.",
+      "Need a window cleaner in Tiptree? I’m Sam from SJ Windows, covering Tiptree when I can fit it into the round. Check the Smart Quote or send the postcode.",
     routeCopy:
       "Tiptree usually works best where it ties into Kelvedon, Marks Tey, Abberton-side routes, and other nearby villages rather than standing alone as a one-off distant visit.",
     priceCopy:
-      "The guide price in Tiptree depends on the size and complexity of the property first, with route-fit then helping decide whether regular rounds make sense.",
+      "The guide price in Tiptree depends on the size and complexity of the property first, with the postcode then helping decide whether regular rounds make sense.",
     nearbySummary:
       "Nearby pages often overlap with Kelvedon, Marks Tey, Abberton, and Mersea-side work.",
     nearby: [
@@ -313,11 +313,11 @@ const areas = [
     area: "Marks Tey",
     title: "Window Cleaner Marks Tey | SJ Windows Colchester",
     description:
-      "Looking for a local window cleaner in Marks Tey? I’m Sam from SJ Windows, covering Marks Tey where it fits the wider Colchester route. Get a guide price or message me directly.",
+      "Looking for a local window cleaner in Marks Tey? I’m Sam from SJ Windows, covering Marks Tey when I can fit it into the round. Get a guide price or message me directly.",
     routeCopy:
       "Marks Tey sits on the western side of the route and works best where it links naturally with Stanway, Kelvedon, Tiptree, and other nearby areas.",
     priceCopy:
-      "Guide prices in Marks Tey still depend on property size, access, glass, and frequency, but the wider route helps decide whether it's a strong fit for regular work.",
+      "Guide prices in Marks Tey still depend on property size, access, glass, and frequency, but the local round helps decide whether it's a strong fit for regular work.",
     nearbySummary:
       "Nearby overlaps usually include Stanway, Kelvedon, Tiptree, and Copford-side routes.",
     nearby: [
@@ -333,13 +333,13 @@ const areas = [
     area: "Kelvedon",
     title: "Window Cleaner Kelvedon | SJ Windows Colchester",
     description:
-      "Looking for a local window cleaner in Kelvedon? I’m Sam from SJ Windows, covering Kelvedon where it fits the wider Colchester route. Get a guide price or ask directly.",
+      "Looking for a local window cleaner in Kelvedon? I’m Sam from SJ Windows, covering Kelvedon when I can fit it into the round. Get a guide price or ask directly.",
     routeCopy:
-      "Kelvedon usually works best when it sits as part of the Tiptree and Marks Tey side of the wider route, rather than as an isolated one-off job.",
+      "Kelvedon usually works best when it sits as part of the Tiptree and Marks Tey side of the local round, rather than as an isolated one-off job.",
     priceCopy:
       "Kelvedon guide prices vary with the layout of the property, access, amount of glass, and whether it's a regular round or a first clean after a gap.",
     nearbySummary:
-      "Nearby route-fit pages often include Tiptree, Marks Tey, Feering-side villages, and the wider western run.",
+      "Nearby nearby pages often include Tiptree, Marks Tey, Feering-side villages, and the wider western run.",
     nearby: [
       ["window-cleaner-tiptree.html", "Tiptree"],
       ["window-cleaner-marks-tey.html", "Marks Tey"],
@@ -353,13 +353,13 @@ const areas = [
     area: "Dedham",
     title: "Window Cleaner Dedham | SJ Windows Colchester",
     description:
-      "Looking for a local window cleaner in Dedham? I’m Sam from SJ Windows, covering Dedham where it fits the wider Colchester route. Get a guide price or message me directly.",
+      "Looking for a local window cleaner in Dedham? I’m Sam from SJ Windows, covering Dedham when I can fit it into the round. Get a guide price or message me directly.",
     routeCopy:
       "Dedham usually works best as part of the wider north and north-east village route, often linking with Manningtree, Ardleigh, East Bergholt-side work, and other nearby villages.",
     priceCopy:
       "Guide prices in Dedham still depend on the size and style of the home, amount of glass, access, and whether the visit is part of regular upkeep or a first clean.",
     nearbySummary:
-      "Nearby pages often overlap with Manningtree, Ardleigh, West Bergholt, and the wider northern route.",
+      "Nearby pages often overlap with Manningtree, Ardleigh, West Bergholt, and the northern side of the round.",
     nearby: [
       ["window-cleaner-manningtree.html", "Manningtree"],
       ["window-cleaner-ardleigh.html", "Ardleigh"],
@@ -373,13 +373,13 @@ const areas = [
     area: "Ardleigh",
     title: "Window Cleaner Ardleigh | SJ Windows Colchester",
     description:
-      "Need a window cleaner in Ardleigh? I’m Sam from SJ Windows, covering Ardleigh where it fits the wider Colchester route. Get a guide price or ask directly.",
+      "Need a window cleaner in Ardleigh? I’m Sam from SJ Windows, covering Ardleigh when I can fit it into the round. Get a guide price or ask directly.",
     routeCopy:
       "Ardleigh works best when it links with Highwoods, Dedham, Manningtree, and other nearby eastern or north-eastern routes rather than being treated as a standalone distant job.",
     priceCopy:
       "Ardleigh guide prices depend on the property setup, access, and frequency first, with the route then helping decide whether regular work is practical.",
     nearbySummary:
-      "Nearby overlaps often include Highwoods, Dedham, Manningtree, and the wider Colchester route.",
+      "Nearby overlaps often include Highwoods, Dedham, Manningtree, and the local round.",
     nearby: [
       ["window-cleaner-highwoods.html", "Highwoods"],
       ["window-cleaner-dedham.html", "Dedham"],
@@ -393,7 +393,7 @@ const areas = [
     area: "Layer-de-la-Haye",
     title: "Window Cleaner Layer-de-la-Haye | SJ Windows Colchester",
     description:
-      "Looking for a local window cleaner in Layer-de-la-Haye? I’m Sam from SJ Windows, covering Layer-de-la-Haye where it fits the wider Colchester route. Get a guide price or message me directly.",
+      "Looking for a local window cleaner in Layer-de-la-Haye? I’m Sam from SJ Windows, covering Layer-de-la-Haye when I can fit it into the round. Get a guide price or message me directly.",
     routeCopy:
       "Layer-de-la-Haye usually makes most sense where it sits alongside Abberton, Fingringhoe, Mersea-side routes, and nearby south Colchester work.",
     priceCopy:
@@ -413,13 +413,13 @@ const areas = [
     area: "Abberton",
     title: "Window Cleaner Abberton | SJ Windows Colchester",
     description:
-      "Need a window cleaner in Abberton? I’m Sam from SJ Windows, covering Abberton where it fits the wider Colchester route. Get a guide price or send the postcode.",
+      "Need a window cleaner in Abberton? I’m Sam from SJ Windows, covering Abberton when I can fit it into the round. Get a guide price or send the postcode.",
     routeCopy:
-      "Abberton is one of those areas where local route-fit matters a lot. It usually works best where it links naturally with Mersea, Fingringhoe, Layer-de-la-Haye, and nearby south-side routes.",
+      "Abberton is one of those areas where the local round matters a lot. It usually works best where it links naturally with Mersea, Fingringhoe, Layer-de-la-Haye, and nearby south-side routes.",
     priceCopy:
-      "Guide prices in Abberton depend on the property itself first, then on how neatly the postcode works with the wider route for regular cleans.",
+      "Guide prices in Abberton depend on the property itself first, then on how neatly the postcode works with the local round for regular cleans.",
     nearbySummary:
-      "Nearby route-fit pages often include Mersea Island, Fingringhoe, Layer-de-la-Haye, and Tiptree-side links.",
+      "Nearby nearby pages often include Mersea Island, Fingringhoe, Layer-de-la-Haye, and Tiptree-side links.",
     nearby: [
       ["window-cleaner-mersea-island.html", "Mersea Island"],
       ["window-cleaner-fingringhoe.html", "Fingringhoe"],
@@ -433,11 +433,11 @@ const areas = [
     area: "Fingringhoe",
     title: "Window Cleaner Fingringhoe | SJ Windows Colchester",
     description:
-      "Looking for a local window cleaner in Fingringhoe? I’m Sam from SJ Windows, covering Fingringhoe where it fits the wider Colchester route. Get a guide price or ask directly.",
+      "Looking for a local window cleaner in Fingringhoe? I’m Sam from SJ Windows, covering Fingringhoe when I can fit it into the round. Get a guide price or ask directly.",
     routeCopy:
       "Fingringhoe usually works best where it links with Abberton, Mersea-side work, Rowhedge, and the wider south-east side of the Colchester route.",
     priceCopy:
-      "Fingringhoe guide prices depend on the usual practical details such as access, amount of glass, and frequency, with route-fit helping decide what works for ongoing cleans.",
+      "Fingringhoe guide prices depend on the usual practical details such as access, amount of glass, and frequency, with the postcode helping decide what works for ongoing cleans.",
     nearbySummary:
       "Nearby overlaps often include Abberton, Mersea Island, Rowhedge, and south-east Colchester links.",
     nearby: [
@@ -485,7 +485,7 @@ function reviewCards(keys) {
 function page(area) {
   const nearbyNames = area.nearby.map(([, name]) => name).join(", ");
   const metaTitle = `Window Cleaner ${area.area} | SJ Windows`;
-  const metaDescription = `Window cleaner in ${area.area} with direct contact from Sam at SJ Windows. Route-fit regular cleans, guide prices, and simple text or WhatsApp quotes.`;
+  const metaDescription = `Window cleaner in ${area.area} with direct contact from Sam at SJ Windows. Regular local cleans, guide prices, and simple text or WhatsApp quotes.`;
   return `<!DOCTYPE html>
 <html lang="en-GB">
   <head>
@@ -512,12 +512,12 @@ function page(area) {
     data-service-name="Window cleaner in ${escapeHtml(area.area)}"
     data-service-type="Residential window cleaning in ${escapeHtml(
       area.area
-    )} where the local route fits"
+    )} on suitable local rounds"
   >
     <a class="skip-link" href="#main">Skip to content</a>
     <div class="topbar">
       <div class="shell topbar__inner">
-        <p>Local route-fit matters more than making wild coverage claims.</p>
+        <p>It is better to check the postcode than make broad coverage claims.</p>
         <div class="topbar__links">
           <a href="tel:07756514110">Call 07756 514110</a>
           <a href="sms:07756514110">Text me</a>
@@ -559,7 +559,7 @@ function page(area) {
             <p class="hero__lead">
               If you’re looking for a window cleaner in ${escapeHtml(
                 area.area
-              )}, I may be able to help where the job fits the local route.
+              )}, I may be able to help where the job works with the round.
             </p>
             <p>
               I’m Sam, and you deal directly with me from quote to clean. No office, no call centre,
@@ -573,7 +573,7 @@ function page(area) {
           <aside class="hero-card">
             <p class="hero-card__kicker">Usually works well for</p>
             <ul>
-              <li>Regular 4, 6, or 8-weekly cleans where the route fits</li>
+              <li>Regular 4, 6, or 8-weekly cleans where the job fits</li>
               <li>Homes that want direct contact with me from start to finish</li>
               <li>People who want a practical, local service rather than anything corporate</li>
             </ul>
@@ -604,7 +604,7 @@ function page(area) {
       <section class="section section--accent">
         <div class="shell split">
           <div>
-            <p class="eyebrow">Why Local Route-Fit Matters</p>
+            <p class="eyebrow">Why The Local Round Matters</p>
             <h2>${escapeHtml(area.area)} works best where the route stays practical and reliable.</h2>
             <p>${escapeHtml(area.routeCopy)}</p>
           </div>
@@ -650,8 +650,8 @@ function page(area) {
       <section class="section">
         <div class="shell">
           <div class="section-heading">
-            <p class="eyebrow">Local Proof</p>
-            <h2>A few kind words from nearby customers on the wider Colchester route.</h2>
+            <p class="eyebrow">Customer Reviews</p>
+            <h2>Reviews from customers nearby.</h2>
           </div>
           <div class="review-grid ${area.reviewKeys.length > 1 ? "review-grid--two" : "review-grid--one"}">
             ${reviewCards(area.reviewKeys)}
@@ -678,7 +678,7 @@ function page(area) {
             </div>
           </div>
           <div class="panel">
-            <p class="eyebrow">Useful Links</p>
+            <p class="eyebrow">Helpful Links</p>
             <div class="link-list">
               <a class="text-link" href="window-cleaning-prices-colchester.html">Window cleaning prices in Colchester</a>
               <a class="text-link" href="residential-window-cleaning-colchester.html">Residential window cleaning</a>
@@ -702,8 +702,8 @@ function page(area) {
               </button>
               <div class="faq-answer">
                 <p>
-                  Yes, where the postcode fits the wider route well. Regular cleans usually make the
-                  most sense in ${escapeHtml(area.area)} if the local route stays practical.
+                  Yes, where the postcode fits the local round well. Regular cleans usually make the
+                  most sense in ${escapeHtml(area.area)} if the postcode works with the round.
                 </p>
               </div>
             </article>
@@ -721,7 +721,7 @@ function page(area) {
               </button>
               <div class="faq-answer">
                 <p>
-                  Nearby route-fit areas often include ${escapeHtml(
+                  Nearby nearby areas often include ${escapeHtml(
                     nearbyNames
                   )}, along with the wider Colchester run where it makes sense.
                 </p>

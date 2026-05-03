@@ -21,6 +21,8 @@ This project is now a fully static window cleaning website built to target:
 - `commercial-window-cleaning-colchester.html`: Secondary commercial support page
 - `app.js`: Business details plus calculator logic
 - `styles.css`: Shared styling
+- `scripts/generate-local-pages.mjs`: Generates the local area, service-area, street, method and sitemap pages
+- `scripts/validate-local-pages.mjs`: Checks generated pages, sitemap entries, titles, descriptions and internal links
 
 ## How To Use It
 
@@ -31,6 +33,17 @@ Because the site is static, you can:
 - serve it from a simple web server later if you want
 
 No backend is required for the calculator.
+
+## Local Page Generation
+
+After editing local page data, run:
+
+```bash
+node scripts/generate-local-pages.mjs
+node scripts/validate-local-pages.mjs
+```
+
+The local generator keeps the site static and writes root-ready `.html` files plus `sitemap.xml`.
 
 ## Edit Before Launch
 
