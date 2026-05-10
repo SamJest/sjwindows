@@ -5,6 +5,7 @@ const root = resolve(import.meta.dirname, "..");
 const lastmod = "2026-05-10";
 const siteUrl = "https://sjwindowscolchester.co.uk";
 const gtmId = "GTM-5267LQLD";
+const gaMeasurementId = "G-MCX2ZWX8DQ";
 const waHref =
   "https://wa.me/447756514110?text=Hi%20Sam%2C%20I%27m%20looking%20for%20a%20car%20cleaning%20quote.%20My%20postcode%20is...";
 const carSmsHref =
@@ -24,6 +25,19 @@ function gtmScript() {
     'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
     })(window,document,'script','dataLayer','${gtmId}');</script>
     <!-- End Google Tag Manager -->`;
+}
+
+function gaScript() {
+  return `
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=${gaMeasurementId}"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', '${gaMeasurementId}');
+    </script>`;
 }
 
 const areas = [
@@ -221,6 +235,7 @@ function pageShell({ title, description, slug, serviceName, serviceType, body })
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 ${gtmScript()}
+${gaScript()}
     <title>${title}</title>
     <meta name="description" content="${description}" />
     <meta name="robots" content="index,follow" />
