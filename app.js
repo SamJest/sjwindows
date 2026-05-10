@@ -9,6 +9,10 @@ const site = {
   email: "sjwindows2020@gmail.com",
   websiteUrl: "https://sjwindowscolchester.co.uk",
   ogImagePath: "/sj-windows-social.jpg",
+  gtmId: "GTM-5267LQLD",
+  formEndpoint: "https://api.web3forms.com/submit",
+  formAccessKey: "REPLACE_WITH_ACCESS_KEY",
+  formSubject: "New SJ Windows quote enquiry",
   priceRange: "Guide prices by property",
   description:
     "Friendly, local window cleaning and selected exterior cleaning in Colchester and nearby villages, where you deal directly with me and can get a sensible guide price online.",
@@ -406,6 +410,10 @@ const time = (minutes) => {
   const remainder = minutes % 60;
   return hours ? `${hours} hr${remainder ? ` ${remainder} min` : ""}` : `${remainder} min`;
 };
+const configured = (value, placeholder) => {
+  const text = String(value || "").trim();
+  return text && text !== placeholder;
+};
 
 function siteBaseUrl() {
   const configured = trimSlash(site.websiteUrl);
@@ -440,6 +448,27 @@ function currentPath() {
     return location.pathname || "/";
   }
   return "/";
+}
+
+function analytics() {
+  window.dataLayer = window.dataLayer || [];
+
+  const id = String(site.gtmId || "").trim();
+  if (!configured(id, "GTM-XXXXXXX") || !/^GTM-[A-Z0-9]+$/i.test(id)) return;
+  if (
+    $(`script[data-gtm-id="${id}"]`) ||
+    $(`script[src*="googletagmanager.com/gtm.js?id=${id}"]`)
+  ) {
+    return;
+  }
+
+  window.dataLayer.push({ "gtm.start": Date.now(), event: "gtm.js" });
+
+  const script = document.createElement("script");
+  script.async = true;
+  script.dataset.gtmId = id;
+  script.src = `https://www.googletagmanager.com/gtm.js?id=${encodeURIComponent(id)}`;
+  document.head.appendChild(script);
 }
 
 function currentMeta() {
@@ -570,7 +599,7 @@ function nav() {
   });
 }
 
-function mailBody(form) {
+function formSummary(form) {
   return [
     ["Name", form.name?.value],
     ["Property type", form.propertyType?.value],
@@ -587,19 +616,90 @@ function mailBody(form) {
 function forms() {
   $$("[data-quote-form]").forEach((form) => {
     const feedback = $("[data-form-feedback]", form);
+    const submitButton = $("button[type='submit']", form);
+    let started = false;
+
     if (feedback && !feedback.textContent.trim()) {
-      note(feedback, "This opens a pre-filled email with your enquiry details.");
+      note(
+        feedback,
+        "This sends the enquiry details to SJ Windows. If the form is unavailable, text or WhatsApp the postcode instead."
+      );
     }
-    form.onsubmit = (event) => {
-      event.preventDefault();
-      trackConversion("quote_form_prepare", {
-        method: "email",
+
+    form.addEventListener("input", () => {
+      if (started) return;
+      started = true;
+      trackConversion("quote_form_start", {
+        method: "form",
         page_path: currentPath(),
       });
-      location.href = `mailto:${site.email}?subject=${encodeURIComponent(
-        `Window cleaning enquiry for ${site.businessName}`
-      )}&body=${encodeURIComponent(mailBody(form))}`;
-      note(feedback, "Your email app should open with everything filled in for you.", "success");
+    });
+
+    form.onsubmit = async (event) => {
+      event.preventDefault();
+
+      if ($('[name="botcheck"]', form)?.value) return;
+
+      const detail = {
+        method: "form",
+        page_path: currentPath(),
+      };
+
+      if (!configured(site.formAccessKey, "REPLACE_WITH_ACCESS_KEY")) {
+        trackConversion("quote_form_submit_error", {
+          ...detail,
+          error_reason: "missing_form_access_key",
+        });
+        note(
+          feedback,
+          `The secure form key still needs to be added. Please text or WhatsApp ${site.phoneDisplay} with your postcode for now.`,
+          "error"
+        );
+        return;
+      }
+
+      const payload = new FormData(form);
+      payload.set("access_key", site.formAccessKey);
+      payload.set("subject", site.formSubject);
+      payload.set("from_name", site.businessName);
+      payload.set("source", absoluteUrl(currentPath()) || currentPath());
+      payload.set("message", formSummary(form));
+
+      submitButton?.setAttribute("disabled", "disabled");
+      note(feedback, "Sending your enquiry...", "neutral");
+
+      try {
+        const response = await fetch(site.formEndpoint, {
+          method: "POST",
+          body: payload,
+          headers: { Accept: "application/json" },
+        });
+        const result = await response.json().catch(() => ({}));
+
+        if (!response.ok || result.success === false) {
+          throw new Error(result.message || `Form request failed with ${response.status}`);
+        }
+
+        trackConversion("quote_form_submit_success", detail);
+        form.reset();
+        note(
+          feedback,
+          "Thanks. Your enquiry has been sent to SJ Windows. I will reply as soon as I can.",
+          "success"
+        );
+      } catch (error) {
+        trackConversion("quote_form_submit_error", {
+          ...detail,
+          error_reason: error instanceof Error ? error.message : "unknown_error",
+        });
+        note(
+          feedback,
+          `Something stopped the form sending. Please text or WhatsApp ${site.phoneDisplay} with your postcode instead.`,
+          "error"
+        );
+      } finally {
+        submitButton?.removeAttribute("disabled");
+      }
     };
   });
 }
@@ -632,6 +732,14 @@ function conversionTracking() {
       link_url: link.href || href,
       link_text: label,
     };
+
+    if (link.hasAttribute("data-quote-sms")) {
+      trackConversion("smart_quote_send_sms", { method: "sms", ...detail });
+    } else if (link.hasAttribute("data-quote-whatsapp")) {
+      trackConversion("smart_quote_send_whatsapp", { method: "whatsapp", ...detail });
+    } else if (link.hasAttribute("data-quote-email")) {
+      trackConversion("smart_quote_send_email", { method: "email", ...detail });
+    }
 
     if (href.startsWith("tel:")) {
       trackConversion("click_call", { method: "phone", ...detail });
@@ -1096,6 +1204,7 @@ function calculator() {
   );
 }
 
+analytics();
 faq();
 nav();
 forms();

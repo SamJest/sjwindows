@@ -3,13 +3,41 @@ import { resolve } from "node:path";
 
 const root = resolve(import.meta.dirname, "..");
 const siteUrl = "https://sjwindowscolchester.co.uk";
-const lastmod = "2026-05-01";
+const lastmod = "2026-05-10";
 const phone = "07756 514110";
 const phoneHref = "tel:07756514110";
 const smsHref = "sms:07756514110";
 const email = "sjwindows2020@gmail.com";
 const waHref =
   "https://wa.me/447756514110?text=Hi%20Sam%2C%20I%27m%20looking%20for%20a%20window%20cleaning%20quote.%20My%20postcode%20is...";
+const gtmId = "GTM-5267LQLD";
+
+function quoteMessage(areaName = "Colchester", serviceLabel = "window cleaning") {
+  return `Hi Sam, I am looking for a ${serviceLabel} quote in ${areaName}. My postcode is...`;
+}
+
+function quoteSmsHref(areaName, serviceLabel) {
+  return `sms:07756514110?body=${encodeURIComponent(quoteMessage(areaName, serviceLabel))}`;
+}
+
+function quoteWhatsappHref(areaName, serviceLabel) {
+  return `https://wa.me/447756514110?text=${encodeURIComponent(
+    quoteMessage(areaName, serviceLabel)
+  )}`;
+}
+
+function localWindowCleanerTitle(areaName) {
+  if (areaName === "Colchester") return "Window Cleaner in Colchester | Local Rounds";
+  const suffix = areaName.length > 15 ? "Direct Local Quotes" : "Text Sam for a Quote";
+  return `Window Cleaner ${areaName} | ${suffix}`;
+}
+
+function localWindowCleanerDescription(areaName) {
+  if (areaName === "Colchester") {
+    return "Local Colchester window cleaner from Sam at SJ Windows. Regular round work, frames and sills included, guide prices and simple postcode quote checks.";
+  }
+  return `Window cleaner in ${areaName} from Sam at SJ Windows. Regular 4, 6 and 8-weekly cleans, frames and sills included, guide prices and direct text or WhatsApp quotes.`;
+}
 
 const reviews = [
   {
@@ -584,6 +612,22 @@ function esc(value) {
     .replaceAll("'", "&#39;");
 }
 
+function gtmNoscript() {
+  return `
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=${gtmId}" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>`;
+}
+
+function gtmScript() {
+  return `
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','${gtmId}');</script>
+    <!-- End Google Tag Manager -->`;
+}
+
 function areaByName(name) {
   return areas.find((area) => area.name === name);
 }
@@ -617,7 +661,9 @@ function reviewCards() {
     .join("");
 }
 
-function header(eyebrow = "Colchester") {
+function header(eyebrow = "Colchester", serviceLabel = "window cleaning") {
+  const headerSmsHref = quoteSmsHref(eyebrow, serviceLabel);
+  const headerWaHref = quoteWhatsappHref(eyebrow, serviceLabel);
   return `
     <a class="skip-link" href="#main">Skip to content</a>
     <div class="topbar">
@@ -625,8 +671,8 @@ function header(eyebrow = "Colchester") {
         <p>I'm Sam Jones. Local window cleaning where the address works for the round.</p>
         <div class="topbar__links">
           <a href="${phoneHref}">Call ${phone}</a>
-          <a href="${smsHref}">Text me</a>
-          <a href="${waHref}">WhatsApp</a>
+          <a href="${esc(headerSmsHref)}">Text quote details</a>
+          <a href="${esc(headerWaHref)}">WhatsApp</a>
         </div>
       </div>
     </div>
@@ -678,7 +724,7 @@ function footer() {
         <div>
           <p class="footer__heading">Contact</p>
           <a href="${phoneHref}">${phone}</a>
-          <a href="${smsHref}">Text me</a>
+          <a href="${esc(quoteSmsHref("Colchester", "window cleaning"))}">Text quote details</a>
           <a href="mailto:${email}">${email}</a>
         </div>
       </div>
@@ -700,6 +746,7 @@ function pageShell({ title, description, slug, pageType, serviceName, serviceTyp
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+${gtmScript()}
     <title>${esc(title)}</title>
     <meta name="description" content="${esc(description)}" />
     <meta name="robots" content="index,follow" />
@@ -716,7 +763,7 @@ function pageShell({ title, description, slug, pageType, serviceName, serviceTyp
     <link rel="stylesheet" href="styles.css" />
     <script src="app.js" defer></script>
   </head>
-  <body data-page-type="${esc(pageType)}" data-service-name="${esc(serviceName)}" data-service-type="${esc(serviceType)}">
+  <body data-page-type="${esc(pageType)}" data-service-name="${esc(serviceName)}" data-service-type="${esc(serviceType)}">${gtmNoscript()}
 ${body}
 ${footer()}
   </body>
@@ -725,6 +772,8 @@ ${footer()}
 }
 
 function contactSection(areaName, serviceLabel = "window cleaning") {
+  const areaSmsHref = quoteSmsHref(areaName, serviceLabel);
+  const areaWaHref = quoteWhatsappHref(areaName, serviceLabel);
   return `
       <section class="section section--accent">
         <div class="shell quote-panel">
@@ -737,8 +786,8 @@ function contactSection(areaName, serviceLabel = "window cleaning") {
             </p>
             <div class="contact-points">
               <a href="index.html#calculator"><span>Smart Quote</span><strong>Get a guide price</strong></a>
-              <a href="${smsHref}"><span>Text Sam</span><strong>${areaName === "your area" ? "Send your postcode" : `Send the ${esc(areaName)} postcode`}</strong></a>
-              <a href="${waHref}"><span>WhatsApp</span><strong>Ask about ${esc(serviceLabel)}</strong></a>
+              <a href="${esc(areaSmsHref)}"><span>Text Sam</span><strong>${areaName === "your area" ? "Send your postcode" : `Send the ${esc(areaName)} postcode`}</strong></a>
+              <a href="${esc(areaWaHref)}"><span>WhatsApp</span><strong>Ask about ${esc(serviceLabel)}</strong></a>
             </div>
           </div>
           <div class="panel">
@@ -757,8 +806,10 @@ function contactSection(areaName, serviceLabel = "window cleaning") {
 }
 
 function areaPage(area) {
-  const title = `Window Cleaner ${area.name} | Regular Local Cleans | SJ Windows`;
-  const description = `Window cleaner in ${area.name} from Sam at SJ Windows. Friendly local residential window cleaning, Smart Quote guide prices and direct text or WhatsApp contact.`;
+  const title = localWindowCleanerTitle(area.name);
+  const description = localWindowCleanerDescription(area.name);
+  const areaSmsHref = quoteSmsHref(area.name, "window cleaning");
+  const areaWaHref = quoteWhatsappHref(area.name, "window cleaning");
   const nearby = area.nearby.map((name) => [areaSlug(name), name]);
   const body = `${header(area.name)}
     <main id="main">
@@ -776,12 +827,14 @@ function areaPage(area) {
               I'm Sam from SJ Windows. If you need a window cleaner in ${esc(area.name)}, send the postcode and I will let you know what looks realistic.
             </p>
             <p>
-              You deal directly with me from the first message to the clean itself. Regular cleans usually work best where the address works for the round.
+              You deal directly with me from the first message to the clean itself. Regular 4, 6
+              and 8-weekly cleans are available where the address works for the round, with frames
+              and sills included as part of a normal clean.
             </p>
             <div class="hero__actions">
               <a class="button" href="index.html#calculator">Get a guide price</a>
-              <a class="button button--ghost" href="${smsHref}">Text Sam</a>
-              <a class="button button--ghost" href="${waHref}">WhatsApp Sam</a>
+              <a class="button button--ghost" href="${esc(areaSmsHref)}">Text postcode</a>
+              <a class="button button--ghost" href="${esc(areaWaHref)}">WhatsApp Sam</a>
             </div>
           </div>
           <aside class="hero-card">
@@ -793,6 +846,25 @@ function areaPage(area) {
               <li>Homes where access and the address works for the round</li>
             </ul>
           </aside>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="shell split">
+          <div>
+            <p class="eyebrow">Why People In ${esc(area.name)} Enquire</p>
+            <h2>Most quote messages start with the same practical checks.</h2>
+            <p>
+              Send the postcode, rough property type, cleaning frequency and any access notes. I can
+              then tell you whether the job looks realistic for ${esc(area.name)} and the nearby
+              round.
+            </p>
+          </div>
+          <div class="stacked-cards">
+            <article class="mini-card"><h3>Regular local cleans</h3><p>Good for 4, 6 or 8-weekly work where the postcode fits the route.</p><a class="text-link" href="residential-window-cleaning-colchester.html">Residential cleaning</a></article>
+            <article class="mini-card"><h3>Price before booking</h3><p>The Smart Quote gives a sensible starting point before you text or WhatsApp.</p><a class="text-link" href="window-cleaning-prices-colchester.html">Window cleaning prices</a></article>
+            <article class="mini-card"><h3>Reassurance first</h3><p>Reviews and direct contact help you know who will actually turn up.</p><a class="text-link" href="reviews.html">Customer reviews</a></article>
+          </div>
         </div>
       </section>
 

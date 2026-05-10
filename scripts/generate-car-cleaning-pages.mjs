@@ -2,10 +2,29 @@ import { readFileSync, writeFileSync } from "node:fs";
 import { resolve } from "node:path";
 
 const root = resolve(import.meta.dirname, "..");
-const lastmod = "2026-05-01";
+const lastmod = "2026-05-10";
 const siteUrl = "https://sjwindowscolchester.co.uk";
+const gtmId = "GTM-5267LQLD";
 const waHref =
   "https://wa.me/447756514110?text=Hi%20Sam%2C%20I%27m%20looking%20for%20a%20car%20cleaning%20quote.%20My%20postcode%20is...";
+const carSmsHref =
+  "sms:07756514110?body=Hi%20Sam%2C%20I%20am%20looking%20for%20a%20car%20cleaning%20quote.%20My%20postcode%20is...";
+
+function gtmNoscript() {
+  return `
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=${gtmId}" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>`;
+}
+
+function gtmScript() {
+  return `
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','${gtmId}');</script>
+    <!-- End Google Tag Manager -->`;
+}
 
 const areas = [
   {
@@ -155,7 +174,7 @@ const header = (eyebrow) => `
         <p>Exterior car cleaning by SJ Windows where the address works for the round.</p>
         <div class="topbar__links">
           <a href="tel:07756514110">Call 07756 514110</a>
-          <a href="sms:07756514110">Text me</a>
+          <a href="${carSmsHref}">Text quote details</a>
           <a href="${waHref}">WhatsApp</a>
         </div>
       </div>
@@ -187,12 +206,12 @@ const footer = `
         <div><p class="footer__brand">SJ Windows</p><p>I'm Sam Jones.</p><p>Friendly local window cleaning and exterior car cleaning in Colchester and nearby villages.</p></div>
         <div><p class="footer__heading">Top Services</p><a href="residential-window-cleaning-colchester.html">Residential window cleaning</a><a href="car-cleaning-colchester.html">Car cleaning</a><a href="gutter-cleaning-colchester.html">Gutter cleaning</a><a href="conservatory-roof-cleaning-colchester.html">Conservatory roof cleaning</a></div>
         <div><p class="footer__heading">Car Cleaning Areas</p><a href="car-cleaning-colchester.html">Colchester</a><a href="car-cleaning-wivenhoe.html">Wivenhoe</a><a href="car-cleaning-lexden.html">Lexden</a><a href="car-cleaning-stanway.html">Stanway</a></div>
-        <div><p class="footer__heading">Contact</p><a href="tel:07756514110">07756 514110</a><a href="sms:07756514110">Text me</a><a href="mailto:sjwindows2020@gmail.com">sjwindows2020@gmail.com</a></div>
+        <div><p class="footer__heading">Contact</p><a href="tel:07756514110">07756 514110</a><a href="${carSmsHref}">Text quote details</a><a href="mailto:sjwindows2020@gmail.com">sjwindows2020@gmail.com</a></div>
       </div>
       <div class="shell footer__bottom"><p>&copy; 2026 SJ Windows</p></div>
     </footer>
     <div class="mobile-cta">
-      <a href="tel:07756514110">Call</a><a href="sms:07756514110">Text</a><a href="${waHref}">WhatsApp</a><a href="car-cleaning-colchester.html">Cars</a>
+      <a href="tel:07756514110">Call</a><a href="${carSmsHref}">Text</a><a href="${waHref}">WhatsApp</a><a href="car-cleaning-colchester.html">Cars</a>
     </div>`;
 
 function pageShell({ title, description, slug, serviceName, serviceType, body }) {
@@ -201,6 +220,7 @@ function pageShell({ title, description, slug, serviceName, serviceType, body })
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+${gtmScript()}
     <title>${title}</title>
     <meta name="description" content="${description}" />
     <meta name="robots" content="index,follow" />
@@ -217,7 +237,7 @@ function pageShell({ title, description, slug, serviceName, serviceType, body })
     <link rel="stylesheet" href="styles.css" />
     <script src="app.js" defer></script>
   </head>
-  <body data-page-type="service" data-service-name="${serviceName}" data-service-type="${serviceType}">
+  <body data-page-type="service" data-service-name="${serviceName}" data-service-type="${serviceType}">${gtmNoscript()}
 ${body}
 ${footer}
   </body>
@@ -236,7 +256,7 @@ function contactPanel(areaLabel = "Colchester") {
               Text or WhatsApp is usually easiest. If there is no accessible external tap, please say so before booking so I can add the &pound;5 no-tap charge.
             </p>
             <div class="contact-points">
-              <a href="sms:07756514110"><span>Text me</span><strong>Send car size and postcode</strong></a>
+              <a href="${carSmsHref}"><span>Text Sam</span><strong>Send car size and postcode</strong></a>
               <a href="${waHref}"><span>WhatsApp</span><strong>Message me directly</strong></a>
               <a href="contact.html"><span>Contact page</span><strong>Use the form</strong></a>
             </div>
@@ -278,7 +298,7 @@ function mainPage() {
               This is a practical add-on service where the route and setup fit. Tell me the postcode, car size, and whether there is an accessible external tap.
             </p>
             <div class="hero__actions">
-              <a class="button" href="sms:07756514110">Text me</a>
+              <a class="button" href="${carSmsHref}">Text postcode</a>
               <a class="button button--ghost" href="${waHref}">WhatsApp me</a>
             </div>
           </div>
@@ -463,7 +483,7 @@ function areaPage(areaData) {
               The pricing is kept simple: &pound;12 for a small car, &pound;15 for a medium car, and &pound;17.50 for a large car. If there is no accessible external tap, add &pound;5.
             </p>
             <div class="hero__actions">
-              <a class="button" href="sms:07756514110">Text me</a>
+              <a class="button" href="${carSmsHref}">Text postcode</a>
               <a class="button button--ghost" href="${waHref}">WhatsApp me</a>
             </div>
           </div>

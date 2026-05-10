@@ -3,6 +3,44 @@ import { resolve } from "node:path";
 
 const waHref =
   "https://wa.me/447756514110?text=Hi%20Sam%2C%20I%E2%80%99m%20looking%20for%20a%20window%20cleaning%20quote.%20My%20postcode%20is%E2%80%A6";
+const gtmId = "GTM-5267LQLD";
+
+function gtmNoscript() {
+  return `
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=${gtmId}" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>`;
+}
+
+function gtmScript() {
+  return `
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','${gtmId}');</script>
+    <!-- End Google Tag Manager -->`;
+}
+
+function quoteMessage(area) {
+  return `Hi Sam, I am looking for a window cleaning quote in ${area}. My postcode is...`;
+}
+
+function smsHref(area) {
+  return `sms:07756514110?body=${encodeURIComponent(quoteMessage(area))}`;
+}
+
+function whatsappHref(area) {
+  return `https://wa.me/447756514110?text=${encodeURIComponent(quoteMessage(area))}`;
+}
+
+function metaTitle(area) {
+  const suffix = area.length > 15 ? "Direct Local Quotes" : "Text Sam for a Quote";
+  return `Window Cleaner ${area} | ${suffix}`;
+}
+
+function metaDescription(area) {
+  return `Window cleaner in ${area} from Sam at SJ Windows. Regular 4, 6 and 8-weekly cleans, frames and sills included, guide prices and direct text or WhatsApp quotes.`;
+}
 
 const reviews = {
   adam: {
@@ -99,7 +137,7 @@ const areas = [
     priceCopy:
       "Stanway guide prices depend on the amount of glass, access, and property type just as much as postcode, but the local route usually works well for regular cleaning.",
     nearbySummary:
-      "Nearby nearby searches often include Lexden, Prettygate, West Bergholt, and Marks Tey-side work.",
+      "Nearby searches often include Lexden, Prettygate, West Bergholt, and Marks Tey-side work.",
     nearby: [
       ["window-cleaner-lexden.html", "Lexden"],
       ["window-cleaner-prettygate.html", "Prettygate"],
@@ -179,7 +217,7 @@ const areas = [
     priceCopy:
       "As with the rest of Colchester, guide prices in Prettygate are driven by the size of the job, amount of glass, access, and whether you want regular upkeep or a one-off visit.",
     nearbySummary:
-      "Nearby nearby pages often include Lexden, Stanway, West Bergholt, and the wider Colchester patch.",
+      "Nearby pages often include Lexden, Stanway, West Bergholt, and the wider Colchester patch.",
     nearby: [
       ["window-cleaner-lexden.html", "Lexden"],
       ["window-cleaner-stanway.html", "Stanway"],
@@ -219,7 +257,7 @@ const areas = [
     priceCopy:
       "Guide prices in West Bergholt vary with glass, property style, access, and frequency, especially on larger village homes or places with more detail work.",
     nearbySummary:
-      "Nearby nearby pages often include Lexden, Stanway, Mile End, and Dedham-side links.",
+      "Nearby pages often include Lexden, Stanway, Mile End, and Dedham-side links.",
     nearby: [
       ["window-cleaner-lexden.html", "Lexden"],
       ["window-cleaner-stanway.html", "Stanway"],
@@ -259,7 +297,7 @@ const areas = [
     priceCopy:
       "Guide prices on Mersea Island depend on the property itself first, then on how neatly the postcode fits with the rest of the route and whether the work is regular.",
     nearbySummary:
-      "Nearby nearby links often include West Mersea, East Mersea, Abberton, Fingringhoe, and the wider south-side run.",
+      "Nearby links often include West Mersea, East Mersea, Abberton, Fingringhoe, and the wider south-side run.",
     nearby: [
       ["window-cleaner-abberton.html", "Abberton"],
       ["window-cleaner-fingringhoe.html", "Fingringhoe"],
@@ -279,7 +317,7 @@ const areas = [
     priceCopy:
       "Manningtree guide prices depend on the house itself first, but the local round also matters when working out whether regular rounds are practical.",
     nearbySummary:
-      "Nearby nearby pages often include Lawford, Dedham, Ardleigh, and East Bergholt-side work.",
+      "Nearby pages often include Lawford, Dedham, Ardleigh, and East Bergholt-side work.",
     nearby: [
       ["window-cleaner-dedham.html", "Dedham"],
       ["window-cleaner-ardleigh.html", "Ardleigh"],
@@ -339,7 +377,7 @@ const areas = [
     priceCopy:
       "Kelvedon guide prices vary with the layout of the property, access, amount of glass, and whether it's a regular round or a first clean after a gap.",
     nearbySummary:
-      "Nearby nearby pages often include Tiptree, Marks Tey, Feering-side villages, and the wider western run.",
+      "Nearby pages often include Tiptree, Marks Tey, Feering-side villages, and the wider western run.",
     nearby: [
       ["window-cleaner-tiptree.html", "Tiptree"],
       ["window-cleaner-marks-tey.html", "Marks Tey"],
@@ -419,7 +457,7 @@ const areas = [
     priceCopy:
       "Guide prices in Abberton depend on the property itself first, then on how neatly the postcode works with the local round for regular cleans.",
     nearbySummary:
-      "Nearby nearby pages often include Mersea Island, Fingringhoe, Layer-de-la-Haye, and Tiptree-side links.",
+      "Nearby pages often include Mersea Island, Fingringhoe, Layer-de-la-Haye, and Tiptree-side links.",
     nearby: [
       ["window-cleaner-mersea-island.html", "Mersea Island"],
       ["window-cleaner-fingringhoe.html", "Fingringhoe"],
@@ -484,21 +522,24 @@ function reviewCards(keys) {
 
 function page(area) {
   const nearbyNames = area.nearby.map(([, name]) => name).join(", ");
-  const metaTitle = `Window Cleaner ${area.area} | SJ Windows`;
-  const metaDescription = `Window cleaner in ${area.area} with direct contact from Sam at SJ Windows. Regular local cleans, guide prices, and simple text or WhatsApp quotes.`;
+  const pageTitle = metaTitle(area.area);
+  const pageDescription = metaDescription(area.area);
+  const areaSmsHref = smsHref(area.area);
+  const areaWaHref = whatsappHref(area.area);
   return `<!DOCTYPE html>
 <html lang="en-GB">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>${escapeHtml(metaTitle)}</title>
-    <meta name="description" content="${escapeHtml(metaDescription)}" />
+${gtmScript()}
+    <title>${escapeHtml(pageTitle)}</title>
+    <meta name="description" content="${escapeHtml(pageDescription)}" />
     <meta name="robots" content="index,follow" />
     <meta name="theme-color" content="#132331" />
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="en_GB" />
-    <meta property="og:title" content="${escapeHtml(metaTitle)}" />
-    <meta property="og:description" content="${escapeHtml(metaDescription)}" />
+    <meta property="og:title" content="${escapeHtml(pageTitle)}" />
+    <meta property="og:description" content="${escapeHtml(pageDescription)}" />
     <meta property="og:url" content="https://sjwindowscolchester.co.uk/${escapeHtml(area.slug)}" />
     <meta property="og:image" content="https://sjwindowscolchester.co.uk/sj-windows-social.jpg" />
     <meta name="twitter:card" content="summary_large_image" />
@@ -513,15 +554,15 @@ function page(area) {
     data-service-type="Residential window cleaning in ${escapeHtml(
       area.area
     )} on suitable local rounds"
-  >
+  >${gtmNoscript()}
     <a class="skip-link" href="#main">Skip to content</a>
     <div class="topbar">
       <div class="shell topbar__inner">
-        <p>It is better to check the postcode than make broad coverage claims.</p>
+        <p>Quick quote route: send the postcode and rough property type.</p>
         <div class="topbar__links">
           <a href="tel:07756514110">Call 07756 514110</a>
-          <a href="sms:07756514110">Text me</a>
-          <a href="${waHref}">WhatsApp</a>
+          <a href="${escapeHtml(areaSmsHref)}">Text quote details</a>
+          <a href="${escapeHtml(areaWaHref)}">WhatsApp</a>
         </div>
       </div>
     </div>
@@ -559,15 +600,17 @@ function page(area) {
             <p class="hero__lead">
               If you’re looking for a window cleaner in ${escapeHtml(
                 area.area
-              )}, I may be able to help where the job works with the round.
+              )}, text or WhatsApp the postcode and I will let you know what looks realistic.
             </p>
             <p>
               I’m Sam, and you deal directly with me from quote to clean. No office, no call centre,
-              and no pretending every postcode automatically makes sense.
+              regular 4, 6 and 8-weekly cleans are available where the address works with the
+              round, with frames and sills included as part of a normal clean.
             </p>
             <div class="hero__actions">
               <a class="button" href="index.html#calculator">Get a guide price</a>
-              <a class="button button--ghost" href="contact.html">Ask me directly</a>
+              <a class="button button--ghost" href="${escapeHtml(areaSmsHref)}">Text postcode</a>
+              <a class="button button--ghost" href="${escapeHtml(areaWaHref)}">WhatsApp Sam</a>
             </div>
           </div>
           <aside class="hero-card">
@@ -578,6 +621,25 @@ function page(area) {
               <li>People who want a practical, local service rather than anything corporate</li>
             </ul>
           </aside>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="shell split">
+          <div>
+            <p class="eyebrow">Why People In ${escapeHtml(area.area)} Enquire</p>
+            <h2>Most quote messages start with the same practical checks.</h2>
+            <p>
+              Send the postcode, rough property type, cleaning frequency and any access notes. I can
+              then tell you whether the job looks realistic for ${escapeHtml(area.area)} and the
+              nearby round.
+            </p>
+          </div>
+          <div class="stacked-cards">
+            <article class="mini-card"><h3>Regular local cleans</h3><p>Good for 4, 6 or 8-weekly work where the postcode fits the route.</p><a class="text-link" href="residential-window-cleaning-colchester.html">Residential cleaning</a></article>
+            <article class="mini-card"><h3>Price before booking</h3><p>The Smart Quote gives a sensible starting point before you text or WhatsApp.</p><a class="text-link" href="window-cleaning-prices-colchester.html">Window cleaning prices</a></article>
+            <article class="mini-card"><h3>Reassurance first</h3><p>Reviews and direct contact help you know who will actually turn up.</p><a class="text-link" href="reviews.html">Customer reviews</a></article>
+          </div>
         </div>
       </section>
 
@@ -673,8 +735,8 @@ function page(area) {
             </p>
             <div class="contact-points">
               <a href="index.html#calculator"><span>Smart Quote</span><strong>Get a guide price</strong></a>
-              <a href="sms:07756514110"><span>Text me</span><strong>Send the postcode</strong></a>
-              <a href="${waHref}"><span>WhatsApp</span><strong>Message me directly</strong></a>
+              <a href="${escapeHtml(areaSmsHref)}"><span>Text Sam</span><strong>Send the postcode</strong></a>
+              <a href="${escapeHtml(areaWaHref)}"><span>WhatsApp</span><strong>Message me directly</strong></a>
             </div>
           </div>
           <div class="panel">
@@ -721,7 +783,7 @@ function page(area) {
               </button>
               <div class="faq-answer">
                 <p>
-                  Nearby nearby areas often include ${escapeHtml(
+                  Nearby areas often include ${escapeHtml(
                     nearbyNames
                   )}, along with the wider Colchester run where it makes sense.
                 </p>
@@ -766,7 +828,7 @@ function page(area) {
         <div>
           <p class="footer__heading">Contact</p>
           <a href="tel:07756514110">07756 514110</a>
-          <a href="sms:07756514110">Text me</a>
+          <a href="${escapeHtml(areaSmsHref)}">Text quote details</a>
           <a href="mailto:sjwindows2020@gmail.com">sjwindows2020@gmail.com</a>
         </div>
       </div>
@@ -777,8 +839,8 @@ function page(area) {
 
     <div class="mobile-cta">
       <a href="tel:07756514110">Call</a>
-      <a href="sms:07756514110">Text</a>
-      <a href="${waHref}">WhatsApp</a>
+      <a href="${escapeHtml(areaSmsHref)}">Text</a>
+      <a href="${escapeHtml(areaWaHref)}">WhatsApp</a>
       <a href="index.html#calculator">Quote</a>
     </div>
   </body>
