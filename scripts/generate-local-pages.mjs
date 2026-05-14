@@ -186,7 +186,7 @@ const areas = [
     character: "south Colchester work",
     propertyMix: "family homes, terraces and bungalows with varied access",
     route:
-      "Berechurch can be a a good fit when it connects with Old Heath, Shrub End and other south Colchester addresses.",
+      "Berechurch can be a good fit when it connects with Old Heath, Shrub End and other south Colchester addresses.",
     nearby: ["Old Heath", "Shrub End", "New Town", "Colchester", "Layer-de-la-Haye"],
   },
   {
@@ -369,13 +369,13 @@ const services = {
     h1: (area) => `Solar panel cleaning in ${area}`,
     title: (area) => `Solar Panel Cleaning ${area} | SJ Windows`,
     description: (area) =>
-      `Solar panel cleaning in ${area} by Sam from SJ Windows. Minimum price from £20, guide from £2 per panel where practical, with access and route checked first.`,
+      `Solar panel cleaning in ${area} by Sam from SJ Windows. Minimum price from £20, guide from £2 per panel, with access checked before booking.`,
     what:
-      "Solar panel cleaning is a straightforward outside clean of the panel surface where it can be done safely and practically. Sam noticed many local solar panels get dirty over time, so it is available as a sensible add-on or stand-alone job where access works.",
+      "Solar panel cleaning is an outside clean of the panel surface where it can be done safely. Sam noticed many local solar panels get dirty over time, so it is available as an add-on or stand-alone job after an access check.",
     suits:
       "It usually suits homes where panels are visibly dirty, dusty, affected by bird mess, or on lower roofs and bungalows where safe access is simpler.",
     pricing:
-      "The minimum price is £20. As a rough guide, panels start from £2 each where practical, but the actual quote depends on panel count, access, height, condition, and whether I can fit the address in.",
+      "The minimum price is £20. As a guide, panels start from £2 each, but the actual quote depends on panel count, access, height, condition, and the address.",
     regular:
       "This is often a one-off or occasional clean rather than a fixed monthly job. Dirty panels can reduce performance, but the exact difference varies, so I do not promise guaranteed energy improvements.",
     extraLinks: [
@@ -391,9 +391,9 @@ const services = {
     h1: (area) => `Gutter cleaning in ${area}`,
     title: (area) => `Gutter Cleaning ${area} | SJ Windows`,
     description: (area) =>
-      `Gutter cleaning in ${area} from SJ Windows. Send Sam the postcode and access details for a practical quote where the route and property setup fit.`,
+      `Gutter cleaning in ${area} from SJ Windows. Send Sam the postcode and access details for a clear quote before booking.`,
     what:
-      "Gutter cleaning helps clear built-up debris from gutters where access is safe and the job is practical for the property.",
+      "Gutter cleaning helps clear built-up debris from gutters after access has been checked.",
     suits:
       "It can suit homes with overflowing gutters, visible debris, trees nearby, or gutters that have not been cleared for a while.",
     pricing:
@@ -413,7 +413,7 @@ const services = {
     h1: (area) => `Conservatory roof cleaning in ${area}`,
     title: (area) => `Conservatory Roof Cleaning ${area} | SJ Windows`,
     description: (area) =>
-      `Conservatory roof cleaning in ${area} from SJ Windows. Direct contact with Sam, practical access checks and clear quote wording before booking.`,
+      `Conservatory roof cleaning in ${area} from SJ Windows. Direct contact with Sam, access checks and clear quote wording before booking.`,
     what:
       "Conservatory roof cleaning is an outside clean of the roof panels, bars and visible build-up where access is safe and the structure is suitable.",
     suits:
@@ -682,7 +682,7 @@ function header(eyebrow = "Colchester", serviceLabel = "window cleaning") {
     <a class="skip-link" href="#main">Skip to content</a>
     <div class="topbar">
       <div class="shell topbar__inner">
-        <p>I'm Sam Jones. Local window cleaning where the address works for the round.</p>
+        <p>I'm Sam Jones. Friendly local window cleaning with clear prices, direct contact and regular rounds.</p>
         <div class="topbar__links">
           <a href="${phoneHref}">Call ${phone}</a>
           <a href="${esc(headerSmsHref)}">Text quote details</a>
@@ -704,6 +704,7 @@ function header(eyebrow = "Colchester", serviceLabel = "window cleaning") {
           <a href="index.html#calculator">Smart Quote</a>
           <a href="services.html">Services</a>
           <a href="window-cleaning-prices-colchester.html">Prices</a>
+          <a href="index.html#street-discount">Street Saver</a>
           <a href="areas.html">Areas</a>
           <a href="reviews.html">Reviews</a>
           <a href="contact.html">Contact</a>
@@ -719,7 +720,7 @@ function footer() {
         <div>
           <p class="footer__brand">SJ Windows</p>
           <p>I'm Sam Jones.</p>
-          <p>Friendly local window cleaning in Colchester and nearby villages.</p>
+          <p>Friendly local window cleaning in Colchester and nearby villages, from first quote to regular clean.</p>
         </div>
         <div>
           <p class="footer__heading">Top Services</p>
@@ -730,6 +731,7 @@ function footer() {
         </div>
         <div>
           <p class="footer__heading">Helpful Pages</p>
+          <a href="index.html#street-discount">Street Saver discount</a>
           <a href="areas.html">Areas covered</a>
           <a href="window-cleaning-prices-colchester.html">Prices</a>
           <a href="water-fed-pole-window-cleaning-colchester.html">WFP window cleaning</a>
@@ -794,10 +796,10 @@ function contactSection(areaName, serviceLabel = "window cleaning") {
         <div class="shell quote-panel">
           <div class="quote-panel__content">
             <p class="eyebrow">The Quickest Way To Get A Price</p>
-            <h2>Send the postcode and I will let you know what looks realistic.</h2>
+            <h2>Send the postcode and I will give you a clear next step.</h2>
             <p>
-              Send your postcode, rough property type, and whether you want regular or one-off cleaning.
-              A quick photo can help if access is unusual.
+              The easiest first message is your postcode, property type, and whether you want a
+              regular clean or a one-off. If access is unusual, a quick photo saves back-and-forth.
             </p>
             <div class="contact-points">
               <a href="index.html#calculator"><span>Smart Quote</span><strong>Get a guide price</strong></a>
@@ -808,7 +810,8 @@ function contactSection(areaName, serviceLabel = "window cleaning") {
           <div class="panel">
             <p class="eyebrow">Prefer To Speak Directly?</p>
             <p>
-              No office, no call centre, just direct contact. Call, text or WhatsApp me and I will say if the job looks like a good fit.
+              No office, no call centre. You speak to me, and I will tell you clearly what I can do,
+              what it is likely to cost, and when it could fit.
             </p>
             <div class="link-list">
               <a class="text-link" href="${phoneHref}">Call ${phone}</a>
@@ -839,16 +842,17 @@ function areaPage(area) {
             <p class="eyebrow">Window Cleaner ${esc(area.name)}</p>
             <h1>Window cleaner in ${esc(area.name)}</h1>
             <p class="hero__lead">
-              I'm Sam from SJ Windows. If you need a window cleaner in ${esc(area.name)}, send the postcode and I will let you know what looks realistic.
+              Friendly, regular window cleaning in ${esc(area.name)} from Sam at SJ Windows, with
+              frames and sills included and a simple way to ask for a price.
             </p>
             <p>
-              You deal directly with me from the first message to the clean itself. Regular 4, 6
-              and 8-weekly cleans are available where the address works for the round, with frames
-              and sills included as part of a normal clean.
+              You deal directly with me from the first message to the clean itself. Send the
+              postcode, and I will check the address, explain the best option and keep the quote
+              clear before you book.
             </p>
             <div class="hero__actions">
               <a class="button" href="index.html#calculator">Get a guide price</a>
-              <a class="button button--ghost" href="${esc(areaSmsHref)}">Text postcode</a>
+              <a class="button button--ghost" href="${esc(areaSmsHref)}">Text Sam</a>
               <a class="button button--ghost" href="${esc(areaWaHref)}">WhatsApp Sam</a>
             </div>
           </div>
@@ -857,8 +861,8 @@ function areaPage(area) {
             <ul>
               <li>${esc(area.propertyMix)}</li>
               <li>Regular 4, 6 or 8-weekly window cleaning</li>
-              <li>People who want direct contact instead of a call centre</li>
-              <li>Homes where access and the address works for the round</li>
+              <li>People who want the person quoting to be the person cleaning</li>
+              <li>Neighbour groups who want to use the Street Saver discount</li>
             </ul>
           </aside>
         </div>
@@ -868,17 +872,16 @@ function areaPage(area) {
         <div class="shell split">
           <div>
             <p class="eyebrow">Why People In ${esc(area.name)} Enquire</p>
-            <h2>Most quote messages start with the same practical checks.</h2>
+            <h2>A good quote starts with a few simple details.</h2>
             <p>
-              Send the postcode, rough property type, cleaning frequency and any access notes. I can
-              then tell you whether the job looks realistic for ${esc(area.name)} and the nearby
-              round.
+              Send the postcode, property type, cleaning frequency and any access notes. I can then
+              give you a useful answer instead of a vague guess.
             </p>
           </div>
           <div class="stacked-cards">
-            <article class="mini-card"><h3>Regular local cleans</h3><p>Good for 4, 6 or 8-weekly work where the postcode fits the route.</p><a class="text-link" href="residential-window-cleaning-colchester.html">Residential cleaning</a></article>
-            <article class="mini-card"><h3>Price before booking</h3><p>The Smart Quote gives a sensible starting point before you text or WhatsApp.</p><a class="text-link" href="window-cleaning-prices-colchester.html">Window cleaning prices</a></article>
-            <article class="mini-card"><h3>Reassurance first</h3><p>Reviews and direct contact help you know who will actually turn up.</p><a class="text-link" href="reviews.html">Customer reviews</a></article>
+            <article class="mini-card"><h3>Regular local cleans</h3><p>Choose 4, 6 or 8-weekly visits to keep the glass looking right all year.</p><a class="text-link" href="residential-window-cleaning-colchester.html">Residential cleaning</a></article>
+            <article class="mini-card"><h3>Price before booking</h3><p>The Smart Quote gives you a realistic starting point before you text or WhatsApp.</p><a class="text-link" href="window-cleaning-prices-colchester.html">Window cleaning prices</a></article>
+            <article class="mini-card"><h3>Know who is coming</h3><p>You are speaking to me directly, so the quote and the clean stay personal.</p><a class="text-link" href="reviews.html">Customer reviews</a></article>
           </div>
         </div>
       </section>
@@ -889,13 +892,15 @@ function areaPage(area) {
             <p class="eyebrow">Usually Suits</p>
             <h2>For local homes that want the windows kept on top of.</h2>
             <p>
-              In ${esc(area.name)}, this usually suits ${esc(area.propertyMix)}. I keep the first conversation simple: postcode, rough property type, and whether you want regular or one-off cleaning.
+              In ${esc(area.name)}, this usually suits ${esc(area.propertyMix)}. I keep the first
+              conversation easy: send the postcode, property type, and whether you want regular or
+              one-off cleaning.
             </p>
           </div>
           <div class="stacked-cards">
             <article class="mini-card"><h3>Direct contact</h3><p>I am the person you message and the person doing the work.</p></article>
             <article class="mini-card"><h3>Frames and sills</h3><p>Frames and sills are included as part of a normal outside window clean.</p></article>
-            <article class="mini-card"><h3>Address check first</h3><p>I would rather be honest about the route than promise every road automatically works.</p></article>
+            <article class="mini-card"><h3>Street Saver</h3><p>If nearby neighbours book together, the group may qualify for a regular-clean discount.</p></article>
           </div>
         </div>
       </section>
@@ -921,16 +926,18 @@ function areaPage(area) {
         <div class="shell split">
           <div>
             <p class="eyebrow">Regular Window Cleaning In ${esc(area.name)}</p>
-            <h2>Regular cleaning is usually easier when the job fits properly.</h2>
+            <h2>Regular cleaning keeps things easier, cleaner and more predictable.</h2>
             <p>${esc(area.route)}</p>
             <p>
-              If the road works with the route, regular visits are normally the neatest option. If it is a wider or awkward postcode, I will say so before you waste time.
+              If your road links well with nearby work, regular visits are normally the best value.
+              If a few neighbours want the same day, ask me about Street Saver.
             </p>
           </div>
           <div class="panel">
             <p class="eyebrow">What To Send Me</p>
             <p>
-              Send your postcode, rough property type, and whether you want regular or one-off cleaning. A quick photo can help if access is unusual.
+              Send your postcode, property type, and whether you want regular or one-off cleaning.
+              A quick front and back photo can help if access is unusual.
             </p>
             <div class="link-list">
               <a class="text-link" href="window-cleaning-prices-colchester.html">Window cleaning prices</a>
@@ -947,7 +954,7 @@ function areaPage(area) {
           <div class="section-heading">
             <p class="eyebrow">Nearby Areas</p>
             <h2>Other local pages near ${esc(area.name)}.</h2>
-            <p>Not sure if I cover your road? Send the postcode and I will let you know if it fits.</p>
+            <p>Not sure if I cover your road? Send the postcode and I will give you a clear answer.</p>
           </div>
           <div class="area-cloud">${chips(nearby)}<a class="area-chip" href="areas.html">All areas covered</a></div>
         </div>
@@ -964,7 +971,7 @@ function areaPage(area) {
         </div>
       </section>
 
-      ${contactSection(area.name)}
+${contactSection(area.name)}
 
       <section class="section" id="faq">
         <div class="shell">
@@ -973,11 +980,11 @@ function areaPage(area) {
             <h2>Window cleaning questions in ${esc(area.name)}.</h2>
           </div>
           <div class="faq-list">
-            <article class="faq-item"><button type="button" class="faq-toggle" aria-expanded="false">Do you cover ${esc(area.name)} for window cleaning?</button><div class="faq-answer"><p>Yes, where the postcode fits the local round sensibly. Send the postcode and I will let you know what looks realistic.</p></div></article>
-            <article class="faq-item"><button type="button" class="faq-toggle" aria-expanded="false">Can I get regular window cleaning in ${esc(area.name)}?</button><div class="faq-answer"><p>Regular cleans are usually the best fit, especially when the address works with nearby route areas such as ${esc(area.nearby.slice(0, 3).join(", "))}.</p></div></article>
+            <article class="faq-item"><button type="button" class="faq-toggle" aria-expanded="false">Do you cover ${esc(area.name)} for window cleaning?</button><div class="faq-answer"><p>Usually, yes, if the postcode links well with my local round. Send the postcode and I will check it properly before quoting.</p></div></article>
+            <article class="faq-item"><button type="button" class="faq-toggle" aria-expanded="false">Can I get regular window cleaning in ${esc(area.name)}?</button><div class="faq-answer"><p>Regular cleans are the best fit for most homes, especially when the address links with nearby areas such as ${esc(area.nearby.slice(0, 3).join(", "))}.</p></div></article>
             <article class="faq-item"><button type="button" class="faq-toggle" aria-expanded="false">What affects the price in ${esc(area.name)}?</button><div class="faq-answer"><p>The main factors are property type, glass amount, access, height, condition, frequency, extras, and whether the address works for the round.</p></div></article>
-            <article class="faq-item"><button type="button" class="faq-toggle" aria-expanded="false">Do you offer one-off cleans in ${esc(area.name)}?</button><div class="faq-answer"><p>Sometimes, where the job is practical and the route allows it. Regular work is usually easier to fit and price.</p></div></article>
-            <article class="faq-item"><button type="button" class="faq-toggle" aria-expanded="false">What should I send for a proper quote?</button><div class="faq-answer"><p>Send your postcode, rough property type, and whether you want regular or one-off cleaning. A quick photo can help if access is unusual.</p></div></article>
+            <article class="faq-item"><button type="button" class="faq-toggle" aria-expanded="false">Do you offer one-off cleans in ${esc(area.name)}?</button><div class="faq-answer"><p>Yes, one-off cleans can be quoted. Regular work is usually better value, but I am happy to tell you what makes sense for the property.</p></div></article>
+            <article class="faq-item"><button type="button" class="faq-toggle" aria-expanded="false">What should I send for a proper quote?</button><div class="faq-answer"><p>Send your postcode, property type, whether you want regular or one-off cleaning, and a couple of photos if access is unusual.</p></div></article>
           </div>
         </div>
       </section>
@@ -1015,7 +1022,8 @@ function serviceAreaPage(serviceKey, areaName) {
             <h1>${esc(service.h1(areaName))}</h1>
             <p class="hero__lead">${esc(service.what)}</p>
             <p>
-              I'm Sam from SJ Windows. Send the postcode and a quick photo if access is unusual, and I will tell you what looks realistic.
+              I'm Sam from SJ Windows. Send the postcode and a quick photo if access is unusual,
+              and I will give you a clear quote or explain what I need to check first.
             </p>
             <div class="hero__actions">
               <a class="button" href="index.html#calculator">Get a guide price</a>
@@ -1027,9 +1035,9 @@ function serviceAreaPage(serviceKey, areaName) {
             <p class="hero-card__kicker">Who it suits locally</p>
             <ul>
               <li>${esc(service.suits)}</li>
-              <li>Homes in ${esc(areaName)} where access is safe and practical</li>
-              <li>People who want a clear answer before booking</li>
-              <li>Jobs that fit the round sensibly</li>
+              <li>Homes in ${esc(areaName)} where access can be checked before booking</li>
+              <li>People who want a clear answer from the person doing the work</li>
+              <li>Window cleaning customers who want useful add-ons on the same enquiry</li>
             </ul>
           </aside>
         </div>
@@ -1039,13 +1047,13 @@ function serviceAreaPage(serviceKey, areaName) {
         <div class="shell split">
           <div>
             <p class="eyebrow">What This Service Is</p>
-            <h2>A practical local service, quoted around the actual job.</h2>
+            <h2>A clear local service, quoted around the actual job.</h2>
             <p>${esc(service.what)}</p>
             <p>${esc(service.suits)}</p>
           </div>
           <div class="stacked-cards">
-            <article class="mini-card"><h3>Access first</h3><p>I will check whether the setup is safe and realistic before agreeing the job.</p></article>
-            <article class="mini-card"><h3>Photos help</h3><p>A quick photo can save back-and-forth when there is height, awkward access or heavy build-up.</p></article>
+            <article class="mini-card"><h3>Access checked</h3><p>I will check height, reach and safety before agreeing the job.</p></article>
+            <article class="mini-card"><h3>Photos speed it up</h3><p>A quick photo can save back-and-forth when there is height, awkward access or heavy build-up.</p></article>
             <article class="mini-card"><h3>Direct contact</h3><p>You deal directly with me rather than a booking office.</p></article>
           </div>
         </div>
@@ -1058,13 +1066,15 @@ function serviceAreaPage(serviceKey, areaName) {
             <h2>The quote depends on the details, not just the postcode.</h2>
             <p>${esc(service.pricing)}</p>
             <p>
-              For ${esc(areaName)}, the address and access still matter. Further or awkward jobs may still be possible, but I will be honest if the run does not make sense.
+              For ${esc(areaName)}, the address and access still matter. I will keep the quote
+              honest and explain any access issue before you book.
             </p>
           </div>
           <div class="panel">
             <p class="eyebrow">What To Send Me</p>
             <p>
-              Send your postcode, rough property type, and whether you want regular or one-off cleaning. A quick photo can help if access is unusual.
+              Send your postcode, property type and a quick photo of the job. If it is part of a
+              regular window clean, mention that too.
             </p>
           </div>
         </div>
@@ -1078,7 +1088,7 @@ function serviceAreaPage(serviceKey, areaName) {
             <p>${esc(service.regular)}</p>
           </div>
           <div class="stacked-cards">
-            <article class="mini-card"><h3>Regular work</h3><p>Works best when the road works for the round and the service makes sense to repeat.</p></article>
+            <article class="mini-card"><h3>Regular work</h3><p>Works best when it can be added neatly to a regular local round.</p></article>
             <article class="mini-card"><h3>One-off work</h3><p>Good for catch-up cleans, moving-in cleans, or visible build-up where access allows.</p></article>
           </div>
         </div>
@@ -1097,7 +1107,7 @@ function serviceAreaPage(serviceKey, areaName) {
         </div>
       </section>
 
-      ${contactSection(areaName, service.label.toLowerCase())}
+${contactSection(areaName, service.label.toLowerCase())}
 
       <section class="section" id="faq">
         <div class="shell">
@@ -1106,11 +1116,11 @@ function serviceAreaPage(serviceKey, areaName) {
             <h2>${esc(service.label)} questions in ${esc(areaName)}.</h2>
           </div>
           <div class="faq-list">
-            <article class="faq-item"><button type="button" class="faq-toggle" aria-expanded="false">Do you offer ${esc(service.label.toLowerCase())} in ${esc(areaName)}?</button><div class="faq-answer"><p>Yes, where the postcode, access and the address works for the round. Send the postcode first and I will check it properly.</p></div></article>
+            <article class="faq-item"><button type="button" class="faq-toggle" aria-expanded="false">Do you offer ${esc(service.label.toLowerCase())} in ${esc(areaName)}?</button><div class="faq-answer"><p>Yes, where the postcode and access work. Send the postcode and a photo, and I will check it properly before quoting.</p></div></article>
             <article class="faq-item"><button type="button" class="faq-toggle" aria-expanded="false">What affects the price?</button><div class="faq-answer"><p>${esc(service.pricing)}</p></div></article>
             <article class="faq-item"><button type="button" class="faq-toggle" aria-expanded="false">Should I send a photo?</button><div class="faq-answer"><p>Yes, especially if access is unusual, the job is higher up, or you are asking about panels, gutters or a conservatory roof.</p></div></article>
             <article class="faq-item"><button type="button" class="faq-toggle" aria-expanded="false">Is it better as a regular or one-off clean?</button><div class="faq-answer"><p>${esc(service.regular)}</p></div></article>
-            <article class="faq-item"><button type="button" class="faq-toggle" aria-expanded="false">How do I get a proper quote?</button><div class="faq-answer"><p>Send your postcode, rough property type, and whether you want regular or one-off cleaning. A quick photo can help if access is unusual.</p></div></article>
+            <article class="faq-item"><button type="button" class="faq-toggle" aria-expanded="false">How do I get a proper quote?</button><div class="faq-answer"><p>Send your postcode, property type, the service you want, and a quick photo if access or height might affect the job.</p></div></article>
           </div>
         </div>
       </section>
@@ -1141,7 +1151,7 @@ function areasHub() {
       return `
             <article class="service-card">
               <h3>${esc(group)}</h3>
-              <p>Local pages for ${esc(group)}. The postcode still matters, especially away from the core Colchester run.</p>
+              <p>Local pages for ${esc(group)}. Send the postcode and I will check the best option for your road.</p>
               <div class="area-cloud">${chips(links)}</div>
               ${serviceLinks.length ? `<p class="section-linkline">${serviceLinks.map(([href, label]) => `<a class="text-link" href="${esc(href)}">${esc(label)}</a>`).join(" ")}</p>` : ""}
             </article>`;
@@ -1177,11 +1187,12 @@ function areasHub() {
               Local window cleaning pages for Colchester, nearby neighbourhoods, villages and local round areas.
             </p>
             <p>
-              I'm Sam from SJ Windows. The postcode matters, especially for further areas, so send the postcode and I will confirm what looks realistic.
+              I'm Sam from SJ Windows. Send the postcode and I will tell you clearly whether the
+              address works for regular window cleaning, a one-off clean, or an add-on service.
             </p>
             <div class="hero__actions">
               <a class="button" href="index.html#calculator">Get a guide price</a>
-              <a class="button button--ghost" href="${smsHref}">Text postcode</a>
+              <a class="button button--ghost" href="${smsHref}">Text Sam</a>
               <a class="button button--ghost" href="window-cleaner-near-colchester.html">Near-me guide</a>
             </div>
           </div>
@@ -1191,7 +1202,7 @@ function areasHub() {
               <li>Send the postcode first</li>
               <li>Say regular or one-off</li>
               <li>Add a quick photo if access is unusual</li>
-              <li>I will let you know what looks realistic</li>
+              <li>I will give you a clear next step</li>
             </ul>
           </aside>
         </div>
@@ -1203,7 +1214,7 @@ function areasHub() {
             <p class="eyebrow">Area Groups</p>
             <h2>Find the closest local page.</h2>
             <p>
-              These pages are here to help local searches find the right information without pretending every road is automatically covered.
+              These pages help you find the closest local information before messaging me.
             </p>
           </div>
           <div class="card-grid card-grid--three">${grouped}</div>
@@ -1227,14 +1238,15 @@ function areasHub() {
             <p class="eyebrow">Road And Street Pages</p>
             <h2>More specific local pages where property type affects the quote.</h2>
             <p>
-              These road pages explain common property types and what I would check before pricing. One road can still include a real mix of homes.
+              These road pages explain common property types and what I check before pricing. One
+              road can still include a real mix of homes.
             </p>
           </div>
           <div class="area-cloud">${chips(streetLinks)}</div>
         </div>
       </section>
 
-      ${contactSection("your area")}
+${contactSection("your area")}
     </main>`;
 
   return pageShell({
@@ -1275,14 +1287,16 @@ function nearMePage() {
             <p class="eyebrow">Window Cleaner Near Me Colchester</p>
             <h1>Window cleaner near me in Colchester</h1>
             <p class="hero__lead">
-              If you are searching for a window cleaner near me around Colchester, the honest answer is: send the postcode and I will check whether it works for the round.
+              Searching for a window cleaner near Colchester? Send your postcode and I will give
+              you a straight answer, a guide price, or the best next step.
             </p>
             <p>
-              I'm Sam from SJ Windows. You deal directly with me, and I will tell you if your road looks practical for regular window cleaning, one-off work, or an add-on such as gutters, solar panels or a conservatory roof.
+              I'm Sam from SJ Windows. You deal directly with me, so the quote stays personal and
+              you know who is actually turning up.
             </p>
             <div class="hero__actions">
               <a class="button" href="index.html#calculator">Get a guide price</a>
-              <a class="button button--ghost" href="${smsHref}">Text postcode</a>
+              <a class="button button--ghost" href="${smsHref}">Text Sam</a>
               <a class="button button--ghost" href="${waHref}">WhatsApp Sam</a>
             </div>
           </div>
@@ -1302,14 +1316,16 @@ function nearMePage() {
         <div class="shell split">
           <div>
             <p class="eyebrow">How I Judge Local Check</p>
-            <h2>Near me does not always mean the same thing as a good fit.</h2>
+            <h2>The best local rounds are built road by road.</h2>
             <p>
-              Some Colchester roads fit naturally into regular rounds. Further villages can still work, but they need to link sensibly with nearby bookings. That is why the postcode matters more than a broad coverage claim.
+              Some Colchester roads fit naturally into regular rounds. Further villages can still
+              work, especially when they link with nearby bookings. That is why the postcode gets
+              you a better answer than a broad yes or no.
             </p>
           </div>
           <div class="stacked-cards">
             <article class="mini-card"><h3>Core Colchester</h3><p>Usually the easiest to check for regular window cleaning.</p></article>
-            <article class="mini-card"><h3>Nearby villages</h3><p>Often possible where the work sits neatly with the local round.</p></article>
+            <article class="mini-card"><h3>Nearby villages</h3><p>Often possible when the work links with other local bookings.</p></article>
             <article class="mini-card"><h3>Street-level checks</h3><p>Property type, parking, access and height can change the quote on the same road.</p></article>
           </div>
         </div>
@@ -1341,23 +1357,24 @@ function nearMePage() {
             <p class="eyebrow">Street Examples</p>
             <h2>Road-level pages where property type affects the quote.</h2>
             <p>
-              These pages are not pretending every home on a road is identical. They explain common property types and what I would check before pricing.
+              These pages show the kind of things I look at before pricing: access, height,
+              property style, parking and how the road fits the round.
             </p>
           </div>
           <div class="area-cloud">${chips(streetLinks)}</div>
         </div>
       </section>
 
-      ${contactSection("near Colchester")}
+${contactSection("near Colchester")}
 
       <section class="section" id="faq">
         <div class="shell">
           <div class="section-heading"><p class="eyebrow">FAQ</p><h2>Near-me search questions.</h2></div>
           <div class="faq-list">
-            <article class="faq-item"><button type="button" class="faq-toggle" aria-expanded="false">Are you a window cleaner near me in Colchester?</button><div class="faq-answer"><p>If your postcode fits the Colchester route, probably. Send the postcode and I will check it properly before giving a quote.</p></div></article>
-            <article class="faq-item"><button type="button" class="faq-toggle" aria-expanded="false">Do you cover villages outside Colchester?</button><div class="faq-answer"><p>Some nearby villages can work where they work for the round. Further areas are best checked by postcode before assuming regular work is practical.</p></div></article>
-            <article class="faq-item"><button type="button" class="faq-toggle" aria-expanded="false">What should I send first?</button><div class="faq-answer"><p>Send your postcode, rough property type, and whether you want regular or one-off cleaning. A quick photo can help if access is unusual.</p></div></article>
-            <article class="faq-item"><button type="button" class="faq-toggle" aria-expanded="false">Can you quote for gutters, solar panels or conservatory roofs too?</button><div class="faq-answer"><p>Yes, where access is safe and practical. Mention the extra service in your message and send a photo if it helps show the setup.</p></div></article>
+            <article class="faq-item"><button type="button" class="faq-toggle" aria-expanded="false">Are you a window cleaner near me in Colchester?</button><div class="faq-answer"><p>If your postcode is in or near my Colchester rounds, very possibly. Send the postcode and I will check properly before quoting.</p></div></article>
+            <article class="faq-item"><button type="button" class="faq-toggle" aria-expanded="false">Do you cover villages outside Colchester?</button><div class="faq-answer"><p>Yes, nearby villages can work when they link with other bookings. Send the postcode and I will give you a clear answer.</p></div></article>
+            <article class="faq-item"><button type="button" class="faq-toggle" aria-expanded="false">What should I send first?</button><div class="faq-answer"><p>Send your postcode, property type, and whether you want regular or one-off cleaning. A quick photo helps if access is unusual.</p></div></article>
+            <article class="faq-item"><button type="button" class="faq-toggle" aria-expanded="false">Can you quote for gutters, solar panels or conservatory roofs too?</button><div class="faq-answer"><p>Yes. Mention the extra service in your message and send a photo if it helps show the setup.</p></div></article>
           </div>
         </div>
       </section>
@@ -1366,7 +1383,7 @@ function nearMePage() {
   return pageShell({
     title: "Window Cleaner Near Me Colchester | SJ Windows",
     description:
-      "Searching for a window cleaner near me in Colchester? Send Sam your postcode for honest regular local window cleaning, direct contact and local guide prices.",
+      "Searching for a window cleaner near me in Colchester? Send Sam your postcode for friendly regular local window cleaning, direct contact and clear guide prices.",
     slug: "window-cleaner-near-colchester.html",
     pageType: "area",
     serviceName: "Window cleaner near me in Colchester",
@@ -1449,7 +1466,8 @@ function streetPage(street) {
           <div class="panel">
             <p class="eyebrow">What To Send Me</p>
             <p>
-              Send your postcode, rough property type, and whether you want regular or one-off cleaning. A quick photo can help if access is unusual.
+              Send your postcode, property type, and whether you want regular or one-off cleaning.
+              A quick photo can help if access is unusual.
             </p>
           </div>
         </div>
@@ -1465,15 +1483,15 @@ function streetPage(street) {
         </div>
       </section>
 
-      ${contactSection(street.street)}
+${contactSection(street.street)}
 
       <section class="section" id="faq">
         <div class="shell">
           <div class="section-heading"><p class="eyebrow">FAQ</p><h2>${esc(street.street)} window cleaning questions.</h2></div>
           <div class="faq-list">
-            <article class="faq-item"><button type="button" class="faq-toggle" aria-expanded="false">Do you clean windows on ${esc(street.street)}?</button><div class="faq-answer"><p>Yes, where the postcode works for the round and access is practical. Send the exact postcode and I will check it properly.</p></div></article>
+            <article class="faq-item"><button type="button" class="faq-toggle" aria-expanded="false">Do you clean windows on ${esc(street.street)}?</button><div class="faq-answer"><p>Yes, if the postcode links well with my local round. Send the exact postcode and I will check it properly.</p></div></article>
             <article class="faq-item"><button type="button" class="faq-toggle" aria-expanded="false">What kind of properties affect the quote here?</button><div class="faq-answer"><p>On or near ${esc(street.street)}, the quote is shaped by ${esc(street.propertyCue)}, plus access, height, condition and frequency.</p></div></article>
-            <article class="faq-item"><button type="button" class="faq-toggle" aria-expanded="false">Can you do a hand finish?</button><div class="faq-answer"><p>Where glass is safe and practical to reach, yes. Traditional hand-finish work is often best for bungalows, ground-floor glass, doors, or detail areas.</p></div></article>
+            <article class="faq-item"><button type="button" class="faq-toggle" aria-expanded="false">Can you do a hand finish?</button><div class="faq-answer"><p>Where glass is safe to reach, yes. Traditional hand-finish work is often best for bungalows, ground-floor glass, doors, or detail areas.</p></div></article>
             <article class="faq-item"><button type="button" class="faq-toggle" aria-expanded="false">Should I send photos?</button><div class="faq-answer"><p>Photos help if the property is larger, older, extended, has awkward rear access or you want me to judge the best cleaning method.</p></div></article>
           </div>
         </div>
@@ -1504,7 +1522,7 @@ function methodPage(kind) {
     : "Traditional window cleaning and hand-finish work in Colchester";
   const description = isWfp
     ? "A simple guide to water-fed pole window cleaning in Colchester from SJ Windows, including how it works, why pure water is used and when it suits local homes."
-    : "Traditional window cleaning in Colchester from SJ Windows, with hand-finish work suited to bungalows, ground-floor glass and detail where practical.";
+    : "Traditional window cleaning in Colchester from SJ Windows, with hand-finish work suited to bungalows, ground-floor glass and detail areas.";
   const body = `${header(isWfp ? "WFP Cleaning" : "Traditional Cleaning")}
     <main id="main">
       <section class="page-hero">
@@ -1535,7 +1553,7 @@ function methodPage(kind) {
             <ul>
               ${
                 isWfp
-                  ? "<li>Upper windows cleaned from ground level where practical</li><li>Frames and sills as part of the normal clean</li><li>Regular residential routes</li><li>Safer access where ladders are not sensible</li>"
+                  ? "<li>Upper windows cleaned from ground level on many properties</li><li>Frames and sills as part of the normal clean</li><li>Regular residential routes</li><li>Safer access where ladders are not sensible</li>"
                   : "<li>Bungalows and single-storey glass</li><li>Ground-floor panes needing a hand finish</li><li>Inside glass where agreed</li><li>Detail work where access is safe</li>"
               }
             </ul>
@@ -1552,14 +1570,14 @@ function methodPage(kind) {
               ${esc(
                 isWfp
                   ? "The brush agitates the dirt, the purified water rinses it away, and the glass is left to dry naturally. Because the water is purified, it dries without the mineral spots ordinary tap water can leave."
-                  : "Traditional cleaning uses a washer, squeegee and detailing cloths. It can be a good option for easy ground-floor glass, bungalows, internal panes and areas where a close hand finish is practical."
+                  : "Traditional cleaning uses a washer, squeegee and detailing cloths. It can be a good option for easy ground-floor glass, bungalows, internal panes and areas where a close hand finish is needed."
               )}
             </p>
           </div>
           <div class="stacked-cards">
-            <article class="mini-card"><h3>Access matters</h3><p>Not every method suits every property, so I choose based on safety, finish and practicality.</p></article>
+            <article class="mini-card"><h3>Access matters</h3><p>Not every method suits every property, so I choose based on safety, finish and the result you need.</p></article>
             <article class="mini-card"><h3>Regular work</h3><p>Regular cleans are usually easier to keep consistent when the road works for the round.</p></article>
-            <article class="mini-card"><h3>Direct contact</h3><p>Send the postcode and I will explain what makes sense for your home.</p></article>
+            <article class="mini-card"><h3>Direct contact</h3><p>Send the postcode and I will explain the best method for your home.</p></article>
           </div>
         </div>
       </section>
@@ -1589,16 +1607,16 @@ function methodPage(kind) {
         </div>
       </section>
 
-      ${contactSection("Colchester", isWfp ? "water-fed pole window cleaning" : "traditional window cleaning")}
+${contactSection("Colchester", isWfp ? "water-fed pole window cleaning" : "traditional window cleaning")}
 
       <section class="section" id="faq">
         <div class="shell">
           <div class="section-heading"><p class="eyebrow">FAQ</p><h2>${esc(isWfp ? "Water-fed pole questions." : "Traditional cleaning questions.")}</h2></div>
           <div class="faq-list">
-            <article class="faq-item"><button type="button" class="faq-toggle" aria-expanded="false">${esc(isWfp ? "What is water-fed pole window cleaning?" : "What is traditional window cleaning?")}</button><div class="faq-answer"><p>${esc(isWfp ? "It is a method using purified water, a brush and an extendable pole to clean exterior glass, frames and sills from the ground where practical." : "It is the hand method using a washer, squeegee and detailing cloths, usually best for easy ground-floor glass, bungalows and internal panes where agreed.")}</p></div></article>
+            <article class="faq-item"><button type="button" class="faq-toggle" aria-expanded="false">${esc(isWfp ? "What is water-fed pole window cleaning?" : "What is traditional window cleaning?")}</button><div class="faq-answer"><p>${esc(isWfp ? "It is a method using purified water, a brush and an extendable pole to clean exterior glass, frames and sills from the ground on many properties." : "It is the hand method using a washer, squeegee and detailing cloths, usually best for easy ground-floor glass, bungalows and internal panes where agreed.")}</p></div></article>
             <article class="faq-item"><button type="button" class="faq-toggle" aria-expanded="false">${esc(isWfp ? "Why does the glass dry naturally?" : "Is traditional cleaning better for bungalows?")}</button><div class="faq-answer"><p>${esc(isWfp ? "The water is purified, so it dries without the mineral marks that normal tap water can leave." : "It can be a good fit for bungalows and ground-floor glass because the panes are easier to reach safely for a hand finish.")}</p></div></article>
-            <article class="faq-item"><button type="button" class="faq-toggle" aria-expanded="false">Can I choose the method?</button><div class="faq-answer"><p>You can ask, and I will explain what looks sensible for the property. Access, safety and the finish needed all matter.</p></div></article>
-            <article class="faq-item"><button type="button" class="faq-toggle" aria-expanded="false">How do I get a quote?</button><div class="faq-answer"><p>Send your postcode, rough property type, and whether you want regular or one-off cleaning. A quick photo can help if access is unusual.</p></div></article>
+            <article class="faq-item"><button type="button" class="faq-toggle" aria-expanded="false">Can I choose the method?</button><div class="faq-answer"><p>You can ask, and I will explain the best option for the property. Access, safety and the finish needed all matter.</p></div></article>
+            <article class="faq-item"><button type="button" class="faq-toggle" aria-expanded="false">How do I get a quote?</button><div class="faq-answer"><p>Send your postcode, property type, and whether you want regular or one-off cleaning. A quick photo can help if access is unusual.</p></div></article>
           </div>
         </div>
       </section>

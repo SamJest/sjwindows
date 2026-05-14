@@ -15,7 +15,7 @@ const site = {
   formSubject: "New SJ Windows quote enquiry",
   priceRange: "Guide prices by property",
   description:
-    "Friendly, local window cleaning and selected exterior cleaning in Colchester and nearby villages, where you deal directly with me and can get a sensible guide price online.",
+    "Friendly, local window cleaning and selected exterior cleaning in Colchester and nearby villages, where you deal directly with me and can get a clear guide price online.",
   serviceAreas: [
     "Colchester",
     "Wivenhoe",
@@ -1076,7 +1076,7 @@ function calculator() {
     const address = customerAddress?.value.trim();
     const name = customerName?.value.trim();
     return [
-      "Hi Sam, I used the Smart Quote tool and wanted to check what looks realistic from here.",
+      "Hi Sam, I used the Smart Quote tool and wanted to check the best next step from here.",
       name ? `Name: ${name}` : "",
       address ? `Postcode/address: ${address}` : "",
       `Guide price shown: ${result.price}`,
@@ -1188,7 +1188,7 @@ function calculator() {
     });
     update(
       "success",
-      "Guide price updated. Final price can still move once I've seen the property, but this gives you a sensible starting point."
+      "Guide price updated. Final price can still move once I've seen the property, but this gives you a clear starting point."
     );
   };
 

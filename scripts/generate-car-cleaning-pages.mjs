@@ -185,7 +185,7 @@ const header = (eyebrow) => `
     <a class="skip-link" href="#main">Skip to content</a>
     <div class="topbar">
       <div class="shell topbar__inner">
-        <p>Exterior car cleaning by SJ Windows where the address works for the round.</p>
+        <p>Exterior car cleaning by Sam at SJ Windows, with clear flat rates and direct contact.</p>
         <div class="topbar__links">
           <a href="tel:07756514110">Call 07756 514110</a>
           <a href="${carSmsHref}">Text quote details</a>
@@ -207,6 +207,7 @@ const header = (eyebrow) => `
           <a href="index.html#calculator">Smart Quote</a>
           <a href="services.html">Services</a>
           <a href="window-cleaning-prices-colchester.html">Prices</a>
+          <a href="index.html#street-discount">Street Saver</a>
           <a href="window-cleaner-near-colchester.html">Areas</a>
           <a href="reviews.html">Reviews</a>
           <a href="contact.html">Contact</a>
@@ -266,9 +267,10 @@ function contactPanel(areaLabel = "Colchester") {
         <div class="shell quote-panel">
           <div class="quote-panel__content">
             <p class="eyebrow">Book Or Ask</p>
-            <h2>Send the postcode, car size, and whether there is an accessible outside tap.</h2>
+            <h2>Text the postcode, car size and tap situation. I will keep it simple.</h2>
             <p>
-              Text or WhatsApp is usually easiest. If there is no accessible external tap, please say so before booking so I can add the &pound;5 no-tap charge.
+              Text or WhatsApp is usually easiest. If there is no accessible external tap, please
+              say so before booking so the &pound;5 no-tap charge is clear upfront.
             </p>
             <div class="contact-points">
               <a href="${carSmsHref}"><span>Text Sam</span><strong>Send car size and postcode</strong></a>
@@ -307,10 +309,12 @@ function mainPage() {
             <p class="eyebrow">Car Cleaning Colchester</p>
             <h1>Car cleaning in Colchester from SJ Windows</h1>
             <p class="hero__lead">
-              Straightforward exterior car cleaning with simple flat-rate pricing for small, medium, and large cars.
+              Straightforward exterior car cleaning with clear flat-rate prices for small, medium,
+              and large cars.
             </p>
             <p>
-              This is a practical add-on service where the route and setup fit. Tell me the postcode, car size, and whether there is an accessible external tap.
+              Tell me the postcode, car size, and whether there is an accessible external tap. I
+              will confirm the price before you book.
             </p>
             <div class="hero__actions">
               <a class="button" href="${carSmsHref}">Text postcode</a>
@@ -335,7 +339,8 @@ function mainPage() {
             <p class="eyebrow">Prices</p>
             <h2>Simple car cleaning prices before you message.</h2>
             <p>
-              These are flat rates for a straightforward exterior car clean. Heavier jobs, unusual vehicles, or anything beyond a normal outside clean can be discussed first.
+              These are flat rates for a normal exterior clean. If the car is unusually dirty,
+              oversized, or needs anything beyond the outside clean, I will say before booking.
             </p>
           </div>
           <div class="card-grid card-grid--three">
@@ -353,7 +358,8 @@ ${priceCards}
             <p class="eyebrow">What To Send</p>
             <h2>The first message can stay very simple.</h2>
             <p>
-              Send your postcode, whether the car is small, medium, or large, and whether there is an accessible external tap. If you are not sure on size, send the make/model or a photo.
+              Send your postcode, whether the car is small, medium, or large, and whether there is
+              an accessible external tap. If you are not sure on size, send the make/model or a photo.
             </p>
           </div>
           <div class="stacked-cards">
@@ -370,7 +376,8 @@ ${priceCards}
             <p class="eyebrow">Areas</p>
             <h2>Car cleaning in Colchester and nearby areas.</h2>
             <p>
-              These pages show the areas I can usually consider. Send the postcode and I will check properly.
+              These pages show the areas I can usually consider. Send the postcode and I will give
+              you a clear answer.
             </p>
           </div>
           <div class="area-cloud">
@@ -429,7 +436,8 @@ function hubPage() {
             <p class="eyebrow">Car Cleaning Near Colchester</p>
             <h1>Car cleaning near Colchester and surrounding areas</h1>
             <p class="hero__lead">
-              Local car cleaning pages for Colchester, nearby neighbourhoods, and surrounding villages where the route can make sense.
+              Local car cleaning pages for Colchester, nearby neighbourhoods, and surrounding
+              villages where bookings can link with my normal work.
             </p>
             <p>
               Prices stay simple: &pound;12 small car, &pound;15 medium car, &pound;17.50 large car, plus &pound;5 if there is no accessible external tap.
@@ -441,7 +449,7 @@ function hubPage() {
               <li>Send postcode</li>
               <li>Send car size</li>
               <li>Say whether there is an outside tap</li>
-              <li>Ask if I can cover the address</li>
+              <li>Ask me to confirm the price</li>
             </ul>
           </aside>
         </div>
@@ -450,7 +458,7 @@ function hubPage() {
         <div class="shell">
           <div class="section-heading">
             <p class="eyebrow">Area Pages</p>
-            <h2>Long-tail car cleaning pages around the SJ Windows route.</h2>
+            <h2>Car cleaning pages around Colchester and nearby villages.</h2>
           </div>
           <div class="card-grid card-grid--three">
             <article class="service-card">
@@ -526,9 +534,9 @@ ${priceCards}
         <div class="shell split">
           <div>
             <p class="eyebrow">Local Check</p>
-            <h2>Car cleaning in ${area} works best when the booking is practical.</h2>
+            <h2>Car cleaning in ${area} starts with a quick postcode check.</h2>
             <p>
-              ${intro} Send the postcode first and I will let you know whether it looks realistic.
+              ${intro} Send the postcode first and I will let you know whether I can help.
             </p>
           </div>
           <div class="stacked-cards">
