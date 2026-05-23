@@ -29,15 +29,15 @@ function quoteWhatsappHref(areaName, serviceLabel) {
 
 function localWindowCleanerTitle(areaName) {
   if (areaName === "Colchester") return "Window Cleaner in Colchester | Local Rounds";
-  const suffix = areaName.length > 15 ? "Direct Local Quotes" : "Text Sam for a Quote";
+  const suffix = areaName.length > 15 ? "Text Sam Direct" : "Direct Local Quotes";
   return `Window Cleaner ${areaName} | ${suffix}`;
 }
 
 function localWindowCleanerDescription(areaName) {
   if (areaName === "Colchester") {
-    return "Local Colchester window cleaner from Sam at SJ Windows. Regular round work, frames and sills included, guide prices and simple postcode quote checks.";
+    return "Text or WhatsApp Sam directly for a Colchester window cleaner. Regular local rounds, frames and sills included, and quick postcode quote checks.";
   }
-  return `Window cleaner in ${areaName} from Sam at SJ Windows. Regular 4, 6 and 8-weekly cleans, frames and sills included, guide prices and direct text or WhatsApp quotes.`;
+  return `Text or WhatsApp Sam directly for window cleaning in ${areaName}. Regular local rounds, frames and sills included, and quick postcode quote checks.`;
 }
 
 const reviews = [
@@ -367,9 +367,9 @@ const services = {
     slugPrefix: "solar-panel-cleaning",
     label: "Solar panel cleaning",
     h1: (area) => `Solar panel cleaning in ${area}`,
-    title: (area) => `Solar Panel Cleaning ${area} | SJ Windows`,
+    title: (area) => `Solar Panel Cleaning ${area} | Text Sam`,
     description: (area) =>
-      `Solar panel cleaning in ${area} by Sam from SJ Windows. Minimum price from £20, guide from £2 per panel, with access checked before booking.`,
+      `Text or WhatsApp Sam about solar panel cleaning in ${area}. Send postcode and photos for a direct access check before booking.`,
     what:
       "Solar panel cleaning is an outside clean of the panel surface where it can be done safely. Sam noticed many local solar panels get dirty over time, so it is available as an add-on or stand-alone job after an access check.",
     suits:
@@ -389,9 +389,9 @@ const services = {
     slugPrefix: "gutter-cleaning",
     label: "Gutter cleaning",
     h1: (area) => `Gutter cleaning in ${area}`,
-    title: (area) => `Gutter Cleaning ${area} | SJ Windows`,
+    title: (area) => `Gutter Cleaning ${area} | Text Sam`,
     description: (area) =>
-      `Gutter cleaning in ${area} from SJ Windows. Send Sam the postcode and access details for a clear quote before booking.`,
+      `Text or WhatsApp Sam about gutter cleaning in ${area}. Send postcode, access notes and photos for a direct local quote check.`,
     what:
       "Gutter cleaning helps clear built-up debris from gutters after access has been checked.",
     suits:
@@ -411,9 +411,9 @@ const services = {
     slugPrefix: "conservatory-roof-cleaning",
     label: "Conservatory roof cleaning",
     h1: (area) => `Conservatory roof cleaning in ${area}`,
-    title: (area) => `Conservatory Roof Cleaning ${area} | SJ Windows`,
+    title: (area) => `Conservatory Roof Cleaning ${area} | Text Sam`,
     description: (area) =>
-      `Conservatory roof cleaning in ${area} from SJ Windows. Direct contact with Sam, access checks and clear quote wording before booking.`,
+      `Text or WhatsApp Sam about conservatory roof cleaning in ${area}. Send postcode and photos for a direct access and price check.`,
     what:
       "Conservatory roof cleaning is an outside clean of the roof panels, bars and visible build-up where access is safe and the structure is suitable.",
     suits:
@@ -433,9 +433,9 @@ const services = {
     slugPrefix: "residential-window-cleaning",
     label: "Residential window cleaning",
     h1: (area) => `Residential window cleaning in ${area}`,
-    title: (area) => `Residential Window Cleaning ${area} | SJ Windows`,
+    title: (area) => `Residential Window Cleaning ${area} | Text Sam`,
     description: (area) =>
-      `Residential window cleaning in ${area} from Sam at SJ Windows. Regular local cleans, direct contact and guide prices for local homes.`,
+      `Text or WhatsApp Sam directly for residential window cleaning in ${area}. Regular local rounds, frames and sills included, postcode quote checks.`,
     what:
       "Residential window cleaning is the regular outside clean for homes, including glass, frames and sills as part of a normal clean.",
     suits:
@@ -682,11 +682,11 @@ function header(eyebrow = "Colchester", serviceLabel = "window cleaning") {
     <a class="skip-link" href="#main">Skip to content</a>
     <div class="topbar">
       <div class="shell topbar__inner">
-        <p>I'm Sam Jones. Friendly local window cleaning with clear prices, direct contact and regular rounds.</p>
+        <p>I'm Sam Jones. Text or WhatsApp your postcode for a direct local quote.</p>
         <div class="topbar__links">
-          <a href="${phoneHref}">Call ${phone}</a>
           <a href="${esc(headerSmsHref)}">Text quote details</a>
           <a href="${esc(headerWaHref)}">WhatsApp</a>
+          <a href="${phoneHref}">Call ${phone}</a>
         </div>
       </div>
     </div>
@@ -720,7 +720,7 @@ function footer() {
         <div>
           <p class="footer__brand">SJ Windows</p>
           <p>I'm Sam Jones.</p>
-          <p>Friendly local window cleaning in Colchester and nearby villages, from first quote to regular clean.</p>
+          <p>Friendly local window cleaning in Colchester and nearby villages. Text or WhatsApp Sam direct.</p>
         </div>
         <div>
           <p class="footer__heading">Top Services</p>
@@ -739,8 +739,9 @@ function footer() {
         </div>
         <div>
           <p class="footer__heading">Contact</p>
+          <a href="${esc(quoteSmsHref("Colchester", "window cleaning"))}">Text postcode</a>
+          <a href="${esc(quoteWhatsappHref("Colchester", "window cleaning"))}">WhatsApp Sam</a>
           <a href="${phoneHref}">${phone}</a>
-          <a href="${esc(quoteSmsHref("Colchester", "window cleaning"))}">Text quote details</a>
           <a href="mailto:${email}">${email}</a>
         </div>
       </div>
@@ -749,9 +750,9 @@ function footer() {
       </div>
     </footer>
     <div class="mobile-cta">
-      <a href="${phoneHref}">Call</a>
-      <a href="${smsHref}">Text</a>
+      <a href="${esc(quoteSmsHref("Colchester", "window cleaning"))}">Text</a>
       <a href="${waHref}">WhatsApp</a>
+      <a href="${phoneHref}">Call</a>
       <a href="index.html#calculator">Quote</a>
     </div>`;
 }
@@ -795,16 +796,16 @@ function contactSection(areaName, serviceLabel = "window cleaning") {
       <section class="section section--accent">
         <div class="shell quote-panel">
           <div class="quote-panel__content">
-            <p class="eyebrow">The Quickest Way To Get A Price</p>
+            <p class="eyebrow">Text Or WhatsApp Sam</p>
             <h2>Send the postcode and I will give you a clear next step.</h2>
             <p>
               The easiest first message is your postcode, property type, and whether you want a
               regular clean or a one-off. If access is unusual, a quick photo saves back-and-forth.
             </p>
             <div class="contact-points">
-              <a href="index.html#calculator"><span>Smart Quote</span><strong>Get a guide price</strong></a>
               <a href="${esc(areaSmsHref)}"><span>Text Sam</span><strong>${areaName === "your area" ? "Send your postcode" : `Send the ${esc(areaName)} postcode`}</strong></a>
               <a href="${esc(areaWaHref)}"><span>WhatsApp</span><strong>Ask about ${esc(serviceLabel)}</strong></a>
+              <a href="index.html#calculator"><span>Smart Quote</span><strong>Get a guide price</strong></a>
             </div>
           </div>
           <div class="panel">
@@ -840,20 +841,20 @@ function areaPage(area) {
               <span aria-current="page">${esc(area.name)}</span>
             </nav>
             <p class="eyebrow">Window Cleaner ${esc(area.name)}</p>
-            <h1>Window cleaner in ${esc(area.name)}</h1>
+            <h1>Window cleaner in ${esc(area.name)} from Sam.</h1>
             <p class="hero__lead">
               Friendly, regular window cleaning in ${esc(area.name)} from Sam at SJ Windows, with
-              frames and sills included and a simple way to ask for a price.
+              frames and sills included and a direct text or WhatsApp quote check.
             </p>
             <p>
               You deal directly with me from the first message to the clean itself. Send the
-              postcode, and I will check the address, explain the best option and keep the quote
-              clear before you book.
+              postcode, property type and a photo if access is unusual. I will check the address,
+              explain the best option and keep the quote clear before you book.
             </p>
             <div class="hero__actions">
-              <a class="button" href="index.html#calculator">Get a guide price</a>
-              <a class="button button--ghost" href="${esc(areaSmsHref)}">Text Sam</a>
+              <a class="button" href="${esc(areaSmsHref)}">Text Sam</a>
               <a class="button button--ghost" href="${esc(areaWaHref)}">WhatsApp Sam</a>
+              <a class="button button--ghost" href="index.html#calculator">Get a guide price</a>
             </div>
           </div>
           <aside class="hero-card">
@@ -874,7 +875,7 @@ function areaPage(area) {
             <p class="eyebrow">Why People In ${esc(area.name)} Enquire</p>
             <h2>A good quote starts with a few simple details.</h2>
             <p>
-              Send the postcode, property type, cleaning frequency and any access notes. I can then
+              Send the postcode, property type, cleaning frequency, photos and any access notes. I can then
               give you a useful answer instead of a vague guess.
             </p>
           </div>
@@ -1007,7 +1008,9 @@ function serviceAreaPage(serviceKey, areaName) {
   const slug = serviceSlug(serviceKey, areaName);
   const nearby = area.nearby.slice(0, 4).map((name) => [areaSlug(name), name]);
   const related = service.extraLinks;
-  const body = `${header(areaName)}
+  const serviceSmsHref = quoteSmsHref(areaName, service.label.toLowerCase());
+  const serviceWaHref = quoteWhatsappHref(areaName, service.label.toLowerCase());
+  const body = `${header(areaName, service.label.toLowerCase())}
     <main id="main">
       <section class="page-hero">
         <div class="shell page-hero__grid">
@@ -1026,9 +1029,9 @@ function serviceAreaPage(serviceKey, areaName) {
               and I will give you a clear quote or explain what I need to check first.
             </p>
             <div class="hero__actions">
-              <a class="button" href="index.html#calculator">Get a guide price</a>
-              <a class="button button--ghost" href="${smsHref}">Text Sam</a>
-              <a class="button button--ghost" href="${waHref}">WhatsApp Sam</a>
+              <a class="button" href="${esc(serviceSmsHref)}">Text Sam</a>
+              <a class="button button--ghost" href="${esc(serviceWaHref)}">WhatsApp Sam</a>
+              <a class="button button--ghost" href="index.html#calculator">Get a guide price</a>
             </div>
           </div>
           <aside class="hero-card">

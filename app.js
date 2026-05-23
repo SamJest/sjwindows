@@ -622,7 +622,7 @@ function forms() {
     if (feedback && !feedback.textContent.trim()) {
       note(
         feedback,
-        "This sends the enquiry details to SJ Windows. If the form is unavailable, text or WhatsApp the postcode instead."
+        "Text or WhatsApp is the quickest route. This form is a backup and may be unavailable."
       );
     }
 
@@ -652,7 +652,7 @@ function forms() {
         });
         note(
           feedback,
-          `The secure form key still needs to be added. Please text or WhatsApp ${site.phoneDisplay} with your postcode for now.`,
+          `The form is not switched on yet. Please text or WhatsApp ${site.phoneDisplay} with your postcode and any useful photos.`,
           "error"
         );
         return;
@@ -694,7 +694,7 @@ function forms() {
         });
         note(
           feedback,
-          `Something stopped the form sending. Please text or WhatsApp ${site.phoneDisplay} with your postcode instead.`,
+          `Something stopped the form sending. Please text or WhatsApp ${site.phoneDisplay} with your postcode and any useful photos instead.`,
           "error"
         );
       } finally {
@@ -745,6 +745,7 @@ function conversionTracking() {
       trackConversion("click_call", { method: "phone", ...detail });
     } else if (href.startsWith("sms:")) {
       trackConversion("click_text", { method: "sms", ...detail });
+      trackConversion("click_sms", { method: "sms", ...detail });
     } else if (href.includes("wa.me/")) {
       trackConversion("click_whatsapp", { method: "whatsapp", ...detail });
     } else if (href.startsWith("mailto:")) {
