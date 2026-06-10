@@ -3,7 +3,7 @@ import { resolve } from "node:path";
 
 const root = resolve(import.meta.dirname, "..");
 const siteUrl = "https://sjwindowscolchester.co.uk";
-const lastmod = "2026-05-10";
+const lastmod = "2026-06-10";
 const phone = "07756 514110";
 const phoneHref = "tel:07756514110";
 const smsHref = "sms:07756514110";
@@ -12,6 +12,19 @@ const waHref =
   "https://wa.me/447756514110?text=Hi%20Sam%2C%20I%27m%20looking%20for%20a%20window%20cleaning%20quote.%20My%20postcode%20is...";
 const gtmId = "GTM-5267LQLD";
 const gaMeasurementId = "G-MCX2ZWX8DQ";
+const priorityAreaNames = [
+  "Manningtree",
+  "Mersea Island",
+  "Tiptree",
+  "Brightlingsea",
+  "Wivenhoe",
+  "Rowhedge",
+  "Copford",
+  "Great Horkesley",
+  "East Bergholt",
+  "Thorpe-le-Soken",
+  "Greenstead",
+];
 
 function quoteMessage(areaName = "Colchester", serviceLabel = "window cleaning") {
   return `Hi Sam, I am looking for a ${serviceLabel} quote in ${areaName}. My postcode is...`;
@@ -28,14 +41,14 @@ function quoteWhatsappHref(areaName, serviceLabel) {
 }
 
 function localWindowCleanerTitle(areaName) {
-  if (areaName === "Colchester") return "Window Cleaner in Colchester | Local Rounds";
+  if (areaName === "Colchester") return "Window Cleaner in Colchester | Local Round Quote";
   const suffix = areaName.length > 15 ? "Text Sam Direct" : "Direct Local Quotes";
   return `Window Cleaner ${areaName} | ${suffix}`;
 }
 
 function localWindowCleanerDescription(areaName) {
   if (areaName === "Colchester") {
-    return "Text or WhatsApp Sam directly for a Colchester window cleaner. Regular local rounds, frames and sills included, and quick postcode quote checks.";
+    return "Colchester window cleaner for regular local rounds from Sam at SJ Windows. Send your postcode for a direct quote with frames and sills included.";
   }
   return `Text or WhatsApp Sam directly for window cleaning in ${areaName}. Regular local rounds, frames and sills included, and quick postcode quote checks.`;
 }
@@ -367,9 +380,9 @@ const services = {
     slugPrefix: "solar-panel-cleaning",
     label: "Solar panel cleaning",
     h1: (area) => `Solar panel cleaning in ${area}`,
-    title: (area) => `Solar Panel Cleaning ${area} | Text Sam`,
+    title: (area) => `Solar Panel Cleaning ${area} | Access-Checked Quote`,
     description: (area) =>
-      `Text or WhatsApp Sam about solar panel cleaning in ${area}. Send postcode and photos for a direct access check before booking.`,
+      `Solar panel cleaning in ${area} from Sam at SJ Windows. Send postcode and photos for a direct access check before booking.`,
     what:
       "Solar panel cleaning is an outside clean of the panel surface where it can be done safely. Sam noticed many local solar panels get dirty over time, so it is available as an add-on or stand-alone job after an access check.",
     suits:
@@ -378,6 +391,9 @@ const services = {
       "The minimum price is £20. As a guide, panels start from £2 each, but the actual quote depends on panel count, access, height, condition, and the address.",
     regular:
       "This is often a one-off or occasional clean rather than a fixed monthly job. Dirty panels can reduce performance, but the exact difference varies, so I do not promise guaranteed energy improvements.",
+    clarificationTitle: "What this is, and what it is not",
+    clarification:
+      "This is an exterior clean of accessible solar panel surfaces. It is not electrical work, panel repair, roof repair or a promise of a fixed energy-output improvement.",
     extraLinks: [
       ["residential-window-cleaning-colchester.html", "Residential window cleaning"],
       ["gutter-cleaning-colchester.html", "Gutter cleaning"],
@@ -389,17 +405,20 @@ const services = {
     slugPrefix: "gutter-cleaning",
     label: "Gutter cleaning",
     h1: (area) => `Gutter cleaning in ${area}`,
-    title: (area) => `Gutter Cleaning ${area} | Text Sam`,
+    title: (area) => `Gutter Cleaning ${area} | Clear Debris, Not Repairs`,
     description: (area) =>
-      `Text or WhatsApp Sam about gutter cleaning in ${area}. Send postcode, access notes and photos for a direct local quote check.`,
+      `Gutter cleaning in ${area} from Sam at SJ Windows. Clear debris where access works; not gutter repairs, replacement or installation.`,
     what:
-      "Gutter cleaning helps clear built-up debris from gutters after access has been checked.",
+      "Gutter cleaning helps clear built-up leaves, moss and debris from gutters after access has been checked.",
     suits:
       "It can suit homes with overflowing gutters, visible debris, trees nearby, or gutters that have not been cleared for a while.",
     pricing:
       "The quote depends on height, access, gutter length, blockage level, property shape and whether the visit can fit with nearby work.",
     regular:
       "Most gutter cleans are occasional rather than every window clean. Some homes with trees nearby may need checking more often.",
+    clarificationTitle: "Gutter cleaning, not gutter repairs",
+    clarification:
+      "This service is for clearing and cleaning accessible gutters. I do not advertise gutter repairs, replacement, new guttering or roofline installation, but I can still tell you if the job looks more like a repair than a clean.",
     extraLinks: [
       ["fascia-soffit-cleaning-colchester.html", "Fascia and soffit cleaning"],
       ["conservatory-roof-cleaning-colchester.html", "Conservatory roof cleaning"],
@@ -413,7 +432,7 @@ const services = {
     h1: (area) => `Conservatory roof cleaning in ${area}`,
     title: (area) => `Conservatory Roof Cleaning ${area} | Text Sam`,
     description: (area) =>
-      `Text or WhatsApp Sam about conservatory roof cleaning in ${area}. Send postcode and photos for a direct access and price check.`,
+      `Conservatory roof cleaning in ${area} from Sam at SJ Windows. Exterior conservatory roof panels, bars and build-up; not full roof cleaning.`,
     what:
       "Conservatory roof cleaning is an outside clean of the roof panels, bars and visible build-up where access is safe and the structure is suitable.",
     suits:
@@ -422,6 +441,9 @@ const services = {
       "The quote depends on roof size, panel count, height, access, condition, water access and how much careful detail work is needed.",
     regular:
       "This is usually a one-off or occasional clean. Regular window cleaning can help keep the surrounding glass in better shape between deeper roof cleans.",
+    clarificationTitle: "Conservatory roof cleaning, not full roof cleaning",
+    clarification:
+      "This page is for conservatory roof panels, bars and surrounding glass where the structure and access are suitable. It is not tile roof cleaning, roof moss removal, pressure washing a house roof or roof repair work.",
     extraLinks: [
       ["residential-window-cleaning-colchester.html", "Residential window cleaning"],
       ["gutter-cleaning-colchester.html", "Gutter cleaning"],
@@ -433,9 +455,9 @@ const services = {
     slugPrefix: "residential-window-cleaning",
     label: "Residential window cleaning",
     h1: (area) => `Residential window cleaning in ${area}`,
-    title: (area) => `Residential Window Cleaning ${area} | Text Sam`,
+    title: (area) => `Residential Window Cleaning ${area} | Text Sam Direct`,
     description: (area) =>
-      `Text or WhatsApp Sam directly for residential window cleaning in ${area}. Regular local rounds, frames and sills included, postcode quote checks.`,
+      `Residential window cleaning in ${area} from Sam at SJ Windows. Regular local rounds, frames and sills included, direct postcode quote checks.`,
     what:
       "Residential window cleaning is the regular outside clean for homes, including glass, frames and sills as part of a normal clean.",
     suits:
@@ -444,6 +466,9 @@ const services = {
       "The quote depends on property type, glass, access, storeys, condition, frequency, and whether the address works for the round.",
     regular:
       "Regular 4, 6 or 8-weekly cleans usually work best because the windows stay more manageable and the route can be planned properly.",
+    clarificationTitle: "Residential window cleaning first",
+    clarification:
+      "This page is for home window cleaning and closely related add-ons. It is not window installation, replacement glazing, skylight fitting or building work.",
     extraLinks: [
       ["window-cleaning-prices-colchester.html", "Window cleaning prices"],
       ["water-fed-pole-window-cleaning-colchester.html", "Water-fed pole cleaning"],
@@ -757,7 +782,89 @@ function footer() {
     </div>`;
 }
 
-function pageShell({ title, description, slug, pageType, serviceName, serviceType, body }) {
+function queryClusterFor(pageType, serviceName = "", areaName = "") {
+  const text = `${pageType} ${serviceName} ${areaName}`.toLowerCase();
+  if (text.includes("gutter")) return "gutter-cleaning";
+  if (text.includes("conservatory")) return "conservatory-roof-cleaning";
+  if (text.includes("solar")) return "solar-panel-cleaning";
+  if (text.includes("fascia") || text.includes("soffit")) return "fascia-soffit-cleaning";
+  if (text.includes("residential")) return "residential-window-cleaning";
+  if (areaName === "Colchester") return "colchester-window-cleaning-local";
+  if (priorityAreaNames.some((name) => name.toLowerCase() === areaName.toLowerCase())) {
+    return "priority-local-window-cleaner";
+  }
+  if (pageType === "area") return "local-window-cleaner";
+  return "colchester-window-cleaning";
+}
+
+function staticSchema({ title, description, slug, pageType, serviceName, serviceType, areaName = "" }) {
+  const pageUrl = `${siteUrl}/${slug}`;
+  const businessId = `${siteUrl}/#business`;
+  const nodes = [
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "@id": `${pageUrl}#webpage`,
+      url: pageUrl,
+      name: title,
+      description,
+      isPartOf: { "@id": `${siteUrl}/#website` },
+      about: { "@id": businessId },
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "@id": `${siteUrl}/#website`,
+      url: siteUrl,
+      name: "SJ Windows",
+      description:
+        "Friendly local window cleaning and selected exterior cleaning in Colchester and nearby villages.",
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "@id": businessId,
+      name: "SJ Windows",
+      url: siteUrl,
+      telephone: "+447756514110",
+      email,
+      image: `${siteUrl}/sj-windows-social.jpg`,
+      priceRange: "Guide prices by property",
+      areaServed: areas.map((area) => ({ "@type": "Place", name: area.name })),
+    },
+  ];
+
+  if (["service", "area", "prices", "residential", "services"].includes(pageType)) {
+    nodes.push({
+      "@context": "https://schema.org",
+      "@type": "Service",
+      name: serviceName,
+      serviceType,
+      description,
+      url: pageUrl,
+      provider: { "@id": businessId },
+      areaServed: areaName
+        ? [{ "@type": "Place", name: areaName }]
+        : areas.map((area) => ({ "@type": "Place", name: area.name })),
+    });
+  }
+
+  return JSON.stringify(nodes).replaceAll("<", "\\u003c");
+}
+
+function pageShell({
+  title,
+  description,
+  slug,
+  pageType,
+  serviceName,
+  serviceType,
+  body,
+  areaName = "",
+  queryCluster = "",
+}) {
+  const resolvedQueryCluster = queryCluster || queryClusterFor(pageType, serviceName, areaName);
+  const areaAttr = areaName ? ` data-area-name="${esc(areaName)}"` : "";
   return `<!DOCTYPE html>
 <html lang="en-GB">
   <head>
@@ -778,10 +885,19 @@ ${gaScript()}
     <meta name="twitter:card" content="summary_large_image" />
     <link rel="canonical" href="${siteUrl}/${esc(slug)}" />
     <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+    <script type="application/ld+json" data-static-schema>${staticSchema({
+      title,
+      description,
+      slug,
+      pageType,
+      serviceName,
+      serviceType,
+      areaName,
+    })}</script>
     <link rel="stylesheet" href="styles.css" />
     <script src="app.js" defer></script>
   </head>
-  <body data-page-type="${esc(pageType)}" data-service-name="${esc(serviceName)}" data-service-type="${esc(serviceType)}">${gtmNoscript()}
+  <body data-page-type="${esc(pageType)}" data-service-name="${esc(serviceName)}" data-service-type="${esc(serviceType)}"${areaAttr} data-query-cluster="${esc(resolvedQueryCluster)}">${gtmNoscript()}
 ${body}
 ${footer()}
   </body>
@@ -793,7 +909,7 @@ function contactSection(areaName, serviceLabel = "window cleaning") {
   const areaSmsHref = quoteSmsHref(areaName, serviceLabel);
   const areaWaHref = quoteWhatsappHref(areaName, serviceLabel);
   return `
-      <section class="section section--accent">
+      <section class="section section--accent" data-cta-location="quote-panel" data-quote-route="direct-contact">
         <div class="shell quote-panel">
           <div class="quote-panel__content">
             <p class="eyebrow">Text Or WhatsApp Sam</p>
@@ -830,6 +946,19 @@ function areaPage(area) {
   const areaSmsHref = quoteSmsHref(area.name, "window cleaning");
   const areaWaHref = quoteWhatsappHref(area.name, "window cleaning");
   const nearby = area.nearby.map((name) => [areaSlug(name), name]);
+  const priorityNearby = priorityAreaNames
+    .filter((name) => name !== area.name)
+    .slice(0, 7)
+    .map((name) => [areaSlug(name), name]);
+  const coreIntent =
+    area.name === "Colchester"
+      ? `
+            <p>
+              This page is built around the main searches people use: window cleaning Colchester,
+              window cleaner Colchester, Colchester window cleaning and window cleaners in
+              Colchester. If you want a local regular clean, start here and message me direct.
+            </p>`
+      : "";
   const body = `${header(area.name)}
     <main id="main">
       <section class="page-hero">
@@ -841,7 +970,7 @@ function areaPage(area) {
               <span aria-current="page">${esc(area.name)}</span>
             </nav>
             <p class="eyebrow">Window Cleaner ${esc(area.name)}</p>
-            <h1>Window cleaner in ${esc(area.name)} from Sam.</h1>
+            <h1>${esc(area.name)} window cleaner for regular window cleaning.</h1>
             <p class="hero__lead">
               Friendly, regular window cleaning in ${esc(area.name)} from Sam at SJ Windows, with
               frames and sills included and a direct text or WhatsApp quote check.
@@ -851,6 +980,7 @@ function areaPage(area) {
               postcode, property type and a photo if access is unusual. I will check the address,
               explain the best option and keep the quote clear before you book.
             </p>
+${coreIntent}
             <div class="hero__actions">
               <a class="button" href="${esc(areaSmsHref)}">Text Sam</a>
               <a class="button button--ghost" href="${esc(areaWaHref)}">WhatsApp Sam</a>
@@ -958,6 +1088,9 @@ function areaPage(area) {
             <p>Not sure if I cover your road? Send the postcode and I will give you a clear answer.</p>
           </div>
           <div class="area-cloud">${chips(nearby)}<a class="area-chip" href="areas.html">All areas covered</a></div>
+          <p class="section-linkline">
+            Priority local searches: ${priorityNearby.map(([href, label]) => `<a class="text-link" href="${esc(href)}">${esc(label)}</a>`).join(" ")}
+          </p>
         </div>
       </section>
 
@@ -998,6 +1131,7 @@ ${contactSection(area.name)}
     pageType: "area",
     serviceName: `Window cleaner in ${area.name}`,
     serviceType: `Residential window cleaning in ${area.name}`,
+    areaName: area.name,
     body,
   });
 }
@@ -1010,6 +1144,27 @@ function serviceAreaPage(serviceKey, areaName) {
   const related = service.extraLinks;
   const serviceSmsHref = quoteSmsHref(areaName, service.label.toLowerCase());
   const serviceWaHref = quoteWhatsappHref(areaName, service.label.toLowerCase());
+  const clarificationBlock = service.clarification
+    ? `<div class="panel">
+            <p class="eyebrow">${esc(service.clarificationTitle)}</p>
+            <p>${esc(service.clarification)}</p>
+          </div>`
+    : "";
+  const clarificationSection = clarificationBlock
+    ? `<section class="section section--accent">
+        <div class="shell split">
+          <div>
+            <p class="eyebrow">Clear Scope</p>
+            <h2>So the enquiry goes to the right service.</h2>
+            <p>
+              A few searches in Google are broader than the work I actually offer. I would rather
+              make the scope clear before you waste time asking for the wrong thing.
+            </p>
+          </div>
+          ${clarificationBlock}
+        </div>
+      </section>`
+    : "";
   const body = `${header(areaName, service.label.toLowerCase())}
     <main id="main">
       <section class="page-hero">
@@ -1061,6 +1216,8 @@ function serviceAreaPage(serviceKey, areaName) {
           </div>
         </div>
       </section>
+
+${clarificationSection}
 
       <section class="section section--accent">
         <div class="shell split">
@@ -1136,6 +1293,7 @@ ${contactSection(areaName, service.label.toLowerCase())}
     pageType: "service",
     serviceName: `${service.label} in ${areaName}`,
     serviceType: service.label,
+    areaName,
     body,
   });
 }
@@ -1645,6 +1803,14 @@ function sitemap() {
     .filter((file) => file.endsWith(".html") && file !== "404.html")
     .sort((a, b) => a.localeCompare(b));
   const urls = ["index.html", ...htmlFiles.filter((file) => file !== "index.html")];
+  const priorityLocalFiles = new Set(priorityAreaNames.map((name) => areaSlug(name)));
+  const priorityServicePrefixes = [
+    "residential-window-cleaning-colchester",
+    "fascia-soffit-cleaning-colchester",
+    "gutter-cleaning-colchester",
+    "conservatory-roof-cleaning-colchester",
+    "solar-panel-cleaning-colchester",
+  ];
   const entries = urls
     .map((file) => {
       const loc = file === "index.html" ? `${siteUrl}/` : `${siteUrl}/${file}`;
@@ -1655,6 +1821,10 @@ function sitemap() {
             ? "0.9"
             : file.includes("prices") || file === "contact.html" || file === "services.html" || file === "reviews.html"
               ? "0.9"
+              : priorityServicePrefixes.some((prefix) => file.startsWith(prefix))
+                ? "0.85"
+              : priorityLocalFiles.has(file)
+                ? "0.82"
               : file.startsWith("window-cleaner-")
                 ? "0.7"
                 : "0.75";

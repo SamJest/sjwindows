@@ -492,6 +492,8 @@ function currentMeta() {
       $('meta[name="description"]')?.getAttribute("content")?.trim() || site.description,
     path,
     pageType,
+    areaName: document.body?.dataset.areaName || "",
+    queryCluster: document.body?.dataset.queryCluster || "",
     serviceName:
       document.body?.dataset.serviceName ||
       (areaName ? `Window cleaner in ${areaName}` : "") ||
@@ -705,9 +707,14 @@ function forms() {
 }
 
 function trackConversion(eventName, params = {}) {
+  const meta = currentMeta();
   const payload = {
     event_category: "engagement",
     page_path: currentPath(),
+    page_type: meta.pageType,
+    service_name: meta.serviceName,
+    area_name: meta.areaName,
+    query_cluster: meta.queryCluster,
     ...params,
   };
 
@@ -728,9 +735,17 @@ function conversionTracking() {
 
     const href = link.getAttribute("href") || "";
     const label = link.textContent.replace(/\s+/g, " ").trim();
+    const container = link.closest("[data-cta-location], section, header, footer");
     const detail = {
       link_url: link.href || href,
       link_text: label,
+      cta_location:
+        link.dataset.ctaLocation ||
+        container?.dataset?.ctaLocation ||
+        container?.id ||
+        container?.className?.toString().split(/\s+/).filter(Boolean)[0] ||
+        "",
+      quote_route: link.dataset.quoteRoute || container?.dataset?.quoteRoute || "",
     };
 
     if (link.hasAttribute("data-quote-sms")) {
@@ -778,21 +793,24 @@ function schema() {
   const baseUrl = siteBaseUrl();
   const pageUrl = absoluteUrl(meta.path);
   const businessId = baseUrl ? `${baseUrl}/#business` : "#business";
+  const hasStaticSchema = Boolean($("script[data-static-schema]"));
   const existing = $("script[data-generated-schema]");
   existing?.remove();
 
-  const nodes = [
-    {
-      "@context": "https://schema.org",
-      "@type": "WebPage",
-      name: meta.title,
-      description: meta.description,
-      ...(pageUrl ? { url: pageUrl } : {}),
-      ...(baseUrl ? { isPartOf: { "@id": `${baseUrl}/#website` } } : {}),
-    },
-  ];
+  const nodes = hasStaticSchema
+    ? []
+    : [
+        {
+          "@context": "https://schema.org",
+          "@type": "WebPage",
+          name: meta.title,
+          description: meta.description,
+          ...(pageUrl ? { url: pageUrl } : {}),
+          ...(baseUrl ? { isPartOf: { "@id": `${baseUrl}/#website` } } : {}),
+        },
+      ];
 
-  if (baseUrl) {
+  if (baseUrl && !hasStaticSchema) {
     nodes.push({
       "@context": "https://schema.org",
       "@type": "WebSite",
@@ -828,9 +846,11 @@ function schema() {
       ],
     };
 
-  nodes.push(localBusiness);
+  if (!hasStaticSchema) {
+    nodes.push(localBusiness);
+  }
 
-  if (["service", "area", "prices", "residential", "services"].includes(meta.pageType)) {
+  if (!hasStaticSchema && ["service", "area", "prices", "residential", "services"].includes(meta.pageType)) {
     nodes.push({
       "@context": "https://schema.org",
       "@type": "Service",
@@ -890,6 +910,8 @@ function schema() {
       mainEntity: faqs,
     });
   }
+
+  if (!nodes.length) return;
 
   const script = document.createElement("script");
   script.type = "application/ld+json";
