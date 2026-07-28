@@ -3,7 +3,7 @@ import { resolve } from "node:path";
 
 const root = resolve(import.meta.dirname, "..");
 const siteUrl = "https://sjwindowscolchester.co.uk";
-const lastmod = "2026-06-10";
+const lastmod = "2026-07-28";
 const phone = "07756 514110";
 const phoneHref = "tel:07756514110";
 const smsHref = "sms:07756514110";
@@ -41,14 +41,14 @@ function quoteWhatsappHref(areaName, serviceLabel) {
 }
 
 function localWindowCleanerTitle(areaName) {
-  if (areaName === "Colchester") return "Window Cleaner in Colchester | Local Round Quote";
+  if (areaName === "Colchester") return "Window Cleaner Colchester | Local Window Cleaning Quote";
   const suffix = areaName.length > 15 ? "Text Sam Direct" : "Direct Local Quotes";
   return `Window Cleaner ${areaName} | ${suffix}`;
 }
 
 function localWindowCleanerDescription(areaName) {
   if (areaName === "Colchester") {
-    return "Colchester window cleaner for regular local rounds from Sam at SJ Windows. Send your postcode for a direct quote with frames and sills included.";
+    return "Window cleaning in Colchester from Sam at SJ Windows. Regular local rounds, frames and sills included, and direct text or WhatsApp quote checks.";
   }
   return `Text or WhatsApp Sam directly for window cleaning in ${areaName}. Regular local rounds, frames and sills included, and quick postcode quote checks.`;
 }
@@ -263,6 +263,16 @@ const areas = [
     nearby: ["Stanway", "Copford", "Eight Ash Green", "Tiptree", "West Bergholt"],
   },
   {
+    name: "Elmstead",
+    slug: "window-cleaner-elmstead.html",
+    group: "East Colchester and Tendring-side villages",
+    character: "east-side village route work",
+    propertyMix: "village homes, bungalows, family houses and exterior cleaning enquiries",
+    route:
+      "Elmstead is best checked by postcode because it usually needs to link with Wivenhoe, Greenstead, Great Bentley, Frating or other east-side route work.",
+    nearby: ["Wivenhoe", "Greenstead", "Great Bentley", "Frating", "Colchester"],
+  },
+  {
     name: "Copford",
     slug: "window-cleaner-copford.html",
     group: "West Colchester",
@@ -380,9 +390,9 @@ const services = {
     slugPrefix: "solar-panel-cleaning",
     label: "Solar panel cleaning",
     h1: (area) => `Solar panel cleaning in ${area}`,
-    title: (area) => `Solar Panel Cleaning ${area} | Access-Checked Quote`,
+    title: (area) => `Solar Panel Cleaning ${area} | Safe Access Quote`,
     description: (area) =>
-      `Solar panel cleaning in ${area} from Sam at SJ Windows. Send postcode and photos for a direct access check before booking.`,
+      `Solar panel cleaning in ${area} from Sam at SJ Windows, from 20 pounds after a safe access check. Send postcode, panel count and photos before booking.`,
     what:
       "Solar panel cleaning is an outside clean of the panel surface where it can be done safely. Sam noticed many local solar panels get dirty over time, so it is available as an add-on or stand-alone job after an access check.",
     suits:
@@ -405,9 +415,9 @@ const services = {
     slugPrefix: "gutter-cleaning",
     label: "Gutter cleaning",
     h1: (area) => `Gutter cleaning in ${area}`,
-    title: (area) => `Gutter Cleaning ${area} | Clear Debris, Not Repairs`,
+    title: (area) => `Gutter Cleaning ${area} | Clear Leaves, Moss and Debris`,
     description: (area) =>
-      `Gutter cleaning in ${area} from Sam at SJ Windows. Clear debris where access works; not gutter repairs, replacement or installation.`,
+      `Gutter cleaning in ${area} from Sam at SJ Windows. Clear leaves, moss and debris where access works; not gutter repairs or installation.`,
     what:
       "Gutter cleaning helps clear built-up leaves, moss and debris from gutters after access has been checked.",
     suits:
@@ -430,9 +440,9 @@ const services = {
     slugPrefix: "conservatory-roof-cleaning",
     label: "Conservatory roof cleaning",
     h1: (area) => `Conservatory roof cleaning in ${area}`,
-    title: (area) => `Conservatory Roof Cleaning ${area} | Text Sam`,
+    title: (area) => `Conservatory Roof Cleaning ${area} | Panels, Bars and Glass`,
     description: (area) =>
-      `Conservatory roof cleaning in ${area} from Sam at SJ Windows. Exterior conservatory roof panels, bars and build-up; not full roof cleaning.`,
+      `Conservatory roof cleaning in ${area} from Sam at SJ Windows. Exterior panels, bars and surrounding glass cleaned where access is suitable.`,
     what:
       "Conservatory roof cleaning is an outside clean of the roof panels, bars and visible build-up where access is safe and the structure is suitable.",
     suits:
@@ -450,14 +460,91 @@ const services = {
       ["fascia-soffit-cleaning-colchester.html", "Fascia and soffit cleaning"],
     ],
   },
+  roof: {
+    key: "roof",
+    slugPrefix: "roof-cleaning",
+    label: "Roof cleaning check",
+    h1: (area) => `Roof cleaning checks in ${area}`,
+    title: (area) => `Roof Cleaning ${area} | Conservatories, Gutters and Roofline`,
+    description: (area) =>
+      `Searching for roof cleaning in ${area}? Sam can quote conservatory roofs, gutters, fascias, soffits and solar panels where access is safe.`,
+    what:
+      "Some roof cleaning searches are really about conservatory roofs, gutters, fascias, soffits, solar panels or visible roofline dirt. This page helps route the enquiry to the part I can actually quote safely.",
+    suits:
+      "It suits homeowners who want the outside roofline area looking cleaner, especially when the job is a conservatory roof, blocked gutters, dirty fascias or accessible solar panels.",
+    pricing:
+      "The quote depends on which surface needs cleaning, height, access, condition, water access, photos and whether the job can fit with nearby window cleaning work.",
+    regular:
+      "Most roofline-related cleans are occasional add-ons rather than every regular window clean. Send photos first so I can say whether it is suitable.",
+    clarificationTitle: "Not tile roof moss removal",
+    clarification:
+      "This is not house roof pressure washing, tile roof scraping, roof moss removal, roof repairs or commercial roof work. If the enquiry is really a conservatory roof, gutters, fascias, soffits or solar panels, I can check it.",
+    extraLinks: [
+      ["conservatory-roof-cleaning-colchester.html", "Conservatory roof cleaning"],
+      ["gutter-cleaning-colchester.html", "Gutter cleaning"],
+      ["fascia-soffit-cleaning-colchester.html", "Fascia and soffit cleaning"],
+      ["solar-panel-cleaning-colchester.html", "Solar panel cleaning"],
+    ],
+  },
+  cladding: {
+    key: "cladding",
+    slugPrefix: "cladding-cleaning",
+    label: "Cladding cleaning",
+    h1: (area) => `Cladding cleaning in ${area}`,
+    title: (area) => `Cladding Cleaning ${area} | Safe Exterior Quote Check`,
+    description: (area) =>
+      `Cladding cleaning in ${area} from Sam at SJ Windows. Send postcode and photos for an exterior cleaning quote where access is suitable.`,
+    what:
+      "Cladding cleaning is an exterior surface clean for suitable accessible cladding, usually quoted from photos before agreeing the job.",
+    suits:
+      "It suits homes or small premises with accessible exterior cladding that has weathering, algae marks or general dirt and can be cleaned safely.",
+    pricing:
+      "The quote depends on surface size, height, access, material condition, water access, nearby route fit and whether it can be combined with windows or gutters.",
+    regular:
+      "Cladding is usually an occasional clean rather than a regular round visit. If you already want windows, gutters or fascias cleaned, mention everything in one message.",
+    clarificationTitle: "Exterior cleaning, not repairs",
+    clarification:
+      "This is cleaning only. It is not cladding installation, replacement, repair, painting or high-level commercial access work.",
+    extraLinks: [
+      ["fascia-soffit-cleaning-colchester.html", "Fascia and soffit cleaning"],
+      ["gutter-cleaning-colchester.html", "Gutter cleaning"],
+      ["services.html", "All exterior services"],
+    ],
+  },
+  exterior: {
+    key: "exterior",
+    slugPrefix: "exterior-cleaning",
+    label: "Exterior cleaning",
+    h1: (area) => `Exterior cleaning in ${area}`,
+    title: (area) => `Exterior Cleaning ${area} | Windows, Gutters and Roofline`,
+    description: (area) =>
+      `Exterior cleaning in ${area} from SJ Windows: windows, gutters, fascias, soffits, conservatory roofs and solar panels where access works.`,
+    what:
+      "Exterior cleaning covers the outside jobs people often ask about together: windows, gutters, fascias, soffits, conservatory roofs, solar panels and suitable surface cleaning.",
+    suits:
+      "It suits homes where the glass, roofline or add-on surfaces need a practical tidy-up and the quote can be checked from postcode details and photos.",
+    pricing:
+      "The quote depends on which services you want, access, height, surface condition, frequency, photos and whether the address works with local route planning.",
+    regular:
+      "Regular window cleaning can be combined with occasional exterior add-ons when the setup makes sense.",
+    clarificationTitle: "Practical outside cleaning only",
+    clarification:
+      "This is for cleaning suitable exterior surfaces. It is not building repairs, installation, pressure washing a house roof, painting or replacement work.",
+    extraLinks: [
+      ["residential-window-cleaning-colchester.html", "Residential window cleaning"],
+      ["gutter-cleaning-colchester.html", "Gutter cleaning"],
+      ["conservatory-roof-cleaning-colchester.html", "Conservatory roof cleaning"],
+      ["solar-panel-cleaning-colchester.html", "Solar panel cleaning"],
+    ],
+  },
   residential: {
     key: "residential",
     slugPrefix: "residential-window-cleaning",
     label: "Residential window cleaning",
     h1: (area) => `Residential window cleaning in ${area}`,
-    title: (area) => `Residential Window Cleaning ${area} | Text Sam Direct`,
+    title: (area) => `Residential Window Cleaning ${area} | Regular Local Rounds`,
     description: (area) =>
-      `Residential window cleaning in ${area} from Sam at SJ Windows. Regular local rounds, frames and sills included, direct postcode quote checks.`,
+      `Residential window cleaning in ${area} from Sam at SJ Windows. Regular local rounds, frames and sills included, with direct postcode quote checks.`,
     what:
       "Residential window cleaning is the regular outside clean for homes, including glass, frames and sills as part of a normal clean.",
     suits:
@@ -483,9 +570,21 @@ const serviceAreaPages = [
   ["solar", "Wivenhoe"],
   ["solar", "Lexden"],
   ["solar", "Stanway"],
+  ["solar", "Highwoods"],
+  ["solar", "Shrub End"],
+  ["solar", "Old Heath"],
+  ["solar", "Layer-de-la-Haye"],
   ["gutter", "Colchester"],
   ["gutter", "Wivenhoe"],
   ["gutter", "Lexden"],
+  ["gutter", "Tiptree"],
+  ["roof", "Colchester"],
+  ["roof", "Greenstead"],
+  ["roof", "Mersea Island"],
+  ["cladding", "Elmstead"],
+  ["exterior", "Lexden"],
+  ["exterior", "Stanway"],
+  ["exterior", "Shrub End"],
   ["conservatory", "Colchester"],
   ["conservatory", "Wivenhoe"],
   ["residential", "Wivenhoe"],
@@ -959,6 +1058,15 @@ function areaPage(area) {
               Colchester. If you want a local regular clean, start here and message me direct.
             </p>`
       : "";
+  const areaIntent =
+    area.name === "Tiptree"
+      ? `
+            <p>
+              If you searched for cleaners in Tiptree, this page is specifically for window
+              cleaning and practical exterior add-ons. Send the postcode first so I can check
+              whether Tiptree fits with Marks Tey, Copford, Abberton or nearby route work.
+            </p>`
+      : "";
   const body = `${header(area.name)}
     <main id="main">
       <section class="page-hero">
@@ -981,6 +1089,7 @@ function areaPage(area) {
               explain the best option and keep the quote clear before you book.
             </p>
 ${coreIntent}
+${areaIntent}
             <div class="hero__actions">
               <a class="button" href="${esc(areaSmsHref)}">Text Sam</a>
               <a class="button button--ghost" href="${esc(areaWaHref)}">WhatsApp Sam</a>
@@ -1542,9 +1651,9 @@ ${contactSection("near Colchester")}
     </main>`;
 
   return pageShell({
-    title: "Window Cleaner Near Me Colchester | SJ Windows",
+    title: "Window Cleaner Near Me Colchester | Check Your Postcode",
     description:
-      "Searching for a window cleaner near me in Colchester? Send Sam your postcode for friendly regular local window cleaning, direct contact and clear guide prices.",
+      "Searching for a window cleaner near me in Colchester? Text Sam your postcode for regular local window cleaning, direct contact and clear guide prices.",
     slug: "window-cleaner-near-colchester.html",
     pageType: "area",
     serviceName: "Window cleaner near me in Colchester",
@@ -1808,8 +1917,15 @@ function sitemap() {
     "residential-window-cleaning-colchester",
     "fascia-soffit-cleaning-colchester",
     "gutter-cleaning-colchester",
+    "gutter-cleaning-lexden",
+    "gutter-cleaning-tiptree",
     "conservatory-roof-cleaning-colchester",
     "solar-panel-cleaning-colchester",
+    "solar-panel-cleaning-lexden",
+    "solar-panel-cleaning-greenstead",
+    "roof-cleaning-colchester",
+    "cladding-cleaning-elmstead",
+    "exterior-cleaning-lexden",
   ];
   const entries = urls
     .map((file) => {

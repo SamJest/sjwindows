@@ -2,7 +2,7 @@ import { readFileSync, writeFileSync } from "node:fs";
 import { resolve } from "node:path";
 
 const root = resolve(import.meta.dirname, "..");
-const lastmod = "2026-05-10";
+const lastmod = "2026-07-28";
 const siteUrl = "https://sjwindowscolchester.co.uk";
 const gtmId = "GTM-5267LQLD";
 const gaMeasurementId = "G-MCX2ZWX8DQ";
@@ -307,14 +307,15 @@ function mainPage() {
               <span aria-current="page">Car cleaning</span>
             </nav>
             <p class="eyebrow">Car Cleaning Colchester</p>
-            <h1>Car cleaning in Colchester from SJ Windows</h1>
+            <h1>Exterior car cleaning in Colchester with clear prices.</h1>
             <p class="hero__lead">
               Straightforward exterior car cleaning with clear flat-rate prices for small, medium,
               and large cars.
             </p>
             <p>
-              Tell me the postcode, car size, and whether there is an accessible external tap. I
-              will confirm the price before you book.
+              Tell me the postcode, car size, and whether there is an accessible external tap. This
+              is a local exterior clean at the property, not a drive-through or supermarket hand
+              car wash.
             </p>
             <div class="hero__actions">
               <a class="button" href="${carSmsHref}">Text postcode</a>
@@ -401,9 +402,9 @@ ${contactPanel()}
     </main>`;
 
   return pageShell({
-    title: "Car Cleaning Colchester | Flat Rate Car Wash Prices | SJ Windows",
+    title: "Car Cleaning Colchester | Exterior Car Cleaning Prices",
     description:
-      "Car cleaning in Colchester from SJ Windows. Flat rates: small cars &pound;12, medium cars &pound;15, large cars &pound;17.50, plus &pound;5 if there is no accessible external tap.",
+      "Exterior car cleaning in Colchester from SJ Windows. Flat rates from 12 pounds; text postcode, car size and outside tap details for a quote.",
     slug: "car-cleaning-colchester.html",
     serviceName: "Car cleaning in Colchester",
     serviceType: "Exterior car cleaning in Colchester",
@@ -566,7 +567,7 @@ ${contactPanel(area)}
     </main>`;
 
   return pageShell({
-    title: `Car Cleaning ${area} | Flat Rate Car Wash Prices | SJ Windows`,
+    title: `Car Cleaning ${area} | Exterior Car Cleaning Prices`,
     description,
     slug,
     serviceName: `Car cleaning in ${area}`,
