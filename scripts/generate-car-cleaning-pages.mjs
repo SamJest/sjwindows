@@ -1,31 +1,16 @@
+import { staticSchema } from "./static-schema.mjs";
+import { writeGeneratedPage } from "./page-output.mjs";
 import { readFileSync, writeFileSync } from "node:fs";
 import { resolve } from "node:path";
 
 const root = resolve(import.meta.dirname, "..");
-const lastmod = "2026-07-28";
 const siteUrl = "https://sjwindowscolchester.co.uk";
-const gtmId = "GTM-5267LQLD";
 const gaMeasurementId = "G-MCX2ZWX8DQ";
 const waHref =
   "https://wa.me/447756514110?text=Hi%20Sam%2C%20I%27m%20looking%20for%20a%20car%20cleaning%20quote.%20My%20postcode%20is...";
 const carSmsHref =
   "sms:07756514110?body=Hi%20Sam%2C%20I%20am%20looking%20for%20a%20car%20cleaning%20quote.%20My%20postcode%20is...";
 
-function gtmNoscript() {
-  return `
-    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=${gtmId}" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>`;
-}
-
-function gtmScript() {
-  return `
-    <!-- Google Tag Manager -->
-    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','${gtmId}');</script>
-    <!-- End Google Tag Manager -->`;
-}
 
 function gaScript() {
   return `
@@ -36,7 +21,7 @@ function gaScript() {
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
 
-      gtag('config', '${gaMeasurementId}');
+      gtag('config', '${gaMeasurementId}', { page_location: location.origin + location.pathname, page_referrer: document.referrer.split('?')[0].split('#')[0] });
     </script>`;
 }
 
@@ -209,7 +194,7 @@ const header = (eyebrow) => `
           <a href="window-cleaning-prices-colchester.html">Prices</a>
           <a href="index.html#street-discount">Street Saver</a>
           <a href="window-cleaner-near-colchester.html">Areas</a>
-          <a href="reviews.html">Reviews</a>
+          <a href="reviews.html">Before booking</a>
           <a href="contact.html">Contact</a>
         </nav>
       </div>
@@ -229,13 +214,13 @@ const footer = `
       <a href="tel:07756514110">Call</a><a href="${carSmsHref}">Text</a><a href="${waHref}">WhatsApp</a><a href="car-cleaning-colchester.html">Cars</a>
     </div>`;
 
-function pageShell({ title, description, slug, serviceName, serviceType, body }) {
+function pageShell({ title, description, slug, serviceName, serviceType, body, areaName = "Colchester" }) {
   return `<!DOCTYPE html>
 <html lang="en-GB">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-${gtmScript()}
+
 ${gaScript()}
     <title>${title}</title>
     <meta name="description" content="${description}" />
@@ -250,10 +235,11 @@ ${gaScript()}
     <meta name="twitter:card" content="summary_large_image" />
     <link rel="canonical" href="${siteUrl}/${slug}" />
     <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+    <script type="application/ld+json" data-static-schema>${staticSchema({ title, description, slug, serviceName, serviceType, areaName })}</script>
     <link rel="stylesheet" href="styles.css" />
     <script src="app.js" defer></script>
   </head>
-  <body data-page-type="service" data-service-name="${serviceName}" data-service-type="${serviceType}">${gtmNoscript()}
+  <body data-area-name="${areaName}" data-page-type="service" data-service-name="${serviceName}" data-service-type="${serviceType}">
 ${body}
 ${footer}
   </body>
@@ -567,6 +553,7 @@ ${contactPanel(area)}
     </main>`;
 
   return pageShell({
+    areaName: area,
     title: `Car Cleaning ${area} | Exterior Car Cleaning Prices`,
     description,
     slug,
@@ -576,10 +563,10 @@ ${contactPanel(area)}
   });
 }
 
-writeFileSync(resolve(root, "car-cleaning-colchester.html"), mainPage());
-writeFileSync(resolve(root, "car-cleaning-near-colchester.html"), hubPage());
+writeGeneratedPage("car-cleaning-colchester.html", mainPage());
+writeGeneratedPage("car-cleaning-near-colchester.html", hubPage());
 for (const area of areas) {
-  writeFileSync(resolve(root, area.slug), areaPage(area));
+  writeGeneratedPage(area.slug, areaPage(area));
 }
 
 const newPages = [
@@ -594,7 +581,6 @@ for (const slug of newPages) {
   if (sitemap.includes(`<loc>${loc}</loc>`)) continue;
   const entry = `  <url>
     <loc>${loc}</loc>
-    <lastmod>${lastmod}</lastmod>
     <changefreq>monthly</changefreq>
     <priority>${slug === "car-cleaning-colchester.html" ? "0.85" : slug === "car-cleaning-near-colchester.html" ? "0.8" : "0.65"}</priority>
   </url>

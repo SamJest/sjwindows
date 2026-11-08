@@ -9,10 +9,6 @@ const site = {
   email: "sjwindows2020@gmail.com",
   websiteUrl: "https://sjwindowscolchester.co.uk",
   ogImagePath: "/sj-windows-social.jpg",
-  gtmId: "GTM-5267LQLD",
-  formEndpoint: "https://api.web3forms.com/submit",
-  formAccessKey: "REPLACE_WITH_ACCESS_KEY",
-  formSubject: "New SJ Windows quote enquiry",
   priceRange: "Guide prices by property",
   description:
     "Friendly, local window cleaning and selected exterior cleaning in Colchester and nearby villages, where you deal directly with me and can get a clear guide price online.",
@@ -450,26 +446,6 @@ function currentPath() {
   return "/";
 }
 
-function analytics() {
-  window.dataLayer = window.dataLayer || [];
-
-  const id = String(site.gtmId || "").trim();
-  if (!configured(id, "GTM-XXXXXXX") || !/^GTM-[A-Z0-9]+$/i.test(id)) return;
-  if (
-    $(`script[data-gtm-id="${id}"]`) ||
-    $(`script[src*="googletagmanager.com/gtm.js?id=${id}"]`)
-  ) {
-    return;
-  }
-
-  window.dataLayer.push({ "gtm.start": Date.now(), event: "gtm.js" });
-
-  const script = document.createElement("script");
-  script.async = true;
-  script.dataset.gtmId = id;
-  script.src = `https://www.googletagmanager.com/gtm.js?id=${encodeURIComponent(id)}`;
-  document.head.appendChild(script);
-}
 
 function currentMeta() {
   const legacyArea = document.body?.dataset.page;
@@ -538,7 +514,7 @@ function headMeta() {
 
   document.title = meta.title;
   ensureMeta("name", "description", meta.description);
-  ensureMeta("name", "robots", "index,follow");
+  // Preserve author-specified noindex directives, including the 404 page.
   ensureMeta("property", "og:type", "website");
   ensureMeta("property", "og:locale", "en_GB");
   ensureMeta("property", "og:title", meta.title);
@@ -563,7 +539,9 @@ function buildWhatsAppHref(message) {
 }
 
 function buildSmsHref(message) {
-  return `${site.smsHref}?body=${encodeURIComponent(message)}`;
+  const ios = /iPad|iPhone|iPod/.test(navigator.userAgent) ||
+    (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);
+  return `${site.smsHref}${ios ? "&" : "?"}body=${encodeURIComponent(message)}`;
 }
 
 function syncChoiceCards(parent = document) {
@@ -574,10 +552,16 @@ function syncChoiceCards(parent = document) {
 }
 
 function faq() {
-  $$(".faq-toggle").forEach((el) => {
+  $$(".faq-toggle").forEach((el, index) => {
+    const answer = el.nextElementSibling;
+    if (!answer?.classList.contains("faq-answer")) return;
+    answer.id ||= `faq-answer-${index}`;
+    el.setAttribute("aria-controls", answer.id);
+    answer.hidden = el.getAttribute("aria-expanded") !== "true";
     el.onclick = () => {
       const expanded = el.getAttribute("aria-expanded") === "true";
       el.setAttribute("aria-expanded", String(!expanded));
+      answer.hidden = expanded;
     };
   });
 }
@@ -591,140 +575,45 @@ function nav() {
     const open = button.getAttribute("aria-expanded") !== "true";
     button.setAttribute("aria-expanded", String(open));
     menu.classList.toggle("is-open", open);
+    menu.inert = !open && matchMedia("(max-width: 980px)").matches;
   };
+
+  menu.inert = matchMedia("(max-width: 980px)").matches;
+  const media = matchMedia("(max-width: 980px)");
+  media.addEventListener("change", () => { menu.inert = media.matches && !menu.classList.contains("is-open"); });
+  menu.addEventListener("keydown", (event) => {
+    if (event.key !== "Escape" || !media.matches) return;
+    button.setAttribute("aria-expanded", "false");
+    menu.classList.remove("is-open");
+    menu.inert = media.matches;
+    button.focus();
+  });
 
   $$("a", menu).forEach((link) => {
     link.addEventListener("click", () => {
       button.setAttribute("aria-expanded", "false");
       menu.classList.remove("is-open");
+      menu.inert = matchMedia("(max-width: 980px)").matches;
     });
   });
 }
 
-function formSummary(form) {
-  return [
-    ["Name", form.name?.value],
-    ["Property type", form.propertyType?.value],
-    ["Postcode", form.postcode?.value],
-    ["Contact", form.contact?.value],
-    ["Details", form.details?.value],
-    ["Source", absoluteUrl(currentPath()) || currentPath()],
-  ]
-    .filter(([, value]) => value)
-    .map(([label, value]) => `${label}: ${value}`)
-    .join("\n");
-}
-
-function forms() {
-  $$("[data-quote-form]").forEach((form) => {
-    const feedback = $("[data-form-feedback]", form);
-    const submitButton = $("button[type='submit']", form);
-    let started = false;
-
-    if (feedback && !feedback.textContent.trim()) {
-      note(
-        feedback,
-        "Text or WhatsApp is the quickest route. This form is a backup and may be unavailable."
-      );
-    }
-
-    form.addEventListener("input", () => {
-      if (started) return;
-      started = true;
-      trackConversion("quote_form_start", {
-        method: "form",
-        page_path: currentPath(),
-      });
-    });
-
-    form.onsubmit = async (event) => {
-      event.preventDefault();
-
-      if ($('[name="botcheck"]', form)?.value) return;
-
-      const detail = {
-        method: "form",
-        page_path: currentPath(),
-      };
-
-      if (!configured(site.formAccessKey, "REPLACE_WITH_ACCESS_KEY")) {
-        trackConversion("quote_form_submit_error", {
-          ...detail,
-          error_reason: "missing_form_access_key",
-        });
-        note(
-          feedback,
-          `The form is not switched on yet. Please text or WhatsApp ${site.phoneDisplay} with your postcode and any useful photos.`,
-          "error"
-        );
-        return;
-      }
-
-      const payload = new FormData(form);
-      payload.set("access_key", site.formAccessKey);
-      payload.set("subject", site.formSubject);
-      payload.set("from_name", site.businessName);
-      payload.set("source", absoluteUrl(currentPath()) || currentPath());
-      payload.set("message", formSummary(form));
-
-      submitButton?.setAttribute("disabled", "disabled");
-      note(feedback, "Sending your enquiry...", "neutral");
-
-      try {
-        const response = await fetch(site.formEndpoint, {
-          method: "POST",
-          body: payload,
-          headers: { Accept: "application/json" },
-        });
-        const result = await response.json().catch(() => ({}));
-
-        if (!response.ok || result.success === false) {
-          throw new Error(result.message || `Form request failed with ${response.status}`);
-        }
-
-        trackConversion("quote_form_submit_success", detail);
-        form.reset();
-        note(
-          feedback,
-          "Thanks. Your enquiry has been sent to SJ Windows. I will reply as soon as I can.",
-          "success"
-        );
-      } catch (error) {
-        trackConversion("quote_form_submit_error", {
-          ...detail,
-          error_reason: error instanceof Error ? error.message : "unknown_error",
-        });
-        note(
-          feedback,
-          `Something stopped the form sending. Please text or WhatsApp ${site.phoneDisplay} with your postcode and any useful photos instead.`,
-          "error"
-        );
-      } finally {
-        submitButton?.removeAttribute("disabled");
-      }
-    };
-  });
-}
-
+// Only controlled metadata belongs in analytics. Never include message URLs,
+// free text, customer details, postcodes or calculator message bodies.
 function trackConversion(eventName, params = {}) {
+  if (typeof window.gtag !== "function") return;
   const meta = currentMeta();
   const payload = {
-    event_category: "engagement",
     page_path: currentPath(),
+    page_location: absoluteUrl(currentPath()),
     page_type: meta.pageType,
-    service_name: meta.serviceName,
     area_name: meta.areaName,
-    query_cluster: meta.queryCluster,
-    ...params,
+    service_interest: document.body.dataset.serviceName || "window cleaning",
+    cta_location: params.cta_location || "calculator",
+    transport_type: "beacon",
   };
-
-  if (typeof window.gtag === "function") {
-    window.gtag("event", eventName, payload);
-  }
-
-  window.dataLayer = window.dataLayer || [];
-  window.dataLayer.push({ event: eventName, ...payload });
-  window.dispatchEvent(new CustomEvent("sjwindows:conversion", { detail: { eventName, ...payload } }));
+  if (params.method) payload.method = params.method;
+  window.gtag("event", eventName, payload);
 }
 
 function conversionTracking() {
@@ -732,42 +621,34 @@ function conversionTracking() {
     if (!(event.target instanceof Element)) return;
     const link = event.target.closest("a[href]");
     if (!link) return;
-
     const href = link.getAttribute("href") || "";
-    const label = link.textContent.replace(/\s+/g, " ").trim();
-    const container = link.closest("[data-cta-location], section, header, footer");
+    const container = link.closest("[data-cta-location], .mobile-cta, section, header, footer");
     const detail = {
-      link_url: link.href || href,
-      link_text: label,
-      cta_location:
-        link.dataset.ctaLocation ||
-        container?.dataset?.ctaLocation ||
-        container?.id ||
-        container?.className?.toString().split(/\s+/).filter(Boolean)[0] ||
-        "",
-      quote_route: link.dataset.quoteRoute || container?.dataset?.quoteRoute || "",
+      cta_location: link.dataset.ctaLocation || container?.dataset?.ctaLocation ||
+        container?.id || container?.className?.toString().split(/\s+/)[0] || "page",
     };
-
-    if (link.hasAttribute("data-quote-sms")) {
-      trackConversion("smart_quote_send_sms", { method: "sms", ...detail });
-    } else if (link.hasAttribute("data-quote-whatsapp")) {
-      trackConversion("smart_quote_send_whatsapp", { method: "whatsapp", ...detail });
-    } else if (link.hasAttribute("data-quote-email")) {
-      trackConversion("smart_quote_send_email", { method: "email", ...detail });
-    }
-
     if (href.startsWith("tel:")) {
-      trackConversion("click_call", { method: "phone", ...detail });
+      trackConversion("contact_call_click", { method: "phone", ...detail });
     } else if (href.startsWith("sms:")) {
-      trackConversion("click_text", { method: "sms", ...detail });
-      trackConversion("click_sms", { method: "sms", ...detail });
-    } else if (href.includes("wa.me/")) {
-      trackConversion("click_whatsapp", { method: "whatsapp", ...detail });
+      trackConversion("contact_sms_click", { method: "sms", ...detail });
+    } else if (/^https:\/\/wa\.me\/447756514110(?:\?|$)/.test(href)) {
+      trackConversion("contact_whatsapp_click", { method: "whatsapp", ...detail });
     } else if (href.startsWith("mailto:")) {
-      trackConversion("click_email", { method: "email", ...detail });
-    } else if (href.includes("#calculator")) {
-      trackConversion("click_smart_quote", { method: "calculator", ...detail });
+      trackConversion("contact_email_click", { method: "email", ...detail });
     }
+  });
+}
+
+function directContactLinks() {
+  // iOS uses &body; Android uses ?body. Keep the static URI as a fallback.
+  const ios = /iPad|iPhone|iPod/.test(navigator.userAgent) ||
+    (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);
+  $$("a[href^='sms:']").forEach((link) => {
+    let href = link.getAttribute("href");
+    if (!/[?&]body=/.test(href)) {
+      href = buildSmsHref("Hi Sam, I am looking for regular window cleaning. My postcode is __ and my property is __.");
+    }
+    link.setAttribute("href", href.replace(/[?&]body=/, ios ? "&body=" : "?body="));
   });
 }
 
@@ -1037,6 +918,12 @@ function calculator() {
   const form = $("[data-quote-calculator]");
   if (!form) return;
 
+  let started = false;
+  form.addEventListener("input", () => {
+    if (started) return;
+    started = true;
+    trackConversion("quote_calculator_start", { method: "calculator" });
+  });
   const feedback = $("[data-quote-feedback]");
   const price = $("[data-quote-price]");
   const duration = $("[data-quote-duration]");
@@ -1205,7 +1092,7 @@ function calculator() {
 
   form.onsubmit = (event) => {
     event.preventDefault();
-    trackConversion("smart_quote_update", {
+    trackConversion("quote_calculator_complete", {
       method: "calculator",
       page_path: currentPath(),
     });
@@ -1227,10 +1114,9 @@ function calculator() {
   );
 }
 
-analytics();
 faq();
 nav();
-forms();
+directContactLinks();
 headMeta();
 schema();
 conversionTracking();

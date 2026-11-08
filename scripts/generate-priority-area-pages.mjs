@@ -1,26 +1,12 @@
-import { writeFileSync } from "node:fs";
+import { staticSchema } from "./static-schema.mjs";
+import { writeGeneratedPage } from "./page-output.mjs";
 import { resolve } from "node:path";
+const root = resolve(import.meta.dirname, "..");
 
 const waHref =
   "https://wa.me/447756514110?text=Hi%20Sam%2C%20I%E2%80%99m%20looking%20for%20a%20window%20cleaning%20quote.%20My%20postcode%20is%E2%80%A6";
-const gtmId = "GTM-5267LQLD";
 const gaMeasurementId = "G-MCX2ZWX8DQ";
 
-function gtmNoscript() {
-  return `
-    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=${gtmId}" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>`;
-}
-
-function gtmScript() {
-  return `
-    <!-- Google Tag Manager -->
-    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','${gtmId}');</script>
-    <!-- End Google Tag Manager -->`;
-}
 
 function gaScript() {
   return `
@@ -31,7 +17,7 @@ function gaScript() {
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
 
-      gtag('config', '${gaMeasurementId}');
+      gtag('config', '${gaMeasurementId}', { page_location: location.origin + location.pathname, page_referrer: document.referrer.split('?')[0].split('#')[0] });
     </script>`;
 }
 
@@ -56,48 +42,6 @@ function metaDescription(area) {
   return `Window cleaner in ${area} from Sam at SJ Windows. Regular 4, 6 and 8-weekly cleans, frames and sills included, guide prices and direct text or WhatsApp quotes.`;
 }
 
-const reviews = {
-  adam: {
-    author: "Adam, Colchester",
-    text:
-      "Sam has been cleaning our windows regularly and has always been reliable, friendly and easy to deal with. He lets us know when he’s coming, does a great job, and the windows, frames and sills are always left looking spotless. Highly recommended.",
-  },
-  helen: {
-    author: "Helen P, Colchester",
-    text:
-      "Really pleased we found SJ Windows. Sam is friendly, professional and clearly takes pride in his work. It’s nice dealing directly with the person doing the job rather than a big company. Great service and very fair pricing.",
-  },
-  rob: {
-    author: "Rob B, Mersea",
-    text:
-      "The whole process was really easy. I used the quote calculator on the website, messaged Sam, and he got back to me quickly with a sensible price. No pressure, no hassle — just a straightforward local service that does exactly what it says.",
-  },
-  audrey: {
-    author: "Audrey, Colchester",
-    text:
-      "Sam is polite, respectful and trustworthy. He turns up when arranged, is careful around the property, and always leaves the windows looking lovely. It’s reassuring to have someone reliable who you’re happy to have around the house.",
-  },
-  sue: {
-    author: "Sue S, Wivenhoe",
-    text:
-      "We’ve been using SJ Windows for regular window cleaning and have been really happy with the service. Sam is consistent, communicates well, and the clean is always done properly. It’s one less thing to think about.",
-  },
-  mike: {
-    author: "Mike L, Lexden",
-    text:
-      "Excellent value for the quality of the clean. Sam doesn’t rush the job and the results are always noticeably better than when we’ve tried to do it ourselves. Friendly, reliable and reasonably priced.",
-  },
-  harry: {
-    author: "Harry, Brightlingsea",
-    text:
-      "Great communication from start to finish. Sam replied quickly, gave a clear price, and turned up when he said he would. The windows looked brilliant afterwards and we’ll definitely be using him again.",
-  },
-  wendy: {
-    author: "Wendy, Wivenhoe",
-    text:
-      "Reliable, friendly and does a proper job every time. Exactly what you want from a local window cleaner.",
-  },
-};
 
 const areas = [
   {
@@ -520,19 +464,6 @@ function areaLinks(items) {
     .join("");
 }
 
-function reviewCards(keys) {
-  return keys
-    .map((key) => reviews[key])
-    .filter(Boolean)
-    .map(
-      (review) => `
-            <article class="review-card">
-              <p>${escapeHtml(review.text)}</p>
-              <p class="review-card__meta">${escapeHtml(review.author)}</p>
-            </article>`
-    )
-    .join("");
-}
 
 function page(area) {
   const nearbyNames = area.nearby.map(([, name]) => name).join(", ");
@@ -545,7 +476,7 @@ function page(area) {
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-${gtmScript()}
+
 ${gaScript()}
     <title>${escapeHtml(pageTitle)}</title>
     <meta name="description" content="${escapeHtml(pageDescription)}" />
@@ -560,16 +491,19 @@ ${gaScript()}
     <meta name="twitter:card" content="summary_large_image" />
     <link rel="canonical" href="https://sjwindowscolchester.co.uk/${escapeHtml(area.slug)}" />
     <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+    <script type="application/ld+json" data-static-schema>${staticSchema({ title: pageTitle, description: pageDescription, slug: area.slug, serviceName: `Window cleaner in ${area.area}`, serviceType: `Residential window cleaning in ${area.area}`, areaName: area.area })}</script>
     <link rel="stylesheet" href="styles.css" />
     <script src="app.js" defer></script>
   </head>
   <body
     data-page-type="area"
+    data-area-name="${escapeHtml(area.area)}"
+    data-query-cluster="local-window-cleaning"
     data-service-name="Window cleaner in ${escapeHtml(area.area)}"
     data-service-type="Residential window cleaning in ${escapeHtml(
       area.area
     )} on suitable local rounds"
-  >${gtmNoscript()}
+  >
     <a class="skip-link" href="#main">Skip to content</a>
     <div class="topbar">
       <div class="shell topbar__inner">
@@ -596,7 +530,7 @@ ${gaScript()}
           <a href="services.html">Services</a>
           <a href="window-cleaning-prices-colchester.html">Prices</a>
           <a href="window-cleaner-near-colchester.html">Areas</a>
-          <a href="reviews.html">Reviews</a>
+          <a href="reviews.html">Before booking</a>
           <a href="contact.html">Contact</a>
         </nav>
       </div>
@@ -623,8 +557,8 @@ ${gaScript()}
               round, with frames and sills included as part of a normal clean.
             </p>
             <div class="hero__actions">
-              <a class="button" href="index.html#calculator">Get a guide price</a>
-              <a class="button button--ghost" href="${escapeHtml(areaSmsHref)}">Text postcode</a>
+              <a class="button" href="${escapeHtml(areaSmsHref)}">Text postcode for a quote</a>
+              <a class="button button--ghost" href="index.html#calculator">Optional guide price</a>
               <a class="button button--ghost" href="${escapeHtml(areaWaHref)}">WhatsApp Sam</a>
             </div>
           </div>
@@ -653,7 +587,7 @@ ${gaScript()}
           <div class="stacked-cards">
             <article class="mini-card"><h3>Regular local cleans</h3><p>Good for 4, 6 or 8-weekly work where the postcode fits the route.</p><a class="text-link" href="residential-window-cleaning-colchester.html">Residential cleaning</a></article>
             <article class="mini-card"><h3>Price before booking</h3><p>The Smart Quote gives a sensible starting point before you text or WhatsApp.</p><a class="text-link" href="window-cleaning-prices-colchester.html">Window cleaning prices</a></article>
-            <article class="mini-card"><h3>Reassurance first</h3><p>Reviews and direct contact help you know who will actually turn up.</p><a class="text-link" href="reviews.html">Customer reviews</a></article>
+            <article class="mini-card"><h3>Reassurance first</h3><p>Reviews and direct contact help you know who will actually turn up.</p><a class="text-link" href="reviews.html">Before booking</a></article>
           </div>
         </div>
       </section>
@@ -683,7 +617,7 @@ ${gaScript()}
           <div>
             <p class="eyebrow">Why The Local Round Matters</p>
             <h2>${escapeHtml(area.area)} works best where the route stays practical and reliable.</h2>
-            <p>${escapeHtml(area.routeCopy)}</p>
+            <p>Send your postcode in ${escapeHtml(area.area)} before arranging a clean. I will check the address against the round and confirm availability directly.</p>
           </div>
           <div class="stacked-cards">
             <article class="mini-card"><h3>Keep it dependable</h3><p>Staying within a sensible route helps keep communication and repeat visits reliable.</p></article>
@@ -711,7 +645,7 @@ ${gaScript()}
         <div class="shell">
           <div class="section-heading">
             <p class="eyebrow">Nearby Areas Covered</p>
-            <h2>${escapeHtml(area.nearbySummary)}</h2>
+            <h2>Check your address or another area</h2>
             <p>
               If you're searching around ${escapeHtml(
                 area.area
@@ -721,19 +655,6 @@ ${gaScript()}
           <div class="area-cloud">
             ${areaLinks(area.nearby)}
           </div>
-        </div>
-      </section>
-
-      <section class="section">
-        <div class="shell">
-          <div class="section-heading">
-            <p class="eyebrow">Customer Reviews</p>
-            <h2>Reviews from customers nearby.</h2>
-          </div>
-          <div class="review-grid ${area.reviewKeys.length > 1 ? "review-grid--two" : "review-grid--one"}">
-            ${reviewCards(area.reviewKeys)}
-          </div>
-          <p class="section-linkline"><a class="text-link" href="reviews.html">Read all reviews</a></p>
         </div>
       </section>
 
@@ -759,7 +680,7 @@ ${gaScript()}
             <div class="link-list">
               <a class="text-link" href="window-cleaning-prices-colchester.html">Window cleaning prices in Colchester</a>
               <a class="text-link" href="residential-window-cleaning-colchester.html">Residential window cleaning</a>
-              <a class="text-link" href="reviews.html">Customer reviews</a>
+              <a class="text-link" href="reviews.html">Before booking</a>
               <a class="text-link" href="services.html">Services</a>
             </div>
           </div>
@@ -810,8 +731,7 @@ ${gaScript()}
               </button>
               <div class="faq-answer">
                 <p>
-                  Yes. Start with the Smart Quote tool, then send the postcode and the guide price
-                  to me so I can tell you what looks realistic from there.
+                  Yes. Text or WhatsApp your postcode and property type for a quote. The optional Smart Quote tool can give a guide first; the final price and availability need my confirmation.
                 </p>
               </div>
             </article>
@@ -837,7 +757,7 @@ ${gaScript()}
           <p class="footer__heading">Top Pages</p>
           <a href="index.html#calculator">Smart Quote</a>
           <a href="window-cleaning-prices-colchester.html">Prices</a>
-          <a href="reviews.html">Reviews</a>
+          <a href="reviews.html">Before booking</a>
           <a href="contact.html">Contact</a>
         </div>
         <div>
@@ -863,7 +783,7 @@ ${gaScript()}
 }
 
 for (const area of areas) {
-  writeFileSync(resolve(process.cwd(), area.slug), page(area));
+  writeGeneratedPage(area.slug, page(area));
 }
 
 console.log(`Generated ${areas.length} priority area pages.`);
