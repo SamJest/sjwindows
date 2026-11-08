@@ -5,20 +5,10 @@ const root = resolve(import.meta.dirname, "..");
 
 const waHref =
   "https://wa.me/447756514110?text=Hi%20Sam%2C%20I%E2%80%99m%20looking%20for%20a%20window%20cleaning%20quote.%20My%20postcode%20is%E2%80%A6";
-const gaMeasurementId = "G-MCX2ZWX8DQ";
 
 
 function gaScript() {
-  return `
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=${gaMeasurementId}"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-
-      gtag('config', '${gaMeasurementId}', { page_location: location.origin + location.pathname, page_referrer: document.referrer.split('?')[0].split('#')[0] });
-    </script>`;
+  return '<script src="analytics.js" defer></script>';
 }
 
 function quoteMessage(area) {
@@ -493,7 +483,7 @@ ${gaScript()}
     <link rel="icon" href="favicon.svg" type="image/svg+xml" />
     <script type="application/ld+json" data-static-schema>${staticSchema({ title: pageTitle, description: pageDescription, slug: area.slug, serviceName: `Window cleaner in ${area.area}`, serviceType: `Residential window cleaning in ${area.area}`, areaName: area.area })}</script>
     <link rel="stylesheet" href="styles.css" />
-    <script src="app.js" defer></script>
+    <script src="app.js?v=20261108-privacy" defer></script>
   </head>
   <body
     data-page-type="area"

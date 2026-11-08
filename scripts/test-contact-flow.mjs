@@ -12,6 +12,7 @@ const source = readFileSync(resolve(root, "app.js"), "utf8");
 const functions = source.slice(0, source.lastIndexOf("\nfaq();"));
 const handlers = {};
 const calls = [];
+const destinations = [];
 let smsLinks = [];
 const document = {
   title: "Test page",
@@ -30,7 +31,7 @@ class Element {
   setAttribute(name, value) { this.href = value; }
 }
 const context = vm.createContext({ document, Element, URL, Intl, console,
-  window: { gtag: (...args) => calls.push(args), dataLayer: [] },
+  window: { gtag: (...args) => calls.push(args), dataLayer: [], location: { assign: href => destinations.push(href) } },
   navigator: { userAgent: "Android", platform: "Linux", maxTouchPoints: 1 },
 });
 vm.runInContext(functions, context);
@@ -56,6 +57,36 @@ handlers.click({ target: new Element("https://example.com/?url=wa.me/44775651411
 assert.equal(calls.length, 0, "only actual business WhatsApp links match");
 context.window.gtag = undefined;
 assert.doesNotThrow(() => handlers.click({ target: new Element("tel:07756514110") }), "contacts work with analytics blocked");
+context.window.gtag = (...args) => calls.push(args);
+
+// Actual quote-action binding: a draft exists only during the user action,
+// never as an href or a stored data attribute available to automatic click tags.
+for (const method of ["sms", "whatsapp", "email"]) {
+  calls.length = 0;
+  let currentMessage = "outdated guide";
+  const events = {};
+  const button = { disabled: true, addEventListener: (event, handler) => { events[event] = handler; } };
+  context.button = button;
+  context.method = method;
+  context.getMessage = () => currentMessage;
+  vm.runInContext("bindQuoteAction(button, method, getMessage)", context);
+  assert.equal(button.disabled, false);
+  assert.equal(Object.hasOwn(button, "href"), false);
+  assert.equal(destinations.length, 0, "no navigation until an explicit click");
+  currentMessage = "Latest guide: £30.10. Postcode __. PRIVATE_CANARY";
+  events.click();
+  assert.equal(destinations.length, 1);
+  const target = destinations.pop();
+  assert.ok(decodeURIComponent(target).includes(currentMessage), "draft uses the latest guide");
+  assert.equal(calls.length, 1);
+  assert.equal(calls[0][1], `contact_${method}_click`);
+  assert.ok(!JSON.stringify(calls).includes("PRIVATE_CANARY"));
+  assert.equal(Object.hasOwn(button, "href"), false);
+}
+
+const home = readFileSync(resolve(root, "index.html"), "utf8");
+assert.ok(!/quoteCustomer(Name|Address)/.test(home), "no personal-detail collection in the calculator");
+assert.ok(!/<a[^>]*data-quote-(sms|whatsapp|email)/.test(home), "quote drafts cannot be outbound anchor URLs");
 
 for (const [userAgent, platform, touch, separator] of [
   ["Android", "Linux", 1, "?"], ["iPhone", "iPhone", 5, "&"], ["Macintosh", "MacIntel", 5, "&"],
@@ -78,4 +109,4 @@ for (const result of results) {
   assert.match(result.price, /^£\d[\d,]*\.\d{2}$/);
   assert.ok(!JSON.stringify(result).includes("NaN"));
 }
-console.log("PASS: one event per contact action; private messages excluded; analytics-blocked fallback; Android/iOS SMS; 90 calculator scenarios.");
+console.log("PASS: one event per contact action; click-only drafts without DOM message URLs; private data excluded; analytics-blocked fallback; Android/iOS SMS; 90 calculator scenarios.");

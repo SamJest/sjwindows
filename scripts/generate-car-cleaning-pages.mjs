@@ -5,7 +5,6 @@ import { resolve } from "node:path";
 
 const root = resolve(import.meta.dirname, "..");
 const siteUrl = "https://sjwindowscolchester.co.uk";
-const gaMeasurementId = "G-MCX2ZWX8DQ";
 const waHref =
   "https://wa.me/447756514110?text=Hi%20Sam%2C%20I%27m%20looking%20for%20a%20car%20cleaning%20quote.%20My%20postcode%20is...";
 const carSmsHref =
@@ -13,16 +12,7 @@ const carSmsHref =
 
 
 function gaScript() {
-  return `
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=${gaMeasurementId}"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-
-      gtag('config', '${gaMeasurementId}', { page_location: location.origin + location.pathname, page_referrer: document.referrer.split('?')[0].split('#')[0] });
-    </script>`;
+  return '<script src="analytics.js" defer></script>';
 }
 
 const areas = [
@@ -237,7 +227,7 @@ ${gaScript()}
     <link rel="icon" href="favicon.svg" type="image/svg+xml" />
     <script type="application/ld+json" data-static-schema>${staticSchema({ title, description, slug, serviceName, serviceType, areaName })}</script>
     <link rel="stylesheet" href="styles.css" />
-    <script src="app.js" defer></script>
+    <script src="app.js?v=20261108-privacy" defer></script>
   </head>
   <body data-area-name="${areaName}" data-page-type="service" data-service-name="${serviceName}" data-service-type="${serviceType}">
 ${body}

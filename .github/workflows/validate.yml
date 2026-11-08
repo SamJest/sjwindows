@@ -16,6 +16,7 @@ jobs:
           python-version: '3.12'
       - run: node scripts/validate-local-pages.mjs
       - run: node scripts/test-contact-flow.mjs
+      - run: node scripts/test-analytics.mjs
       - run: python tools/static_site_audit.py .
       - run: python tools/verify_site.py
       - run: node scripts/check-regeneration.mjs

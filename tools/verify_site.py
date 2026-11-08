@@ -24,7 +24,8 @@ for p in root.glob('*.html'):
     if doc.titles!=1:errors.append(f'{p.name}: {doc.titles} titles')
     if p.name!='404.html' and len(doc.canonicals)!=1:errors.append(f'{p.name}: canonical count')
     if 'GTM-' in text:errors.append(f'{p.name}: second tag container remains')
-    if p.name!='404.html' and text.count("gtag('config'")!=1:errors.append(f'{p.name}: GA config count')
+    if p.name!='404.html' and len(re.findall(r'src="analytics\.js(?:\?[^"\s]*)?"',text))!=1:errors.append(f'{p.name}: analytics loader count')
+    if 'gtag/js?id=' in text or "gtag('config'" in text:errors.append(f'{p.name}: inline analytics can bypass the shared privacy guard')
     if 'data-quote-form' in text or 'api.web3forms.com' in text:errors.append(f'{p.name}: retired form remains')
     if re.search(r'<(?:article|div)[^>]*class="review-',text):errors.append(f'{p.name}: unverified testimonial remains')
     for block in re.findall(r'<script[^>]*type="application/ld\+json"[^>]*>(.*?)</script>',text,re.S):
@@ -41,9 +42,11 @@ for name,doc in pages.items():
         if not (root/path).is_file():errors.append(f'{name}: missing {href}');continue
         if u.fragment and path in pages and unquote(u.fragment) not in pages[path].ids:
             errors.append(f'{name}: missing fragment {href}')
-app=(root/'app.js').read_text()
+app=(root/'app.js').read_text(encoding='utf-8')
 if 'REPLACE_WITH_ACCESS_KEY' in app:errors.append('app.js: placeholder form key')
 if 'link_url:' in app or 'link_text:' in app:errors.append('app.js: potentially private analytics fields')
+if re.search(r'quoteCustomer(?:Name|Address)',app):errors.append('app.js: personal detail collection remains')
+if re.search(r'(smsButton|whatsappButton|emailButton)\.href\s*=',app):errors.append('app.js: message draft exposed in a link')
 if errors:
     print('\n'.join(errors));raise SystemExit(1)
 print(f'PASS: {len(pages)} pages, fragments/assets, {schemas} valid JSON-LD blocks, single GA4 configuration and retired forms.')

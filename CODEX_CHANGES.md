@@ -2,6 +2,8 @@
 
 Baseline: current `SamJest/sjwindows` main, `dff7448f49deedccfcf1479f301424ac227c03c7`; review branch `codex/growth-pack-2026-11-08`. The supplied pack informed implementation; it did not authorize deployment, customer contact or account changes. The pre-existing dirty checkout is preserved; changes use a separate clone.
 
+**Review follow-up completed:** calculator drafts now use click-only buttons with no personal-detail fields or message hrefs. Shared analytics runs only on production HTTPS hosts. The published GTM container was verified empty. Browser QA now passes 24 representative page/viewport checks, menu/Escape, calculator/keyboard submit and FAQ disclosure. Content-hashed assets fix stale-script mismatches; desktop contact visibility, top-bar contrast and focus outlines were improved. See [follow-up evidence](docs/qa/review-followup.md). Physical-device delivery and authenticated GA4 receipt remain unverified; Google Analytics currently requires sign-in.
+
 ## Main changes
 
 - Retired two placeholder-backed Web3Forms interfaces and 15 additional legacy mailto forms. All 17 enquiry forms become direct postcode-first panels; the optional calculator remains. No fake delivery or booking confirmation. Existing business contacts are unchanged.
@@ -16,8 +18,8 @@ Baseline: current `SamJest/sjwindows` main, `dff7448f49deedccfcf1479f301424ac227
 
 | ID | Proposed work / remaining evidence |
 | --- | --- |
-| P0-01 | All enquiry forms removed; direct routes available. URI logic passes; real phone/app delivery untested. |
-| P0-02 | One direct GA4 source sender with restricted custom parameters. Private GTM integrations, Enhanced Measurement, consent and DebugView receipt need owner QA. |
+| P0-01 | All enquiry forms removed; direct routes and click-only calculator drafts available. Browser controls and URI logic pass; physical phone/app delivery untested. |
+| P0-02 | One production-only GA4 sender; no personal fields or message hrefs. Published GTM verified empty. Authenticated DebugView receipt and account consent/report settings still need owner access. |
 | P0-03 | Full URL decision register and live baseline. Exact excluded URLs/Google canonicals need owner GSC detail. |
 | P1-01 | Homepage offer, postcode-first CTA, included work, frequencies and clear process implemented. |
 | P1-02 | Colchester checklist and residential preparation roles distinguished. No URL consolidation before query/page evidence. |
@@ -26,11 +28,11 @@ Baseline: current `SamJest/sjwindows` main, `dff7448f49deedccfcf1479f301424ac227
 | P1-05 | Every clicked URL in supplied page export preserved. Method/local pages receive shared conversion and analytics fixes. |
 | P1-06 | Existing business contacts retained, no self-serving ratings added. Owner GBP checklist supplied; no listing altered. |
 | P1-07 | Unverified testimonials and unsupported job/enquiry examples withheld. Real images, authentic reviews and consent remain owner tasks. |
-| P1-08 | Direct panels, optional calculator and accessibility source fixes. Physical phones/rendered desktop/mobile checks incomplete. |
+| P1-08 | Direct panels, optional calculator and accessibility fixes. Six representative pages pass 360/375/390/1440px checks; menu, calculator and FAQ exercised. Physical-phone delivery remains untested. |
 | P2-01 | Clear guide/final-quote boundary; numerical rates and Street Saver agreements preserved. New price examples/margin review need approval. |
 | P2-02 | Canonicals, sitemap, fragments, assets, links, JSON-LD and live status baseline checked. Fixed historical lastmod omitted. |
 | P2-03 | Controlled CTA metadata and empty private booking log template. No booked-lead event invented. |
-| P2-04 | Focus/menu/FAQ/tap-target changes and shorter homepage. Browser connection failed; no PageSpeed/CWV/contrast/rendered scores claimed. |
+| P2-04 | Focus/menu/FAQ/tap-target changes and shorter homepage; working browser checks and screenshots, improved desktop CTA visibility/top-bar contrast. No PageSpeed/CWV or complete accessibility certification claimed. |
 | P3-01 | Truthful owner review/referral copy and 4/8/12-week plan. Nothing sent or posted. |
 
 ## URL architecture and coverage
@@ -53,7 +55,7 @@ The generator assigned unverified `2026-07-28` lastmod dates uniformly. Those fi
 | Regeneration | No unified check | Pass: every root HTML page and sitemap unchanged after regeneration |
 | Live hosting | Full status/canonical baseline captured | Live unchanged; not deployed |
 
-Commands are in README; before/after snapshots are in `docs/qa`. JSON-LD was checked for syntax locally; Google's Rich Results tool was not run. Browser preview could not reach the localhost server. Rendered mobile/desktop layouts, actual SMS/WhatsApp/call handoff, contrast, delivery, GA4 network/DebugView receipt and PageSpeed were **not** verified. Controlled-DOM tests and CSS source checks do not replace those checks.
+Commands are in README; snapshots and browser evidence are in `docs/qa`. JSON-LD was checked locally; Google's Rich Results tool was not run. The earlier preview connection failure is resolved: 24 representative page/viewport checks pass, and desktop/mobile screenshots plus interaction results are recorded. Physical SMS/WhatsApp/call handoff/delivery, authenticated GA4 network/DebugView receipt, PageSpeed/CWV and a full accessibility audit are **not** verified. Google Analytics opens at a sign-in screen. Controlled-DOM/URI tests and Chromium viewport checks are not substitutes for physical-phone delivery.
 
 Ancillary services, owner photo permission, pricing and genuine local-page distinctiveness need evidence; see [owner handoff](docs/OWNER_HANDOFF.md) and [measurement notes](docs/MEASUREMENT.md). No SEO gains, indexing recovery or new customers are claimed.
 

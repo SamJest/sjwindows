@@ -544,6 +544,21 @@ function buildSmsHref(message) {
   return `${site.smsHref}${ios ? "&" : "?"}body=${encodeURIComponent(message)}`;
 }
 
+function bindQuoteAction(button, method, getMessage) {
+  if (!button) return;
+  button.disabled = false;
+  button.addEventListener("click", () => {
+    // Keep the draft out of href/data attributes. Automatic outbound-link
+    // measurement must never be able to read a calculator message from the DOM.
+    const message = getMessage();
+    const destination = method === "sms" ? buildSmsHref(message)
+      : method === "whatsapp" ? buildWhatsAppHref(message)
+      : `mailto:${site.email}?subject=${encodeURIComponent("Smart Quote guide price enquiry")}&body=${encodeURIComponent(message)}`;
+    trackConversion(`contact_${method}_click`, { method, cta_location: "calculator" });
+    window.location.assign(destination);
+  });
+}
+
 function syncChoiceCards(parent = document) {
   $$(".choice-card", parent).forEach((card) => {
     const input = $("input", card);
@@ -936,8 +951,6 @@ function calculator() {
   const whatsappButton = $("[data-quote-whatsapp]");
   const emailButton = $("[data-quote-email]");
   const actionFeedback = $("[data-quote-action-feedback]");
-  const customerName = $("[name='quoteCustomerName']");
-  const customerAddress = $("[name='quoteCustomerAddress']");
 
   const applyPropertyDefaults = (propertyType) => {
     const profile = quote.property[propertyType];
@@ -983,12 +996,9 @@ function calculator() {
   });
 
   const quoteMessage = (data, result) => {
-    const address = customerAddress?.value.trim();
-    const name = customerName?.value.trim();
     return [
       "Hi Sam, I used the Smart Quote tool and wanted to check the best next step from here.",
-      name ? `Name: ${name}` : "",
-      address ? `Postcode/address: ${address}` : "",
+      "My postcode is __. Please check whether my address fits your round.",
       `Guide price shown: ${result.price}`,
       `Property type: ${result.property}`,
       `Frequency: ${result.cycle}`,
@@ -1040,14 +1050,6 @@ function calculator() {
         : "<p>No other extras suggested for this setup.</p>"
     }`;
 
-    const message = quoteMessage(data, result);
-    if (smsButton) smsButton.href = buildSmsHref(message);
-    if (whatsappButton) whatsappButton.href = buildWhatsAppHref(message);
-    if (emailButton) {
-      emailButton.href = `mailto:${site.email}?subject=${encodeURIComponent(
-        "Smart Quote guide price enquiry"
-      )}&body=${encodeURIComponent(message)}`;
-    }
   };
 
   const update = (state, text) => {
@@ -1079,16 +1081,13 @@ function calculator() {
     live();
   });
 
-  [customerName, customerAddress].forEach((field) => {
-    field?.addEventListener("input", () => {
-      const { data, result } = update("neutral");
-      draw(result, data);
-      note(
-        actionFeedback,
-        "The message links now include the latest guide price and any address details you have added."
-      );
-    });
-  });
+  const draft = () => {
+    const data = read();
+    return quoteMessage(data, calc(data));
+  };
+  bindQuoteAction(smsButton, "sms", draft);
+  bindQuoteAction(whatsappButton, "whatsapp", draft);
+  bindQuoteAction(emailButton, "email", draft);
 
   form.onsubmit = (event) => {
     event.preventDefault();
@@ -1104,7 +1103,7 @@ function calculator() {
 
   note(
     actionFeedback,
-    "Text, WhatsApp, or email the guide price over when you're ready. Adding a postcode or address helps me tell which property the estimate is for."
+    "Choose text, WhatsApp or email to open a draft. Add your postcode in your messaging app, check the details, then send it to Sam. Nothing is sent automatically."
   );
   applyPropertyDefaults(form.propertyType.value);
   syncChoiceCards(form);

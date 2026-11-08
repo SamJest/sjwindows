@@ -10,7 +10,6 @@ const smsHref = "sms:07756514110";
 const email = "sjwindows2020@gmail.com";
 const waHref =
   "https://wa.me/447756514110?text=Hi%20Sam%2C%20I%27m%20looking%20for%20a%20window%20cleaning%20quote.%20My%20postcode%20is...";
-const gaMeasurementId = "G-MCX2ZWX8DQ";
 const priorityAreaNames = [
   "Manningtree",
   "Mersea Island",
@@ -721,16 +720,7 @@ function esc(value) {
 
 
 function gaScript() {
-  return `
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=${gaMeasurementId}"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-
-      gtag('config', '${gaMeasurementId}', { page_location: location.origin + location.pathname, page_referrer: document.referrer.split('?')[0].split('#')[0] });
-    </script>`;
+  return '<script src="analytics.js" defer></script>';
 }
 
 function areaByName(name) {
@@ -950,7 +940,7 @@ ${gaScript()}
       areaName,
     })}</script>
     <link rel="stylesheet" href="styles.css" />
-    <script src="app.js" defer></script>
+    <script src="app.js?v=20261108-privacy" defer></script>
   </head>
   <body data-page-type="${esc(pageType)}" data-service-name="${esc(serviceName)}" data-service-type="${esc(serviceType)}"${areaAttr} data-query-cluster="${esc(resolvedQueryCluster)}">
 ${body}
