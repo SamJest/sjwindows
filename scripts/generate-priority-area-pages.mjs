@@ -483,7 +483,7 @@ ${gaScript()}
     <link rel="icon" href="favicon.svg" type="image/svg+xml" />
     <script type="application/ld+json" data-static-schema>${staticSchema({ title: pageTitle, description: pageDescription, slug: area.slug, serviceName: `Window cleaner in ${area.area}`, serviceType: `Residential window cleaning in ${area.area}`, areaName: area.area })}</script>
     <link rel="stylesheet" href="styles.css" />
-    <script src="app.js?v=20261108-privacy" defer></script>
+    <script src="app.js" defer></script>
   </head>
   <body
     data-page-type="area"
@@ -516,11 +516,9 @@ ${gaScript()}
         </button>
         <nav class="site-nav" id="site-nav" aria-label="Primary">
           <a href="index.html">Home</a>
-          <a href="index.html#calculator">Smart Quote</a>
           <a href="services.html">Services</a>
           <a href="window-cleaning-prices-colchester.html">Prices</a>
           <a href="window-cleaner-near-colchester.html">Areas</a>
-          <a href="reviews.html">Before booking</a>
           <a href="contact.html">Contact</a>
         </nav>
       </div>
@@ -762,11 +760,10 @@ ${gaScript()}
       </div>
     </footer>
 
-    <div class="mobile-cta">
+    <div class="mobile-cta" aria-label="Contact Sam">
       <a href="tel:07756514110">Call</a>
       <a href="${escapeHtml(areaSmsHref)}">Text</a>
       <a href="${escapeHtml(areaWaHref)}">WhatsApp</a>
-      <a href="index.html#calculator">Quote</a>
     </div>
   </body>
 </html>`;

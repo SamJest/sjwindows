@@ -2,6 +2,8 @@
 
 The changes are proposed in a review branch. GitHub Pages currently builds `main` at `/` (`legacy` build type), so **merging to main can publish the site**. Do not merge until the owner approves deployment. No deployment settings, live content, Business Profile, customer messages or account analytics settings were changed.
 
+Update: the owner has now approved publication of this release and deferred Google Business Profile and new photos. The checklist below remains future evidence/follow-up work rather than a request to delay this authorized release. See `RELEASE_NOTES_2026-11-08.md`.
+
 ## Before approval
 
 1. Confirm which extras are actually offered: car cleaning, house-roof versus conservatory-roof cleaning, cladding/render/exterior work, gutters, fascias/soffits and solar panels. Existing extra-service URLs and historical pricing are retained pending confirmation. No redirect, deletion or noindex change is proposed. Roof scope already excludes house-roof moss removal/repairs; cleaning pages must not imply installation or replacement. Record a decision for each affected URL in `url-decision-register.csv`.

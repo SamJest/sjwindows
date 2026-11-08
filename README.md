@@ -33,3 +33,5 @@ Direct GA4 through `analytics.js` is the sole tag path and only runs on the prod
 ## Release boundary
 
 GitHub Pages publishes `main`, root `/`, at `https://sjwindowscolchester.co.uk/`. **Merging main may deploy; do not merge or deploy before owner approval.** The review branch and PR validation workflow do not deploy.
+
+The owner approved publishing the 8 November 2026 release. Google Business Profile and new photos are deferred; see [release scope](docs/RELEASE_NOTES_2026-11-08.md). Subsequent releases still need appropriate authorization.

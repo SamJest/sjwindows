@@ -179,12 +179,9 @@ const header = (eyebrow) => `
         </button>
         <nav class="site-nav" id="site-nav" aria-label="Primary">
           <a href="index.html">Home</a>
-          <a href="index.html#calculator">Smart Quote</a>
           <a href="services.html">Services</a>
           <a href="window-cleaning-prices-colchester.html">Prices</a>
-          <a href="index.html#street-discount">Street Saver</a>
           <a href="window-cleaner-near-colchester.html">Areas</a>
-          <a href="reviews.html">Before booking</a>
           <a href="contact.html">Contact</a>
         </nav>
       </div>
@@ -200,8 +197,10 @@ const footer = `
       </div>
       <div class="shell footer__bottom"><p>&copy; 2026 SJ Windows</p></div>
     </footer>
-    <div class="mobile-cta">
-      <a href="tel:07756514110">Call</a><a href="${carSmsHref}">Text</a><a href="${waHref}">WhatsApp</a><a href="car-cleaning-colchester.html">Cars</a>
+    <div class="mobile-cta" aria-label="Contact Sam">
+      <a href="tel:07756514110">Call</a>
+      <a href="${carSmsHref}">Text</a>
+      <a href="${waHref}">WhatsApp</a>
     </div>`;
 
 function pageShell({ title, description, slug, serviceName, serviceType, body, areaName = "Colchester" }) {
@@ -227,7 +226,7 @@ ${gaScript()}
     <link rel="icon" href="favicon.svg" type="image/svg+xml" />
     <script type="application/ld+json" data-static-schema>${staticSchema({ title, description, slug, serviceName, serviceType, areaName })}</script>
     <link rel="stylesheet" href="styles.css" />
-    <script src="app.js?v=20261108-privacy" defer></script>
+    <script src="app.js" defer></script>
   </head>
   <body data-area-name="${areaName}" data-page-type="service" data-service-name="${serviceName}" data-service-type="${serviceType}">
 ${body}

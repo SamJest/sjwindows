@@ -25,6 +25,11 @@ for p in root.glob('*.html'):
     if p.name!='404.html' and len(doc.canonicals)!=1:errors.append(f'{p.name}: canonical count')
     if 'GTM-' in text:errors.append(f'{p.name}: second tag container remains')
     if p.name!='404.html' and len(re.findall(r'src="analytics\.js(?:\?[^"\s]*)?"',text))!=1:errors.append(f'{p.name}: analytics loader count')
+    if p.name!='404.html':
+        nav=re.search(r'<nav class="site-nav"[^>]*>(.*?)</nav>',text,re.S)
+        mobile=re.search(r'<div class="mobile-cta"[^>]*>(.*?)</div>',text,re.S)
+        if not nav or len(re.findall(r'<a\b',nav.group(1)))>5:errors.append(f'{p.name}: primary navigation is not simplified')
+        if not mobile or len(re.findall(r'<a\b',mobile.group(1)))!=3:errors.append(f'{p.name}: mobile bar must have three direct contact routes')
     if 'gtag/js?id=' in text or "gtag('config'" in text:errors.append(f'{p.name}: inline analytics can bypass the shared privacy guard')
     if 'data-quote-form' in text or 'api.web3forms.com' in text:errors.append(f'{p.name}: retired form remains')
     if re.search(r'<(?:article|div)[^>]*class="review-',text):errors.append(f'{p.name}: unverified testimonial remains')

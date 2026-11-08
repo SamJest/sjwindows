@@ -2,6 +2,8 @@
 
 Baseline: current `SamJest/sjwindows` main, `dff7448f49deedccfcf1479f301424ac227c03c7`; review branch `codex/growth-pack-2026-11-08`. The supplied pack informed implementation; it did not authorize deployment, customer contact or account changes. The pre-existing dirty checkout is preserved; changes use a separate clone.
 
+**Release authorization:** the owner subsequently requested publication of the finished site, while deferring Google Business Profile and new photos. See [approved release scope](docs/RELEASE_NOTES_2026-11-08.md). The final pass adds five-item navigation, three direct mobile actions, a shorter first-message hero, a collapsed optional calculator and repaired legacy mobile menus. All 36 final viewport/page checks pass. Earlier approval holds below describe the pre-authorization review boundary; this release is now authorized to publish.
+
 **Review follow-up completed:** calculator drafts now use click-only buttons with no personal-detail fields or message hrefs. Shared analytics runs only on production HTTPS hosts. The published GTM container was verified empty. Browser QA now passes 24 representative page/viewport checks, menu/Escape, calculator/keyboard submit and FAQ disclosure. Content-hashed assets fix stale-script mismatches; desktop contact visibility, top-bar contrast and focus outlines were improved. See [follow-up evidence](docs/qa/review-followup.md). Physical-device delivery and authenticated GA4 receipt remain unverified; Google Analytics currently requires sign-in.
 
 ## Main changes

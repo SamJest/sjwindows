@@ -771,12 +771,9 @@ function header(eyebrow = "Colchester", serviceLabel = "window cleaning") {
         </button>
         <nav class="site-nav" id="site-nav" aria-label="Primary">
           <a href="index.html">Home</a>
-          <a href="index.html#calculator">Smart Quote</a>
           <a href="services.html">Services</a>
           <a href="window-cleaning-prices-colchester.html">Prices</a>
-          <a href="index.html#street-discount">Street Saver</a>
           <a href="areas.html">Areas</a>
-          <a href="reviews.html">Before booking</a>
           <a href="contact.html">Contact</a>
         </nav>
       </div>
@@ -819,11 +816,10 @@ function footer() {
         <p>&copy; 2026 SJ Windows</p>
       </div>
     </footer>
-    <div class="mobile-cta">
+    <div class="mobile-cta" aria-label="Contact Sam">
       <a href="${esc(quoteSmsHref("Colchester", "window cleaning"))}">Text</a>
       <a href="${waHref}">WhatsApp</a>
       <a href="${phoneHref}">Call</a>
-      <a href="index.html#calculator">Quote</a>
     </div>`;
 }
 
@@ -940,7 +936,7 @@ ${gaScript()}
       areaName,
     })}</script>
     <link rel="stylesheet" href="styles.css" />
-    <script src="app.js?v=20261108-privacy" defer></script>
+    <script src="app.js" defer></script>
   </head>
   <body data-page-type="${esc(pageType)}" data-service-name="${esc(serviceName)}" data-service-type="${esc(serviceType)}"${areaAttr} data-query-cluster="${esc(resolvedQueryCluster)}">
 ${body}

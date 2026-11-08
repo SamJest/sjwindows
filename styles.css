@@ -379,6 +379,29 @@ strong {
   padding-left: 1.18rem;
 }
 
+.hero-card ol { padding-left: 1.25rem; }
+.hero-card ol li { margin-bottom: 1rem; color: rgba(255, 255, 255, 0.88); }
+
+.calculator-disclosure > summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  min-height: 64px;
+  padding: 1.25rem 1.5rem;
+  list-style: none;
+  cursor: pointer;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-small);
+  background: var(--white);
+  color: var(--navy);
+  font-weight: 800;
+}
+.calculator-disclosure > summary::-webkit-details-marker { display: none; }
+.calculator-disclosure > summary::after { content: "+"; font-size: 1.5rem; }
+.calculator-disclosure[open] > summary { margin-bottom: 1.25rem; }
+.calculator-disclosure[open] > summary::after { content: "−"; }
+
 .hero__highlights li,
 .hero-card li {
   margin-bottom: 0.72rem;
@@ -1179,7 +1202,7 @@ strong {
   bottom: 0.65rem;
   z-index: 40;
   display: none;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 0.55rem;
   padding: 0.6rem;
   border-radius: 24px;
@@ -1350,7 +1373,7 @@ strong {
 
 /* Keep long contact details inside narrow cards and focus above fixed CTAs. */
 .direct-quote, .contact-points a, .footer__grid a { overflow-wrap: anywhere; }
-:where(a, button, input, select, textarea):focus-visible {
+:where(a, button, input, select, textarea, summary):focus-visible {
   outline: 3px solid var(--navy);
   outline-offset: 4px;
 }
@@ -1361,11 +1384,10 @@ strong {
   .site-nav.is-open { visibility: visible; }
 }
 @media (max-width: 760px) {
-  .topbar__inner > p { display: none; }
+  .topbar { display: none; }
   .topbar__links { flex-wrap: wrap; }
   .hero { padding-top: 1.5rem; }
   .hero h1 { font-size: clamp(2rem, 8vw, 3rem); }
-  .hero__content > p:not(.hero__lead):not(.eyebrow) { display: none; }
   .hero__actions .button, .topbar__links a { min-height: 44px; }
   .mobile-cta { padding-bottom: max(.6rem, env(safe-area-inset-bottom)); }
 }

@@ -667,6 +667,19 @@ function directContactLinks() {
   });
 }
 
+function calculatorDisclosure() {
+  const disclosure = $("[data-calculator-disclosure]");
+  if (!disclosure) return;
+  const openFromHash = () => {
+    if (location.hash === "#calculator") disclosure.open = true;
+  };
+  $$('a[href="#calculator"], a[href="index.html#calculator"]').forEach(link => {
+    link.addEventListener("click", () => { disclosure.open = true; });
+  });
+  window.addEventListener("hashchange", openFromHash);
+  openFromHash();
+}
+
 function breadcrumbItems() {
   const links = $$(".breadcrumbs a").map((link, index) => ({
     name: link.textContent.trim(),
@@ -1116,6 +1129,7 @@ function calculator() {
 faq();
 nav();
 directContactLinks();
+calculatorDisclosure();
 headMeta();
 schema();
 conversionTracking();
