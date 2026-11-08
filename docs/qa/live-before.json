@@ -1,0 +1,704 @@
+{
+  "404": {
+    "http_status": 200,
+    "location": "",
+    "canonical": "",
+    "observed_date": "Sun, 08 Nov 2026 20:27:11 GMT"
+  },
+  "areas": {
+    "http_status": 200,
+    "location": "",
+    "canonical": "https://sjwindowscolchester.co.uk/areas.html",
+    "observed_date": "Sun, 08 Nov 2026 20:27:11 GMT"
+  },
+  "car-cleaning-brightlingsea": {
+    "http_status": 200,
+    "location": "",
+    "canonical": "https://sjwindowscolchester.co.uk/car-cleaning-brightlingsea.html",
+    "observed_date": "Sun, 08 Nov 2026 20:27:11 GMT"
+  },
+  "car-cleaning-colchester": {
+    "http_status": 200,
+    "location": "",
+    "canonical": "https://sjwindowscolchester.co.uk/car-cleaning-colchester.html",
+    "observed_date": "Sun, 08 Nov 2026 20:27:11 GMT"
+  },
+  "car-cleaning-greenstead": {
+    "http_status": 200,
+    "location": "",
+    "canonical": "https://sjwindowscolchester.co.uk/car-cleaning-greenstead.html",
+    "observed_date": "Sun, 08 Nov 2026 20:27:11 GMT"
+  },
+  "car-cleaning-highwoods": {
+    "http_status": 200,
+    "location": "",
+    "canonical": "https://sjwindowscolchester.co.uk/car-cleaning-highwoods.html",
+    "observed_date": "Sun, 08 Nov 2026 20:27:11 GMT"
+  },
+  "car-cleaning-lexden": {
+    "http_status": 200,
+    "location": "",
+    "canonical": "https://sjwindowscolchester.co.uk/car-cleaning-lexden.html",
+    "observed_date": "Sun, 08 Nov 2026 20:27:11 GMT"
+  },
+  "car-cleaning-manningtree": {
+    "http_status": 200,
+    "location": "",
+    "canonical": "https://sjwindowscolchester.co.uk/car-cleaning-manningtree.html",
+    "observed_date": "Sun, 08 Nov 2026 20:27:11 GMT"
+  },
+  "car-cleaning-mersea-island": {
+    "http_status": 200,
+    "location": "",
+    "canonical": "https://sjwindowscolchester.co.uk/car-cleaning-mersea-island.html",
+    "observed_date": "Sun, 08 Nov 2026 20:27:11 GMT"
+  },
+  "car-cleaning-mile-end-colchester": {
+    "http_status": 200,
+    "location": "",
+    "canonical": "https://sjwindowscolchester.co.uk/car-cleaning-mile-end-colchester.html",
+    "observed_date": "Sun, 08 Nov 2026 20:27:11 GMT"
+  },
+  "car-cleaning-near-colchester": {
+    "http_status": 200,
+    "location": "",
+    "canonical": "https://sjwindowscolchester.co.uk/car-cleaning-near-colchester.html",
+    "observed_date": "Sun, 08 Nov 2026 20:27:11 GMT"
+  },
+  "car-cleaning-rowhedge": {
+    "http_status": 200,
+    "location": "",
+    "canonical": "https://sjwindowscolchester.co.uk/car-cleaning-rowhedge.html",
+    "observed_date": "Sun, 08 Nov 2026 20:27:11 GMT"
+  },
+  "car-cleaning-stanway": {
+    "http_status": 200,
+    "location": "",
+    "canonical": "https://sjwindowscolchester.co.uk/car-cleaning-stanway.html",
+    "observed_date": "Sun, 08 Nov 2026 20:27:12 GMT"
+  },
+  "car-cleaning-tiptree": {
+    "http_status": 200,
+    "location": "",
+    "canonical": "https://sjwindowscolchester.co.uk/car-cleaning-tiptree.html",
+    "observed_date": "Sun, 08 Nov 2026 20:27:12 GMT"
+  },
+  "car-cleaning-west-bergholt": {
+    "http_status": 200,
+    "location": "",
+    "canonical": "https://sjwindowscolchester.co.uk/car-cleaning-west-bergholt.html",
+    "observed_date": "Sun, 08 Nov 2026 20:27:12 GMT"
+  },
+  "car-cleaning-wivenhoe": {
+    "http_status": 200,
+    "location": "",
+    "canonical": "https://sjwindowscolchester.co.uk/car-cleaning-wivenhoe.html",
+    "observed_date": "Sun, 08 Nov 2026 20:27:12 GMT"
+  },
+  "cladding-cleaning-elmstead": {
+    "http_status": 200,
+    "location": "",
+    "canonical": "https://sjwindowscolchester.co.uk/cladding-cleaning-elmstead.html",
+    "observed_date": "Sun, 08 Nov 2026 20:27:12 GMT"
+  },
+  "commercial-window-cleaning-colchester": {
+    "http_status": 200,
+    "location": "",
+    "canonical": "https://sjwindowscolchester.co.uk/commercial-window-cleaning-colchester.html",
+    "observed_date": "Sun, 08 Nov 2026 20:27:12 GMT"
+  },
+  "conservatory-roof-cleaning-colchester": {
+    "http_status": 200,
+    "location": "",
+    "canonical": "https://sjwindowscolchester.co.uk/conservatory-roof-cleaning-colchester.html",
+    "observed_date": "Sun, 08 Nov 2026 20:27:12 GMT"
+  },
+  "conservatory-roof-cleaning-wivenhoe": {
+    "http_status": 200,
+    "location": "",
+    "canonical": "https://sjwindowscolchester.co.uk/conservatory-roof-cleaning-wivenhoe.html",
+    "observed_date": "Sun, 08 Nov 2026 20:27:12 GMT"
+  },
+  "contact": {
+    "http_status": 200,
+    "location": "",
+    "canonical": "https://sjwindowscolchester.co.uk/contact.html",
+    "observed_date": "Sun, 08 Nov 2026 20:27:12 GMT"
+  },
+  "exterior-cleaning-lexden": {
+    "http_status": 200,
+    "location": "",
+    "canonical": "https://sjwindowscolchester.co.uk/exterior-cleaning-lexden.html",
+    "observed_date": "Sun, 08 Nov 2026 20:27:12 GMT"
+  },
+  "exterior-cleaning-shrub-end": {
+    "http_status": 200,
+    "location": "",
+    "canonical": "https://sjwindowscolchester.co.uk/exterior-cleaning-shrub-end.html",
+    "observed_date": "Sun, 08 Nov 2026 20:27:12 GMT"
+  },
+  "exterior-cleaning-stanway": {
+    "http_status": 200,
+    "location": "",
+    "canonical": "https://sjwindowscolchester.co.uk/exterior-cleaning-stanway.html",
+    "observed_date": "Sun, 08 Nov 2026 20:27:12 GMT"
+  },
+  "fascia-soffit-cleaning-colchester": {
+    "http_status": 200,
+    "location": "",
+    "canonical": "https://sjwindowscolchester.co.uk/fascia-soffit-cleaning-colchester.html",
+    "observed_date": "Sun, 08 Nov 2026 20:27:12 GMT"
+  },
+  "gutter-cleaning-colchester": {
+    "http_status": 200,
+    "location": "",
+    "canonical": "https://sjwindowscolchester.co.uk/gutter-cleaning-colchester.html",
+    "observed_date": "Sun, 08 Nov 2026 20:27:12 GMT"
+  },
+  "gutter-cleaning-lexden": {
+    "http_status": 200,
+    "location": "",
+    "canonical": "https://sjwindowscolchester.co.uk/gutter-cleaning-lexden.html",
+    "observed_date": "Sun, 08 Nov 2026 20:27:12 GMT"
+  },
+  "gutter-cleaning-tiptree": {
+    "http_status": 200,
+    "location": "",
+    "canonical": "https://sjwindowscolchester.co.uk/gutter-cleaning-tiptree.html",
+    "observed_date": "Sun, 08 Nov 2026 20:27:12 GMT"
+  },
+  "gutter-cleaning-wivenhoe": {
+    "http_status": 200,
+    "location": "",
+    "canonical": "https://sjwindowscolchester.co.uk/gutter-cleaning-wivenhoe.html",
+    "observed_date": "Sun, 08 Nov 2026 20:27:12 GMT"
+  },
+  "http": {
+    "http_status": 301,
+    "location": "https://sjwindowscolchester.co.uk/",
+    "canonical": "",
+    "observed_date": "Sun, 08 Nov 2026 20:27:14 GMT"
+  },
+  "index": {
+    "http_status": 200,
+    "location": "",
+    "canonical": "https://sjwindowscolchester.co.uk/",
+    "observed_date": "Sun, 08 Nov 2026 20:27:11 GMT"
+  },
+  "missing": {
+    "http_status": 404,
+    "location": "",
+    "canonical": "",
+    "observed_date": "Sun, 08 Nov 2026 20:27:13 GMT"
+  },
+  "residential-window-cleaning-colchester": {
+    "http_status": 200,
+    "location": "",
+    "canonical": "https://sjwindowscolchester.co.uk/residential-window-cleaning-colchester.html",
+    "observed_date": "Sun, 08 Nov 2026 20:27:12 GMT"
+  },
+  "residential-window-cleaning-greenstead": {
+    "http_status": 200,
+    "location": "",
+    "canonical": "https://sjwindowscolchester.co.uk/residential-window-cleaning-greenstead.html",
+    "observed_date": "Sun, 08 Nov 2026 20:27:12 GMT"
+  },
+  "residential-window-cleaning-lexden": {
+    "http_status": 200,
+    "location": "",
+    "canonical": "https://sjwindowscolchester.co.uk/residential-window-cleaning-lexden.html",
+    "observed_date": "Sun, 08 Nov 2026 20:27:12 GMT"
+  },
+  "residential-window-cleaning-stanway": {
+    "http_status": 200,
+    "location": "",
+    "canonical": "https://sjwindowscolchester.co.uk/residential-window-cleaning-stanway.html",
+    "observed_date": "Sun, 08 Nov 2026 20:27:12 GMT"
+  },
+  "residential-window-cleaning-wivenhoe": {
+    "http_status": 200,
+    "location": "",
+    "canonical": "https://sjwindowscolchester.co.uk/residential-window-cleaning-wivenhoe.html",
+    "observed_date": "Sun, 08 Nov 2026 20:27:12 GMT"
+  },
+  "reviews": {
+    "http_status": 200,
+    "location": "",
+    "canonical": "https://sjwindowscolchester.co.uk/reviews.html",
+    "observed_date": "Sun, 08 Nov 2026 20:27:12 GMT"
+  },
+  "robots": {
+    "http_status": 200,
+    "location": "",
+    "canonical": "",
+    "observed_date": "Sun, 08 Nov 2026 20:27:14 GMT"
+  },
+  "roof-cleaning-colchester": {
+    "http_status": 200,
+    "location": "",
+    "canonical": "https://sjwindowscolchester.co.uk/roof-cleaning-colchester.html",
+    "observed_date": "Sun, 08 Nov 2026 20:27:12 GMT"
+  },
+  "roof-cleaning-greenstead": {
+    "http_status": 200,
+    "location": "",
+    "canonical": "https://sjwindowscolchester.co.uk/roof-cleaning-greenstead.html",
+    "observed_date": "Sun, 08 Nov 2026 20:27:12 GMT"
+  },
+  "roof-cleaning-mersea-island": {
+    "http_status": 200,
+    "location": "",
+    "canonical": "https://sjwindowscolchester.co.uk/roof-cleaning-mersea-island.html",
+    "observed_date": "Sun, 08 Nov 2026 20:27:12 GMT"
+  },
+  "services": {
+    "http_status": 200,
+    "location": "",
+    "canonical": "https://sjwindowscolchester.co.uk/services.html",
+    "observed_date": "Sun, 08 Nov 2026 20:27:12 GMT"
+  },
+  "shop-window-cleaning-colchester": {
+    "http_status": 200,
+    "location": "",
+    "canonical": "https://sjwindowscolchester.co.uk/shop-window-cleaning-colchester.html",
+    "observed_date": "Sun, 08 Nov 2026 20:27:12 GMT"
+  },
+  "sitemap": {
+    "http_status": 200,
+    "location": "",
+    "canonical": "",
+    "observed_date": "Sun, 08 Nov 2026 20:27:14 GMT"
+  },
+  "solar-panel-cleaning-colchester": {
+    "http_status": 200,
+    "location": "",
+    "canonical": "https://sjwindowscolchester.co.uk/solar-panel-cleaning-colchester.html",
+    "observed_date": "Sun, 08 Nov 2026 20:27:12 GMT"
+  },
+  "solar-panel-cleaning-greenstead": {
+    "http_status": 200,
+    "location": "",
+    "canonical": "https://sjwindowscolchester.co.uk/solar-panel-cleaning-greenstead.html",
+    "observed_date": "Sun, 08 Nov 2026 20:27:12 GMT"
+  },
+  "solar-panel-cleaning-highwoods": {
+    "http_status": 200,
+    "location": "",
+    "canonical": "https://sjwindowscolchester.co.uk/solar-panel-cleaning-highwoods.html",
+    "observed_date": "Sun, 08 Nov 2026 20:27:12 GMT"
+  },
+  "solar-panel-cleaning-layer-de-la-haye": {
+    "http_status": 200,
+    "location": "",
+    "canonical": "https://sjwindowscolchester.co.uk/solar-panel-cleaning-layer-de-la-haye.html",
+    "observed_date": "Sun, 08 Nov 2026 20:27:12 GMT"
+  },
+  "solar-panel-cleaning-lexden": {
+    "http_status": 200,
+    "location": "",
+    "canonical": "https://sjwindowscolchester.co.uk/solar-panel-cleaning-lexden.html",
+    "observed_date": "Sun, 08 Nov 2026 20:27:12 GMT"
+  },
+  "solar-panel-cleaning-old-heath": {
+    "http_status": 200,
+    "location": "",
+    "canonical": "https://sjwindowscolchester.co.uk/solar-panel-cleaning-old-heath.html",
+    "observed_date": "Sun, 08 Nov 2026 20:27:12 GMT"
+  },
+  "solar-panel-cleaning-shrub-end": {
+    "http_status": 200,
+    "location": "",
+    "canonical": "https://sjwindowscolchester.co.uk/solar-panel-cleaning-shrub-end.html",
+    "observed_date": "Sun, 08 Nov 2026 20:27:12 GMT"
+  },
+  "solar-panel-cleaning-stanway": {
+    "http_status": 200,
+    "location": "",
+    "canonical": "https://sjwindowscolchester.co.uk/solar-panel-cleaning-stanway.html",
+    "observed_date": "Sun, 08 Nov 2026 20:27:12 GMT"
+  },
+  "solar-panel-cleaning-wivenhoe": {
+    "http_status": 200,
+    "location": "",
+    "canonical": "https://sjwindowscolchester.co.uk/solar-panel-cleaning-wivenhoe.html",
+    "observed_date": "Sun, 08 Nov 2026 20:27:12 GMT"
+  },
+  "traditional-window-cleaning-colchester": {
+    "http_status": 200,
+    "location": "",
+    "canonical": "https://sjwindowscolchester.co.uk/traditional-window-cleaning-colchester.html",
+    "observed_date": "Sun, 08 Nov 2026 20:27:12 GMT"
+  },
+  "water-fed-pole-window-cleaning-colchester": {
+    "http_status": 200,
+    "location": "",
+    "canonical": "https://sjwindowscolchester.co.uk/water-fed-pole-window-cleaning-colchester.html",
+    "observed_date": "Sun, 08 Nov 2026 20:27:12 GMT"
+  },
+  "window-cleaner-abberton": {
+    "http_status": 200,
+    "location": "",
+    "canonical": "https://sjwindowscolchester.co.uk/window-cleaner-abberton.html",
+    "observed_date": "Sun, 08 Nov 2026 20:27:12 GMT"
+  },
+  "window-cleaner-alresford": {
+    "http_status": 200,
+    "location": "",
+    "canonical": "https://sjwindowscolchester.co.uk/window-cleaner-alresford.html",
+    "observed_date": "Sun, 08 Nov 2026 20:27:12 GMT"
+  },
+  "window-cleaner-ardleigh": {
+    "http_status": 200,
+    "location": "",
+    "canonical": "https://sjwindowscolchester.co.uk/window-cleaner-ardleigh.html",
+    "observed_date": "Sun, 08 Nov 2026 20:27:12 GMT"
+  },
+  "window-cleaner-berechurch": {
+    "http_status": 200,
+    "location": "",
+    "canonical": "https://sjwindowscolchester.co.uk/window-cleaner-berechurch.html",
+    "observed_date": "Sun, 08 Nov 2026 20:27:12 GMT"
+  },
+  "window-cleaner-blackheath": {
+    "http_status": 200,
+    "location": "",
+    "canonical": "https://sjwindowscolchester.co.uk/window-cleaner-blackheath.html",
+    "observed_date": "Sun, 08 Nov 2026 20:27:12 GMT"
+  },
+  "window-cleaner-brightlingsea": {
+    "http_status": 200,
+    "location": "",
+    "canonical": "https://sjwindowscolchester.co.uk/window-cleaner-brightlingsea.html",
+    "observed_date": "Sun, 08 Nov 2026 20:27:12 GMT"
+  },
+  "window-cleaner-colchester": {
+    "http_status": 200,
+    "location": "",
+    "canonical": "https://sjwindowscolchester.co.uk/window-cleaner-colchester.html",
+    "observed_date": "Sun, 08 Nov 2026 20:27:12 GMT"
+  },
+  "window-cleaner-copford": {
+    "http_status": 200,
+    "location": "",
+    "canonical": "https://sjwindowscolchester.co.uk/window-cleaner-copford.html",
+    "observed_date": "Sun, 08 Nov 2026 20:27:12 GMT"
+  },
+  "window-cleaner-dedham": {
+    "http_status": 200,
+    "location": "",
+    "canonical": "https://sjwindowscolchester.co.uk/window-cleaner-dedham.html",
+    "observed_date": "Sun, 08 Nov 2026 20:27:13 GMT"
+  },
+  "window-cleaner-east-bergholt": {
+    "http_status": 200,
+    "location": "",
+    "canonical": "https://sjwindowscolchester.co.uk/window-cleaner-east-bergholt.html",
+    "observed_date": "Sun, 08 Nov 2026 20:27:12 GMT"
+  },
+  "window-cleaner-eight-ash-green": {
+    "http_status": 200,
+    "location": "",
+    "canonical": "https://sjwindowscolchester.co.uk/window-cleaner-eight-ash-green.html",
+    "observed_date": "Sun, 08 Nov 2026 20:27:12 GMT"
+  },
+  "window-cleaner-elmstead-market": {
+    "http_status": 200,
+    "location": "",
+    "canonical": "https://sjwindowscolchester.co.uk/window-cleaner-elmstead-market.html",
+    "observed_date": "Sun, 08 Nov 2026 20:27:12 GMT"
+  },
+  "window-cleaner-elmstead": {
+    "http_status": 200,
+    "location": "",
+    "canonical": "https://sjwindowscolchester.co.uk/window-cleaner-elmstead.html",
+    "observed_date": "Sun, 08 Nov 2026 20:27:12 GMT"
+  },
+  "window-cleaner-feering": {
+    "http_status": 200,
+    "location": "",
+    "canonical": "https://sjwindowscolchester.co.uk/window-cleaner-feering.html",
+    "observed_date": "Sun, 08 Nov 2026 20:27:12 GMT"
+  },
+  "window-cleaner-fingringhoe": {
+    "http_status": 200,
+    "location": "",
+    "canonical": "https://sjwindowscolchester.co.uk/window-cleaner-fingringhoe.html",
+    "observed_date": "Sun, 08 Nov 2026 20:27:12 GMT"
+  },
+  "window-cleaner-frating": {
+    "http_status": 200,
+    "location": "",
+    "canonical": "https://sjwindowscolchester.co.uk/window-cleaner-frating.html",
+    "observed_date": "Sun, 08 Nov 2026 20:27:12 GMT"
+  },
+  "window-cleaner-great-bentley": {
+    "http_status": 200,
+    "location": "",
+    "canonical": "https://sjwindowscolchester.co.uk/window-cleaner-great-bentley.html",
+    "observed_date": "Sun, 08 Nov 2026 20:27:13 GMT"
+  },
+  "window-cleaner-great-horkesley": {
+    "http_status": 200,
+    "location": "",
+    "canonical": "https://sjwindowscolchester.co.uk/window-cleaner-great-horkesley.html",
+    "observed_date": "Sun, 08 Nov 2026 20:27:13 GMT"
+  },
+  "window-cleaner-greenstead-road-colchester": {
+    "http_status": 200,
+    "location": "",
+    "canonical": "https://sjwindowscolchester.co.uk/window-cleaner-greenstead-road-colchester.html",
+    "observed_date": "Sun, 08 Nov 2026 20:27:13 GMT"
+  },
+  "window-cleaner-greenstead": {
+    "http_status": 200,
+    "location": "",
+    "canonical": "https://sjwindowscolchester.co.uk/window-cleaner-greenstead.html",
+    "observed_date": "Sun, 08 Nov 2026 20:27:13 GMT"
+  },
+  "window-cleaner-heckfordbridge": {
+    "http_status": 200,
+    "location": "",
+    "canonical": "https://sjwindowscolchester.co.uk/window-cleaner-heckfordbridge.html",
+    "observed_date": "Sun, 08 Nov 2026 20:27:13 GMT"
+  },
+  "window-cleaner-highwoods": {
+    "http_status": 200,
+    "location": "",
+    "canonical": "https://sjwindowscolchester.co.uk/window-cleaner-highwoods.html",
+    "observed_date": "Sun, 08 Nov 2026 20:27:13 GMT"
+  },
+  "window-cleaner-holland-on-sea": {
+    "http_status": 200,
+    "location": "",
+    "canonical": "https://sjwindowscolchester.co.uk/window-cleaner-holland-on-sea.html",
+    "observed_date": "Sun, 08 Nov 2026 20:27:13 GMT"
+  },
+  "window-cleaner-holton-st-mary": {
+    "http_status": 200,
+    "location": "",
+    "canonical": "https://sjwindowscolchester.co.uk/window-cleaner-holton-st-mary.html",
+    "observed_date": "Sun, 08 Nov 2026 20:27:13 GMT"
+  },
+  "window-cleaner-kelvedon": {
+    "http_status": 200,
+    "location": "",
+    "canonical": "https://sjwindowscolchester.co.uk/window-cleaner-kelvedon.html",
+    "observed_date": "Sun, 08 Nov 2026 20:27:13 GMT"
+  },
+  "window-cleaner-lawford": {
+    "http_status": 200,
+    "location": "",
+    "canonical": "https://sjwindowscolchester.co.uk/window-cleaner-lawford.html",
+    "observed_date": "Sun, 08 Nov 2026 20:27:13 GMT"
+  },
+  "window-cleaner-layer-de-la-haye": {
+    "http_status": 200,
+    "location": "",
+    "canonical": "https://sjwindowscolchester.co.uk/window-cleaner-layer-de-la-haye.html",
+    "observed_date": "Sun, 08 Nov 2026 20:27:13 GMT"
+  },
+  "window-cleaner-lexden-road-colchester": {
+    "http_status": 200,
+    "location": "",
+    "canonical": "https://sjwindowscolchester.co.uk/window-cleaner-lexden-road-colchester.html",
+    "observed_date": "Sun, 08 Nov 2026 20:27:13 GMT"
+  },
+  "window-cleaner-lexden": {
+    "http_status": 200,
+    "location": "",
+    "canonical": "https://sjwindowscolchester.co.uk/window-cleaner-lexden.html",
+    "observed_date": "Sun, 08 Nov 2026 20:27:13 GMT"
+  },
+  "window-cleaner-london-road-stanway": {
+    "http_status": 200,
+    "location": "",
+    "canonical": "https://sjwindowscolchester.co.uk/window-cleaner-london-road-stanway.html",
+    "observed_date": "Sun, 08 Nov 2026 20:27:13 GMT"
+  },
+  "window-cleaner-manningtree": {
+    "http_status": 200,
+    "location": "",
+    "canonical": "https://sjwindowscolchester.co.uk/window-cleaner-manningtree.html",
+    "observed_date": "Sun, 08 Nov 2026 20:27:13 GMT"
+  },
+  "window-cleaner-marks-tey": {
+    "http_status": 200,
+    "location": "",
+    "canonical": "https://sjwindowscolchester.co.uk/window-cleaner-marks-tey.html",
+    "observed_date": "Sun, 08 Nov 2026 20:27:13 GMT"
+  },
+  "window-cleaner-mersea-island": {
+    "http_status": 200,
+    "location": "",
+    "canonical": "https://sjwindowscolchester.co.uk/window-cleaner-mersea-island.html",
+    "observed_date": "Sun, 08 Nov 2026 20:27:13 GMT"
+  },
+  "window-cleaner-mile-end-colchester": {
+    "http_status": 200,
+    "location": "",
+    "canonical": "https://sjwindowscolchester.co.uk/window-cleaner-mile-end-colchester.html",
+    "observed_date": "Sun, 08 Nov 2026 20:27:13 GMT"
+  },
+  "window-cleaner-mile-end-road-colchester": {
+    "http_status": 200,
+    "location": "",
+    "canonical": "https://sjwindowscolchester.co.uk/window-cleaner-mile-end-road-colchester.html",
+    "observed_date": "Sun, 08 Nov 2026 20:27:13 GMT"
+  },
+  "window-cleaner-military-road-colchester": {
+    "http_status": 200,
+    "location": "",
+    "canonical": "https://sjwindowscolchester.co.uk/window-cleaner-military-road-colchester.html",
+    "observed_date": "Sun, 08 Nov 2026 20:27:13 GMT"
+  },
+  "window-cleaner-nayland": {
+    "http_status": 200,
+    "location": "",
+    "canonical": "https://sjwindowscolchester.co.uk/window-cleaner-nayland.html",
+    "observed_date": "Sun, 08 Nov 2026 20:27:13 GMT"
+  },
+  "window-cleaner-near-colchester": {
+    "http_status": 200,
+    "location": "",
+    "canonical": "https://sjwindowscolchester.co.uk/window-cleaner-near-colchester.html",
+    "observed_date": "Sun, 08 Nov 2026 20:27:13 GMT"
+  },
+  "window-cleaner-new-town": {
+    "http_status": 200,
+    "location": "",
+    "canonical": "https://sjwindowscolchester.co.uk/window-cleaner-new-town.html",
+    "observed_date": "Sun, 08 Nov 2026 20:27:13 GMT"
+  },
+  "window-cleaner-old-heath-road-colchester": {
+    "http_status": 200,
+    "location": "",
+    "canonical": "https://sjwindowscolchester.co.uk/window-cleaner-old-heath-road-colchester.html",
+    "observed_date": "Sun, 08 Nov 2026 20:27:13 GMT"
+  },
+  "window-cleaner-old-heath": {
+    "http_status": 200,
+    "location": "",
+    "canonical": "https://sjwindowscolchester.co.uk/window-cleaner-old-heath.html",
+    "observed_date": "Sun, 08 Nov 2026 20:27:13 GMT"
+  },
+  "window-cleaner-prettygate-road-colchester": {
+    "http_status": 200,
+    "location": "",
+    "canonical": "https://sjwindowscolchester.co.uk/window-cleaner-prettygate-road-colchester.html",
+    "observed_date": "Sun, 08 Nov 2026 20:27:13 GMT"
+  },
+  "window-cleaner-prettygate": {
+    "http_status": 200,
+    "location": "",
+    "canonical": "https://sjwindowscolchester.co.uk/window-cleaner-prettygate.html",
+    "observed_date": "Sun, 08 Nov 2026 20:27:13 GMT"
+  },
+  "window-cleaner-rowhedge": {
+    "http_status": 200,
+    "location": "",
+    "canonical": "https://sjwindowscolchester.co.uk/window-cleaner-rowhedge.html",
+    "observed_date": "Sun, 08 Nov 2026 20:27:13 GMT"
+  },
+  "window-cleaner-shrub-end": {
+    "http_status": 200,
+    "location": "",
+    "canonical": "https://sjwindowscolchester.co.uk/window-cleaner-shrub-end.html",
+    "observed_date": "Sun, 08 Nov 2026 20:27:13 GMT"
+  },
+  "window-cleaner-st-annes": {
+    "http_status": 200,
+    "location": "",
+    "canonical": "https://sjwindowscolchester.co.uk/window-cleaner-st-annes.html",
+    "observed_date": "Sun, 08 Nov 2026 20:27:13 GMT"
+  },
+  "window-cleaner-st-clare-road-lexden": {
+    "http_status": 200,
+    "location": "",
+    "canonical": "https://sjwindowscolchester.co.uk/window-cleaner-st-clare-road-lexden.html",
+    "observed_date": "Sun, 08 Nov 2026 20:27:13 GMT"
+  },
+  "window-cleaner-st-johns": {
+    "http_status": 200,
+    "location": "",
+    "canonical": "https://sjwindowscolchester.co.uk/window-cleaner-st-johns.html",
+    "observed_date": "Sun, 08 Nov 2026 20:27:13 GMT"
+  },
+  "window-cleaner-stanway": {
+    "http_status": 200,
+    "location": "",
+    "canonical": "https://sjwindowscolchester.co.uk/window-cleaner-stanway.html",
+    "observed_date": "Sun, 08 Nov 2026 20:27:13 GMT"
+  },
+  "window-cleaner-straight-road-colchester": {
+    "http_status": 200,
+    "location": "",
+    "canonical": "https://sjwindowscolchester.co.uk/window-cleaner-straight-road-colchester.html",
+    "observed_date": "Sun, 08 Nov 2026 20:27:13 GMT"
+  },
+  "window-cleaner-stratford-st-mary": {
+    "http_status": 200,
+    "location": "",
+    "canonical": "https://sjwindowscolchester.co.uk/window-cleaner-stratford-st-mary.html",
+    "observed_date": "Sun, 08 Nov 2026 20:27:13 GMT"
+  },
+  "window-cleaner-the-avenue-wivenhoe": {
+    "http_status": 200,
+    "location": "",
+    "canonical": "https://sjwindowscolchester.co.uk/window-cleaner-the-avenue-wivenhoe.html",
+    "observed_date": "Sun, 08 Nov 2026 20:27:13 GMT"
+  },
+  "window-cleaner-the-commons-prettygate": {
+    "http_status": 200,
+    "location": "",
+    "canonical": "https://sjwindowscolchester.co.uk/window-cleaner-the-commons-prettygate.html",
+    "observed_date": "Sun, 08 Nov 2026 20:27:13 GMT"
+  },
+  "window-cleaner-thorpe-le-soken": {
+    "http_status": 200,
+    "location": "",
+    "canonical": "https://sjwindowscolchester.co.uk/window-cleaner-thorpe-le-soken.html",
+    "observed_date": "Sun, 08 Nov 2026 20:27:13 GMT"
+  },
+  "window-cleaner-thorrington": {
+    "http_status": 200,
+    "location": "",
+    "canonical": "https://sjwindowscolchester.co.uk/window-cleaner-thorrington.html",
+    "observed_date": "Sun, 08 Nov 2026 20:27:13 GMT"
+  },
+  "window-cleaner-tiptree": {
+    "http_status": 200,
+    "location": "",
+    "canonical": "https://sjwindowscolchester.co.uk/window-cleaner-tiptree.html",
+    "observed_date": "Sun, 08 Nov 2026 20:27:13 GMT"
+  },
+  "window-cleaner-weeley": {
+    "http_status": 200,
+    "location": "",
+    "canonical": "https://sjwindowscolchester.co.uk/window-cleaner-weeley.html",
+    "observed_date": "Sun, 08 Nov 2026 20:27:13 GMT"
+  },
+  "window-cleaner-west-bergholt": {
+    "http_status": 200,
+    "location": "",
+    "canonical": "https://sjwindowscolchester.co.uk/window-cleaner-west-bergholt.html",
+    "observed_date": "Sun, 08 Nov 2026 20:27:13 GMT"
+  },
+  "window-cleaner-wivenhoe": {
+    "http_status": 200,
+    "location": "",
+    "canonical": "https://sjwindowscolchester.co.uk/window-cleaner-wivenhoe.html",
+    "observed_date": "Sun, 08 Nov 2026 20:27:13 GMT"
+  },
+  "window-cleaning-prices-colchester": {
+    "http_status": 200,
+    "location": "",
+    "canonical": "https://sjwindowscolchester.co.uk/window-cleaning-prices-colchester.html",
+    "observed_date": "Sun, 08 Nov 2026 20:27:13 GMT"
+  },
+  "www": {
+    "http_status": 301,
+    "location": "https://sjwindowscolchester.co.uk/",
+    "canonical": "",
+    "observed_date": "Sun, 08 Nov 2026 20:27:14 GMT"
+  }
+}

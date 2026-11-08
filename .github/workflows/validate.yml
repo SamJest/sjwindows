@@ -1,0 +1,22 @@
+name: Validate static site
+on:
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: node scripts/validate-local-pages.mjs
+      - run: node scripts/test-contact-flow.mjs
+      - run: node scripts/test-analytics.mjs
+      - run: python tools/static_site_audit.py .
+      - run: python tools/verify_site.py
+      - run: node scripts/check-regeneration.mjs

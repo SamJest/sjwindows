@@ -1,0 +1,39 @@
+{
+  "observed_utc": "2026-11-08T22:26:51.975258+00:00",
+  "url": "https://www.googletagmanager.com/gtm.js?id=GTM-5267LQLD",
+  "response_sha256": "007e43aa77cf524b398b4d04443a3be85fa02136f1976a3f28b5fcf4a01e8b68",
+  "published_resource": {
+    "version": "1",
+    "macros": [
+      {
+        "function": "__u",
+        "vtp_component": "URL",
+        "vtp_enableMultiQueryKeys": false,
+        "vtp_enableIgnoreEmptyQueryParam": false
+      },
+      {
+        "function": "__u",
+        "vtp_component": "HOST",
+        "vtp_enableMultiQueryKeys": false,
+        "vtp_enableIgnoreEmptyQueryParam": false
+      },
+      {
+        "function": "__u",
+        "vtp_component": "PATH",
+        "vtp_enableMultiQueryKeys": false,
+        "vtp_enableIgnoreEmptyQueryParam": false
+      },
+      {
+        "function": "__f",
+        "vtp_component": "URL"
+      },
+      {
+        "function": "__e"
+      }
+    ],
+    "tags": [],
+    "predicates": [],
+    "rules": []
+  },
+  "conclusion": "Published version 1 has no tags, predicates or firing rules. Removing this published container drops no configured tags or consent tag. Private drafts and future changes were not inspected."
+}

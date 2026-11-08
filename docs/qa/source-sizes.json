@@ -1,0 +1,25 @@
+{
+  "note": "Source bytes only; not timing, PageSpeed or Core Web Vitals",
+  "files": [
+    {
+      "file": "index.html",
+      "beforeBytes": 56840,
+      "afterBytes": 42143
+    },
+    {
+      "file": "app.js",
+      "beforeBytes": 38144,
+      "afterBytes": 35309
+    },
+    {
+      "file": "styles.css",
+      "beforeBytes": 23304,
+      "afterBytes": 24376
+    },
+    {
+      "file": "analytics.js",
+      "beforeBytes": 0,
+      "afterBytes": 872
+    }
+  ]
+}

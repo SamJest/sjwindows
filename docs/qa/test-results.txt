@@ -1,0 +1,46 @@
+Validation on 2026-11-08; Node v24.22.1, Python 3.12.14. Browser: 24 layouts plus interactions (browser-layout-results.json). Physical-device delivery and authenticated GA4 receipt not verified.
+
+$ node scripts/generate-site.mjs
+Generated 31 area pages, 26 service-area pages, 11 street pages, near-me page, areas.html, 2 method pages and sitemap.xml
+Generated 20 priority area pages.
+Generated 14 car cleaning pages and updated sitemap.xml
+Exit: 0
+
+$ node --check app.js
+Exit: 0
+
+$ node --check analytics.js
+Exit: 0
+
+$ node scripts/validate-local-pages.mjs
+Validation passed for 112 HTML files and 59 required local pages.
+Exit: 0
+
+$ node scripts/test-contact-flow.mjs
+PASS: one event per contact action; click-only drafts without DOM message URLs; private data excluded; analytics-blocked fallback; Android/iOS SMS; 90 calculator scenarios.
+Exit: 0
+
+$ node scripts/test-analytics.mjs
+PASS: production-only GA4; one loader/config; clean page/referrer context; previews send no hits.
+Exit: 0
+
+$ python tools/static_site_audit.py . --out docs/qa/after-static-audit.json
+SJ Windows static audit: 112 HTML pages, 111 sitemap entries
+Errors: 0; warnings: 0; info: 0
+Reminder: static inspection cannot validate real HTTP redirects, form delivery, ranking or rendered mobile UX
+Exit: 0
+
+$ python tools/verify_site.py
+PASS: 112 pages, fragments/assets, 92 valid JSON-LD blocks, single GA4 configuration and retired forms.
+Exit: 0
+
+$ node scripts/check-regeneration.mjs
+Generated 31 area pages, 26 service-area pages, 11 street pages, near-me page, areas.html, 2 method pages and sitemap.xml
+Generated 20 priority area pages.
+Generated 14 car cleaning pages and updated sitemap.xml
+PASS: regeneration leaves every HTML page and sitemap unchanged.
+Exit: 0
+
+$ git diff --check
+warning: in the working copy of 'docs/qa/after-static-audit.json', CRLF will be replaced by LF the next time Git touches it
+Exit: 0

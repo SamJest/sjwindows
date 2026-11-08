@@ -1,87 +1,37 @@
-# SJWindows
+# SJ Windows
 
-This project is now a fully static window cleaning website built to target:
+Static site for regular Colchester window cleaning, with direct SMS, WhatsApp, telephone and email contact. No backend, form service, database, paid service or build dependency is required. The optional Smart Quote calculator runs locally; it does not submit or book work.
 
-- `window cleaner colchester`
-- higher-value residential enquiries
-- larger homes with more glass
-- homeowners who care about appearance and reliability more than cheap pricing
+`index.html` is the primary general Colchester page. `window-cleaner-colchester.html` is a quote checklist; `residential-window-cleaning-colchester.html` explains access and preparation. Existing local/service URLs remain pending owner evidence. See [CODEX_CHANGES.md](CODEX_CHANGES.md) for implementation status and limits.
 
-## What It Includes
+## Generate and verify
 
-- SEO-focused marketing pages
-- A static in-browser quote calculator
-- Premium residential positioning
-- Residential and commercial support pages
+Requires Node 22+ and Python 3.12+; no package installation.
 
-## Main Files
-
-- `index.html`: Main Colchester landing page with the quote calculator
-- `residential-window-cleaning-colchester.html`: Residential support page for larger homes
-- `commercial-window-cleaning-colchester.html`: Secondary commercial support page
-- `app.js`: Business details plus calculator logic
-- `styles.css`: Shared styling
-- `scripts/generate-local-pages.mjs`: Generates the local area, service-area, street, method and sitemap pages
-- `scripts/validate-local-pages.mjs`: Checks generated pages, sitemap entries, titles, descriptions and internal links
-
-## How To Use It
-
-Because the site is static, you can:
-
-- open `index.html` directly in a browser
-- upload the files to any normal static host
-- serve it from a simple web server later if you want
-
-No backend is required for the calculator.
-
-## Local Page Generation
-
-After editing local page data, run:
-
-```bash
-node scripts/generate-local-pages.mjs
+```sh
+node scripts/generate-site.mjs
 node scripts/validate-local-pages.mjs
+node scripts/test-contact-flow.mjs
+node scripts/test-analytics.mjs
+python tools/static_site_audit.py . --out docs/qa/after-static-audit.json
+python tools/verify_site.py
+node scripts/check-regeneration.mjs
 ```
 
-The local generator keeps the site static and writes root-ready `.html` files plus `sitemap.xml`.
+The combined generator runs local pages, priority area overrides, then car pages and refreshes content hashes in app/analytics/stylesheet URLs. Edit templates and run the combined command before committing. Hand-authored pages include home, contact, residential Colchester, prices, services, reviews/before-booking and legacy local pages outside the datasets. Common changes need both templates and hand-authored pages. The regeneration test compares all root HTML and sitemap hashes.
 
-## Edit Before Launch
+`scripts/approved-page-paths.json` freezes the existing inventory. `page-output.mjs` rejects new paths until real service/local evidence is reviewed and the allowlist deliberately amended. Do not add speculative street pages. Sitemap omits 404/noindex HTML and fabricated `lastmod` dates.
 
-Open `app.js` and update:
+Preview: `python -m http.server 8878 --bind 127.0.0.1` in this directory. Browser and physical-device checks are separate from static tests.
 
-- `businessName`
-- `phoneDisplay`
-- `phoneHref`
-- `email`
-- `websiteUrl`
-- `addressLine1`
-- `postalCode`
-- `serviceAreas`
-- `openingHours`
+## Business details and measurement
 
-## Calculator Logic
+`app.js` contains existing contacts and unchanged calculator rates. Pricing, service availability, route capacity, photos and testimonials need evidence: [owner handoff](docs/OWNER_HANDOFF.md). Keep customer details out of this public repository; the empty [lead log](docs/lead-log-template.csv) is for private use.
 
-The quote calculator gives a guide price using:
+Direct GA4 through `analytics.js` is the sole tag path and only runs on the production HTTPS domains. Calculator drafts are created on click, outside DOM links, with personal details added in the messaging app. See [measurement notes](docs/MEASUREMENT.md) for event definitions, published GTM audit, completed browser checks and remaining account/device QA.
 
-- property type
-- glazing count
-- french doors, bifolds, skylights
-- conservatory panels
-- solar panels
-- storeys
-- access difficulty
-- condition level
-- cleaning frequency
-- travel zone
-- additional services
+## Release boundary
 
-The calculator is designed to support premium positioning by pricing around time and complexity rather than discount messaging.
+GitHub Pages publishes `main`, root `/`, at `https://sjwindowscolchester.co.uk/`. **Merging main may deploy; do not merge or deploy before owner approval.** The review branch and PR validation workflow do not deploy.
 
-## Best Next Upgrades
-
-- Add your live domain to `app.js`, then update `robots.txt` and `sitemap.xml`
-- Add real photos of larger homes you clean
-- Add strong Google reviews
-- Add before-and-after examples
-- Add route-specific service areas you genuinely want to dominate
-- Tune the calculator values to match your real timings and pricing
+The owner approved publishing the 8 November 2026 release. Google Business Profile and new photos are deferred; see [release scope](docs/RELEASE_NOTES_2026-11-08.md). Subsequent releases still need appropriate authorization.

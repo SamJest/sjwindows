@@ -1,17 +1,15 @@
-import { readdirSync, writeFileSync } from "node:fs";
+import { writeGeneratedPage } from "./page-output.mjs";
+import { readFileSync, readdirSync, writeFileSync } from "node:fs";
 import { resolve } from "node:path";
 
 const root = resolve(import.meta.dirname, "..");
 const siteUrl = "https://sjwindowscolchester.co.uk";
-const lastmod = "2026-07-28";
 const phone = "07756 514110";
 const phoneHref = "tel:07756514110";
 const smsHref = "sms:07756514110";
 const email = "sjwindows2020@gmail.com";
 const waHref =
   "https://wa.me/447756514110?text=Hi%20Sam%2C%20I%27m%20looking%20for%20a%20window%20cleaning%20quote.%20My%20postcode%20is...";
-const gtmId = "GTM-5267LQLD";
-const gaMeasurementId = "G-MCX2ZWX8DQ";
 const priorityAreaNames = [
   "Manningtree",
   "Mersea Island",
@@ -41,35 +39,18 @@ function quoteWhatsappHref(areaName, serviceLabel) {
 }
 
 function localWindowCleanerTitle(areaName) {
-  if (areaName === "Colchester") return "Window Cleaner Colchester | Local Window Cleaning Quote";
+  if (areaName === "Colchester") return "Colchester Window Cleaning Quote Checklist | SJ Windows";
   const suffix = areaName.length > 15 ? "Text Sam Direct" : "Direct Local Quotes";
   return `Window Cleaner ${areaName} | ${suffix}`;
 }
 
 function localWindowCleanerDescription(areaName) {
   if (areaName === "Colchester") {
-    return "Window cleaning in Colchester from Sam at SJ Windows. Regular local rounds, frames and sills included, and direct text or WhatsApp quote checks.";
+    return "Prepare your Colchester window cleaning quote: postcode, property type, 4, 6 or 8-week frequency and access photos. Check route fit directly with Sam.";
   }
   return `Text or WhatsApp Sam directly for window cleaning in ${areaName}. Regular local rounds, frames and sills included, and quick postcode quote checks.`;
 }
 
-const reviews = [
-  {
-    author: "Wendy, Wivenhoe",
-    text:
-      "Reliable, friendly and does a proper job every time. Exactly what you want from a local window cleaner.",
-  },
-  {
-    author: "Audrey, Colchester",
-    text:
-      "Sam is polite, respectful and trustworthy. He turns up when arranged, is careful around the property, and always leaves the windows looking lovely.",
-  },
-  {
-    author: "Mike L, Lexden",
-    text:
-      "Excellent value for the quality of the clean. Sam does not rush the job and the results are always noticeably better than when we have tried to do it ourselves.",
-  },
-];
 
 const areas = [
   {
@@ -469,7 +450,7 @@ const services = {
     description: (area) =>
       `Searching for roof cleaning in ${area}? Sam can quote conservatory roofs, gutters, fascias, soffits and solar panels where access is safe.`,
     what:
-      "Some roof cleaning searches are really about conservatory roofs, gutters, fascias, soffits, solar panels or visible roofline dirt. This page helps route the enquiry to the part I can actually quote safely.",
+      "Describe the part of the roofline that needs attention: a conservatory roof, gutters, fascias or soffits. Send photos so I can check the scope and access before quoting.",
     suits:
       "It suits homeowners who want the outside roofline area looking cleaner, especially when the job is a conservatory roof, blocked gutters, dirty fascias or accessible solar panels.",
     pricing:
@@ -737,33 +718,9 @@ function esc(value) {
     .replaceAll("'", "&#39;");
 }
 
-function gtmNoscript() {
-  return `
-    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=${gtmId}" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>`;
-}
-
-function gtmScript() {
-  return `
-    <!-- Google Tag Manager -->
-    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','${gtmId}');</script>
-    <!-- End Google Tag Manager -->`;
-}
 
 function gaScript() {
-  return `
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=${gaMeasurementId}"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-
-      gtag('config', '${gaMeasurementId}');
-    </script>`;
+  return '<script src="analytics.js" defer></script>';
 }
 
 function areaByName(name) {
@@ -787,17 +744,6 @@ function chips(items) {
     .join("");
 }
 
-function reviewCards() {
-  return reviews
-    .map(
-      (review) => `
-            <article class="review-card">
-              <p>${esc(review.text)}</p>
-              <p class="review-card__meta">${esc(review.author)}</p>
-            </article>`
-    )
-    .join("");
-}
 
 function header(eyebrow = "Colchester", serviceLabel = "window cleaning") {
   const headerSmsHref = quoteSmsHref(eyebrow, serviceLabel);
@@ -825,12 +771,9 @@ function header(eyebrow = "Colchester", serviceLabel = "window cleaning") {
         </button>
         <nav class="site-nav" id="site-nav" aria-label="Primary">
           <a href="index.html">Home</a>
-          <a href="index.html#calculator">Smart Quote</a>
           <a href="services.html">Services</a>
           <a href="window-cleaning-prices-colchester.html">Prices</a>
-          <a href="index.html#street-discount">Street Saver</a>
           <a href="areas.html">Areas</a>
-          <a href="reviews.html">Reviews</a>
           <a href="contact.html">Contact</a>
         </nav>
       </div>
@@ -873,11 +816,10 @@ function footer() {
         <p>&copy; 2026 SJ Windows</p>
       </div>
     </footer>
-    <div class="mobile-cta">
+    <div class="mobile-cta" aria-label="Contact Sam">
       <a href="${esc(quoteSmsHref("Colchester", "window cleaning"))}">Text</a>
       <a href="${waHref}">WhatsApp</a>
       <a href="${phoneHref}">Call</a>
-      <a href="index.html#calculator">Quote</a>
     </div>`;
 }
 
@@ -969,7 +911,7 @@ function pageShell({
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-${gtmScript()}
+
 ${gaScript()}
     <title>${esc(title)}</title>
     <meta name="description" content="${esc(description)}" />
@@ -996,7 +938,7 @@ ${gaScript()}
     <link rel="stylesheet" href="styles.css" />
     <script src="app.js" defer></script>
   </head>
-  <body data-page-type="${esc(pageType)}" data-service-name="${esc(serviceName)}" data-service-type="${esc(serviceType)}"${areaAttr} data-query-cluster="${esc(resolvedQueryCluster)}">${gtmNoscript()}
+  <body data-page-type="${esc(pageType)}" data-service-name="${esc(serviceName)}" data-service-type="${esc(serviceType)}"${areaAttr} data-query-cluster="${esc(resolvedQueryCluster)}">
 ${body}
 ${footer()}
   </body>
@@ -1032,7 +974,7 @@ function contactSection(areaName, serviceLabel = "window cleaning") {
             <div class="link-list">
               <a class="text-link" href="${phoneHref}">Call ${phone}</a>
               <a class="text-link" href="contact.html">Contact page</a>
-              <a class="text-link" href="reviews.html">Customer reviews</a>
+              <a class="text-link" href="reviews.html">Before booking</a>
             </div>
           </div>
         </div>
@@ -1049,24 +991,9 @@ function areaPage(area) {
     .filter((name) => name !== area.name)
     .slice(0, 7)
     .map((name) => [areaSlug(name), name]);
-  const coreIntent =
-    area.name === "Colchester"
-      ? `
-            <p>
-              This page is built around the main searches people use: window cleaning Colchester,
-              window cleaner Colchester, Colchester window cleaning and window cleaners in
-              Colchester. If you want a local regular clean, start here and message me direct.
-            </p>`
-      : "";
-  const areaIntent =
-    area.name === "Tiptree"
-      ? `
-            <p>
-              If you searched for cleaners in Tiptree, this page is specifically for window
-              cleaning and practical exterior add-ons. Send the postcode first so I can check
-              whether Tiptree fits with Marks Tey, Copford, Abberton or nearby route work.
-            </p>`
-      : "";
+  const coreIntent = area.name === "Colchester"
+    ? `<p>Use this checklist to prepare your quote request. For an overview of regular cleaning, <a class="text-link" href="index.html">start with the main Colchester window cleaning page</a>.</p>` : "";
+  const areaIntent = "";
   const body = `${header(area.name)}
     <main id="main">
       <section class="page-hero">
@@ -1078,7 +1005,7 @@ function areaPage(area) {
               <span aria-current="page">${esc(area.name)}</span>
             </nav>
             <p class="eyebrow">Window Cleaner ${esc(area.name)}</p>
-            <h1>${esc(area.name)} window cleaner for regular window cleaning.</h1>
+            <h1>${area.name === "Colchester" ? "Prepare your Colchester window cleaning quote" : `${esc(area.name)} window cleaning: check your address`}</h1>
             <p class="hero__lead">
               Friendly, regular window cleaning in ${esc(area.name)} from Sam at SJ Windows, with
               frames and sills included and a direct text or WhatsApp quote check.
@@ -1099,7 +1026,7 @@ ${areaIntent}
           <aside class="hero-card">
             <p class="hero-card__kicker">Usually suits</p>
             <ul>
-              <li>${esc(area.propertyMix)}</li>
+              <li>A flat, terrace, semi-detached home, detached home or bungalow: tell me which applies to your address</li>
               <li>Regular 4, 6 or 8-weekly window cleaning</li>
               <li>People who want the person quoting to be the person cleaning</li>
               <li>Neighbour groups who want to use the Street Saver discount</li>
@@ -1111,7 +1038,7 @@ ${areaIntent}
       <section class="section">
         <div class="shell split">
           <div>
-            <p class="eyebrow">Why People In ${esc(area.name)} Enquire</p>
+            <p class="eyebrow">Your quote request</p>
             <h2>A good quote starts with a few simple details.</h2>
             <p>
               Send the postcode, property type, cleaning frequency, photos and any access notes. I can then
@@ -1121,26 +1048,7 @@ ${areaIntent}
           <div class="stacked-cards">
             <article class="mini-card"><h3>Regular local cleans</h3><p>Choose 4, 6 or 8-weekly visits to keep the glass looking right all year.</p><a class="text-link" href="residential-window-cleaning-colchester.html">Residential cleaning</a></article>
             <article class="mini-card"><h3>Price before booking</h3><p>The Smart Quote gives you a realistic starting point before you text or WhatsApp.</p><a class="text-link" href="window-cleaning-prices-colchester.html">Window cleaning prices</a></article>
-            <article class="mini-card"><h3>Know who is coming</h3><p>You are speaking to me directly, so the quote and the clean stay personal.</p><a class="text-link" href="reviews.html">Customer reviews</a></article>
-          </div>
-        </div>
-      </section>
-
-      <section class="section">
-        <div class="shell split">
-          <div>
-            <p class="eyebrow">Usually Suits</p>
-            <h2>For local homes that want the windows kept on top of.</h2>
-            <p>
-              In ${esc(area.name)}, this usually suits ${esc(area.propertyMix)}. I keep the first
-              conversation easy: send the postcode, property type, and whether you want regular or
-              one-off cleaning.
-            </p>
-          </div>
-          <div class="stacked-cards">
-            <article class="mini-card"><h3>Direct contact</h3><p>I am the person you message and the person doing the work.</p></article>
-            <article class="mini-card"><h3>Frames and sills</h3><p>Frames and sills are included as part of a normal outside window clean.</p></article>
-            <article class="mini-card"><h3>Street Saver</h3><p>If nearby neighbours book together, the group may qualify for a regular-clean discount.</p></article>
+            <article class="mini-card"><h3>Know who is coming</h3><p>You are speaking to me directly, so the quote and the clean stay personal.</p><a class="text-link" href="reviews.html">Before booking</a></article>
           </div>
         </div>
       </section>
@@ -1167,7 +1075,7 @@ ${areaIntent}
           <div>
             <p class="eyebrow">Regular Window Cleaning In ${esc(area.name)}</p>
             <h2>Regular cleaning keeps things easier, cleaner and more predictable.</h2>
-            <p>${esc(area.route)}</p>
+            <p>Send the full postcode before planning a visit in ${esc(area.name)}. I will check the address against the round; a place being listed here does not confirm availability.</p>
             <p>
               If your road links well with nearby work, regular visits are normally the best value.
               If a few neighbours want the same day, ask me about Street Saver.
@@ -1198,19 +1106,8 @@ ${areaIntent}
           </div>
           <div class="area-cloud">${chips(nearby)}<a class="area-chip" href="areas.html">All areas covered</a></div>
           <p class="section-linkline">
-            Priority local searches: ${priorityNearby.map(([href, label]) => `<a class="text-link" href="${esc(href)}">${esc(label)}</a>`).join(" ")}
+            Check another area: ${priorityNearby.map(([href, label]) => `<a class="text-link" href="${esc(href)}">${esc(label)}</a>`).join(" ")}
           </p>
-        </div>
-      </section>
-
-      <section class="section">
-        <div class="shell">
-          <div class="section-heading">
-            <p class="eyebrow">Customer Reviews</p>
-            <h2>What customers nearby say.</h2>
-          </div>
-          <div class="review-grid review-grid--three">${reviewCards()}</div>
-          <p class="section-linkline"><a class="text-link" href="reviews.html">Read more reviews</a></p>
         </div>
       </section>
 
@@ -1266,8 +1163,7 @@ function serviceAreaPage(serviceKey, areaName) {
             <p class="eyebrow">Clear Scope</p>
             <h2>So the enquiry goes to the right service.</h2>
             <p>
-              A few searches in Google are broader than the work I actually offer. I would rather
-              make the scope clear before you waste time asking for the wrong thing.
+              Send a photo of the surface and describe what needs cleaning. I will confirm whether the work and access are suitable before quoting.
             </p>
           </div>
           ${clarificationBlock}
@@ -1454,7 +1350,7 @@ function areasHub() {
             <p class="eyebrow">Areas Covered</p>
             <h1>Window cleaning areas around Colchester</h1>
             <p class="hero__lead">
-              Local window cleaning pages for Colchester, nearby neighbourhoods, villages and local round areas.
+              Check your address for regular window cleaning in Colchester and nearby areas. Availability depends on your postcode and the round.
             </p>
             <p>
               I'm Sam from SJ Windows. Send the postcode and I will tell you clearly whether the
@@ -1605,7 +1501,7 @@ function nearMePage() {
         <div class="shell">
           <div class="section-heading">
             <p class="eyebrow">Core Local Areas</p>
-            <h2>Pages for Colchester-side searches.</h2>
+            <h2>Check your Colchester neighbourhood.</h2>
           </div>
           <div class="area-cloud">${chips(coreLinks)}</div>
         </div>
@@ -1688,7 +1584,7 @@ function streetPage(street) {
               If you are on or near ${esc(street.street)}, send the postcode and I will check the property type, access and whether the address works before giving a proper quote.
             </p>
             <p>
-              I am not assuming every home on the road is the same. This page is written around the kinds of properties you often see locally, then the actual quote is based on your house.
+              I am not assuming every home on the road is the same. The quote is based on your own windows and access, so a front and rear photo is more useful than an assumption about the street.
             </p>
             <div class="hero__actions">
               <a class="button" href="index.html#calculator">Get a guide price</a>
@@ -1697,9 +1593,9 @@ function streetPage(street) {
             </div>
           </div>
           <aside class="hero-card">
-            <p class="hero-card__kicker">Likely property mix</p>
+            <p class="hero-card__kicker">Your property details</p>
             <ul>
-              <li>${esc(street.propertyCue)}</li>
+              <li>your property type and amount of glass</li>
               <li>Regular cleaning where the address works for the round</li>
               <li>Quote checked by postcode, access and photos when needed</li>
             </ul>
@@ -1713,12 +1609,12 @@ function streetPage(street) {
             <p class="eyebrow">Property Type On ${esc(street.street)}</p>
             <h2>The property style changes the time and method.</h2>
             <p>
-              Around ${esc(street.street)}, you often see ${esc(street.propertyCue)}. That affects window count, height, detailing and whether a simple regular clean or a more careful first clean is needed.
+              Tell me whether your property on ${esc(street.street)} is a flat, terrace, semi, detached home or bungalow. Window count, height and access determine the quote.
             </p>
           </div>
           <div class="stacked-cards">
-            <article class="mini-card"><h3>Access check</h3><p>${esc(street.accessCue)}.</p></article>
-            <article class="mini-card"><h3>Method choice</h3><p>${esc(street.methodCue)}</p></article>
+            <article class="mini-card"><h3>Access check</h3><p>Mention gates, rear access and obstacles near the glass.</p></article>
+            <article class="mini-card"><h3>Method choice</h3><p>I will confirm a suitable method after checking access and the glass</p></article>
             <article class="mini-card"><h3>Photo helps</h3><p>A quick front and rear photo can help if the property is unusual, extended or hard to access.</p></article>
           </div>
         </div>
@@ -1760,7 +1656,7 @@ ${contactSection(street.street)}
           <div class="section-heading"><p class="eyebrow">FAQ</p><h2>${esc(street.street)} window cleaning questions.</h2></div>
           <div class="faq-list">
             <article class="faq-item"><button type="button" class="faq-toggle" aria-expanded="false">Do you clean windows on ${esc(street.street)}?</button><div class="faq-answer"><p>Yes, if the postcode links well with my local round. Send the exact postcode and I will check it properly.</p></div></article>
-            <article class="faq-item"><button type="button" class="faq-toggle" aria-expanded="false">What kind of properties affect the quote here?</button><div class="faq-answer"><p>On or near ${esc(street.street)}, the quote is shaped by ${esc(street.propertyCue)}, plus access, height, condition and frequency.</p></div></article>
+            <article class="faq-item"><button type="button" class="faq-toggle" aria-expanded="false">What kind of properties affect the quote here?</button><div class="faq-answer"><p>On or near ${esc(street.street)}, the quote is shaped by your property type and amount of glass, plus access, height, condition and frequency.</p></div></article>
             <article class="faq-item"><button type="button" class="faq-toggle" aria-expanded="false">Can you do a hand finish?</button><div class="faq-answer"><p>Where glass is safe to reach, yes. Traditional hand-finish work is often best for bungalows, ground-floor glass, doors, or detail areas.</p></div></article>
             <article class="faq-item"><button type="button" class="faq-toggle" aria-expanded="false">Should I send photos?</button><div class="faq-answer"><p>Photos help if the property is larger, older, extended, has awkward rear access or you want me to judge the best cleaning method.</p></div></article>
           </div>
@@ -1904,12 +1800,16 @@ ${contactSection("Colchester", isWfp ? "water-fed pole window cleaning" : "tradi
 }
 
 function writePage(slug, content) {
-  writeFileSync(resolve(root, slug), content);
+  writeGeneratedPage(slug, content);
 }
 
 function sitemap() {
   const htmlFiles = readdirSync(root)
-    .filter((file) => file.endsWith(".html") && file !== "404.html")
+    .filter((file) => {
+      if (!file.endsWith(".html") || file === "404.html") return false;
+      const html = readFileSync(resolve(root, file), "utf8");
+      return !/<meta[^>]+name=["']robots["'][^>]+content=["'][^"']*noindex/i.test(html);
+    })
     .sort((a, b) => a.localeCompare(b));
   const urls = ["index.html", ...htmlFiles.filter((file) => file !== "index.html")];
   const priorityLocalFiles = new Set(priorityAreaNames.map((name) => areaSlug(name)));
@@ -1947,7 +1847,6 @@ function sitemap() {
       const changefreq = file === "index.html" ? "weekly" : "monthly";
       return `  <url>
     <loc>${loc}</loc>
-    <lastmod>${lastmod}</lastmod>
     <changefreq>${changefreq}</changefreq>
     <priority>${priority}</priority>
   </url>`;

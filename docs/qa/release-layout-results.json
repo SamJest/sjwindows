@@ -1,0 +1,331 @@
+{
+  "observedOn": "2026-11-08",
+  "layouts": [
+    {
+      "requestedWidth": 360,
+      "page": "index.html",
+      "mobileContactLinks": 3,
+      "primaryLinks": 5,
+      "remoteAnalyticsScripts": 0,
+      "scrollWidth": 345,
+      "width": 345
+    },
+    {
+      "requestedWidth": 360,
+      "page": "contact.html",
+      "mobileContactLinks": 3,
+      "primaryLinks": 5,
+      "remoteAnalyticsScripts": 0,
+      "scrollWidth": 345,
+      "width": 345
+    },
+    {
+      "requestedWidth": 360,
+      "page": "window-cleaner-wivenhoe.html",
+      "mobileContactLinks": 3,
+      "primaryLinks": 5,
+      "remoteAnalyticsScripts": 0,
+      "scrollWidth": 345,
+      "width": 345
+    },
+    {
+      "requestedWidth": 360,
+      "page": "window-cleaning-prices-colchester.html",
+      "mobileContactLinks": 3,
+      "primaryLinks": 5,
+      "remoteAnalyticsScripts": 0,
+      "scrollWidth": 345,
+      "width": 345
+    },
+    {
+      "requestedWidth": 360,
+      "page": "residential-window-cleaning-colchester.html",
+      "mobileContactLinks": 3,
+      "primaryLinks": 5,
+      "remoteAnalyticsScripts": 0,
+      "scrollWidth": 345,
+      "width": 345
+    },
+    {
+      "requestedWidth": 360,
+      "page": "traditional-window-cleaning-colchester.html",
+      "mobileContactLinks": 3,
+      "primaryLinks": 5,
+      "remoteAnalyticsScripts": 0,
+      "scrollWidth": 345,
+      "width": 345
+    },
+    {
+      "requestedWidth": 360,
+      "page": "window-cleaner-alresford.html",
+      "mobileContactLinks": 3,
+      "primaryLinks": 5,
+      "remoteAnalyticsScripts": 0,
+      "scrollWidth": 345,
+      "width": 345
+    },
+    {
+      "requestedWidth": 360,
+      "page": "services.html",
+      "mobileContactLinks": 3,
+      "primaryLinks": 5,
+      "remoteAnalyticsScripts": 0,
+      "scrollWidth": 345,
+      "width": 345
+    },
+    {
+      "requestedWidth": 360,
+      "page": "reviews.html",
+      "mobileContactLinks": 3,
+      "primaryLinks": 5,
+      "remoteAnalyticsScripts": 0,
+      "scrollWidth": 345,
+      "width": 345
+    },
+    {
+      "requestedWidth": 375,
+      "page": "index.html",
+      "mobileContactLinks": 3,
+      "primaryLinks": 5,
+      "remoteAnalyticsScripts": 0,
+      "scrollWidth": 360,
+      "width": 360
+    },
+    {
+      "requestedWidth": 375,
+      "page": "contact.html",
+      "mobileContactLinks": 3,
+      "primaryLinks": 5,
+      "remoteAnalyticsScripts": 0,
+      "scrollWidth": 360,
+      "width": 360
+    },
+    {
+      "requestedWidth": 375,
+      "page": "window-cleaner-wivenhoe.html",
+      "mobileContactLinks": 3,
+      "primaryLinks": 5,
+      "remoteAnalyticsScripts": 0,
+      "scrollWidth": 360,
+      "width": 360
+    },
+    {
+      "requestedWidth": 375,
+      "page": "window-cleaning-prices-colchester.html",
+      "mobileContactLinks": 3,
+      "primaryLinks": 5,
+      "remoteAnalyticsScripts": 0,
+      "scrollWidth": 360,
+      "width": 360
+    },
+    {
+      "requestedWidth": 375,
+      "page": "residential-window-cleaning-colchester.html",
+      "mobileContactLinks": 3,
+      "primaryLinks": 5,
+      "remoteAnalyticsScripts": 0,
+      "scrollWidth": 360,
+      "width": 360
+    },
+    {
+      "requestedWidth": 375,
+      "page": "traditional-window-cleaning-colchester.html",
+      "mobileContactLinks": 3,
+      "primaryLinks": 5,
+      "remoteAnalyticsScripts": 0,
+      "scrollWidth": 360,
+      "width": 360
+    },
+    {
+      "requestedWidth": 375,
+      "page": "window-cleaner-alresford.html",
+      "mobileContactLinks": 3,
+      "primaryLinks": 5,
+      "remoteAnalyticsScripts": 0,
+      "scrollWidth": 360,
+      "width": 360
+    },
+    {
+      "requestedWidth": 375,
+      "page": "services.html",
+      "mobileContactLinks": 3,
+      "primaryLinks": 5,
+      "remoteAnalyticsScripts": 0,
+      "scrollWidth": 360,
+      "width": 360
+    },
+    {
+      "requestedWidth": 375,
+      "page": "reviews.html",
+      "mobileContactLinks": 3,
+      "primaryLinks": 5,
+      "remoteAnalyticsScripts": 0,
+      "scrollWidth": 360,
+      "width": 360
+    },
+    {
+      "requestedWidth": 390,
+      "page": "index.html",
+      "mobileContactLinks": 3,
+      "primaryLinks": 5,
+      "remoteAnalyticsScripts": 0,
+      "scrollWidth": 375,
+      "width": 375
+    },
+    {
+      "requestedWidth": 390,
+      "page": "contact.html",
+      "mobileContactLinks": 3,
+      "primaryLinks": 5,
+      "remoteAnalyticsScripts": 0,
+      "scrollWidth": 375,
+      "width": 375
+    },
+    {
+      "requestedWidth": 390,
+      "page": "window-cleaner-wivenhoe.html",
+      "mobileContactLinks": 3,
+      "primaryLinks": 5,
+      "remoteAnalyticsScripts": 0,
+      "scrollWidth": 375,
+      "width": 375
+    },
+    {
+      "requestedWidth": 390,
+      "page": "window-cleaning-prices-colchester.html",
+      "mobileContactLinks": 3,
+      "primaryLinks": 5,
+      "remoteAnalyticsScripts": 0,
+      "scrollWidth": 375,
+      "width": 375
+    },
+    {
+      "requestedWidth": 390,
+      "page": "residential-window-cleaning-colchester.html",
+      "mobileContactLinks": 3,
+      "primaryLinks": 5,
+      "remoteAnalyticsScripts": 0,
+      "scrollWidth": 375,
+      "width": 375
+    },
+    {
+      "requestedWidth": 390,
+      "page": "traditional-window-cleaning-colchester.html",
+      "mobileContactLinks": 3,
+      "primaryLinks": 5,
+      "remoteAnalyticsScripts": 0,
+      "scrollWidth": 375,
+      "width": 375
+    },
+    {
+      "requestedWidth": 390,
+      "page": "window-cleaner-alresford.html",
+      "mobileContactLinks": 3,
+      "primaryLinks": 5,
+      "remoteAnalyticsScripts": 0,
+      "scrollWidth": 375,
+      "width": 375
+    },
+    {
+      "requestedWidth": 390,
+      "page": "services.html",
+      "mobileContactLinks": 3,
+      "primaryLinks": 5,
+      "remoteAnalyticsScripts": 0,
+      "scrollWidth": 375,
+      "width": 375
+    },
+    {
+      "requestedWidth": 390,
+      "page": "reviews.html",
+      "mobileContactLinks": 3,
+      "primaryLinks": 5,
+      "remoteAnalyticsScripts": 0,
+      "scrollWidth": 375,
+      "width": 375
+    },
+    {
+      "requestedWidth": 1440,
+      "page": "index.html",
+      "mobileContactLinks": 3,
+      "primaryLinks": 5,
+      "remoteAnalyticsScripts": 0,
+      "scrollWidth": 1425,
+      "width": 1425
+    },
+    {
+      "requestedWidth": 1440,
+      "page": "contact.html",
+      "mobileContactLinks": 3,
+      "primaryLinks": 5,
+      "remoteAnalyticsScripts": 0,
+      "scrollWidth": 1425,
+      "width": 1425
+    },
+    {
+      "requestedWidth": 1440,
+      "page": "window-cleaner-wivenhoe.html",
+      "mobileContactLinks": 3,
+      "primaryLinks": 5,
+      "remoteAnalyticsScripts": 0,
+      "scrollWidth": 1425,
+      "width": 1425
+    },
+    {
+      "requestedWidth": 1440,
+      "page": "window-cleaning-prices-colchester.html",
+      "mobileContactLinks": 3,
+      "primaryLinks": 5,
+      "remoteAnalyticsScripts": 0,
+      "scrollWidth": 1425,
+      "width": 1425
+    },
+    {
+      "requestedWidth": 1440,
+      "page": "residential-window-cleaning-colchester.html",
+      "mobileContactLinks": 3,
+      "primaryLinks": 5,
+      "remoteAnalyticsScripts": 0,
+      "scrollWidth": 1425,
+      "width": 1425
+    },
+    {
+      "requestedWidth": 1440,
+      "page": "traditional-window-cleaning-colchester.html",
+      "mobileContactLinks": 3,
+      "primaryLinks": 5,
+      "remoteAnalyticsScripts": 0,
+      "scrollWidth": 1425,
+      "width": 1425
+    },
+    {
+      "requestedWidth": 1440,
+      "page": "window-cleaner-alresford.html",
+      "mobileContactLinks": 3,
+      "primaryLinks": 5,
+      "remoteAnalyticsScripts": 0,
+      "scrollWidth": 1425,
+      "width": 1425
+    },
+    {
+      "requestedWidth": 1440,
+      "page": "services.html",
+      "mobileContactLinks": 3,
+      "primaryLinks": 5,
+      "remoteAnalyticsScripts": 0,
+      "scrollWidth": 1425,
+      "width": 1425
+    },
+    {
+      "requestedWidth": 1440,
+      "page": "reviews.html",
+      "mobileContactLinks": 3,
+      "primaryLinks": 5,
+      "remoteAnalyticsScripts": 0,
+      "scrollWidth": 1425,
+      "width": 1425
+    }
+  ],
+  "calculator": "Closed by default; hero link and direct #calculator URL open it. Three draft buttons initialize enabled.",
+  "scope": "Google Business Profile and new photos deferred by owner; no external messages sent."
+}

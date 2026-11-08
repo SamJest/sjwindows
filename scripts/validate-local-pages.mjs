@@ -114,7 +114,7 @@ for (const file of htmlFiles) {
     if (!title) errors.push(`${file} has no title`);
     if (!description) errors.push(`${file} has no meta description`);
     if (!h1) errors.push(`${file} has an empty or missing H1`);
-    if (!/href=["']styles\.css["']/.test(text)) errors.push(`${file} is missing styles.css reference`);
+    if (!/href=["']styles\.css(?:\?[^"']*)?["']/.test(text)) errors.push(`${file} is missing styles.css reference`);
     const loc = file === "index.html" ? `${siteUrl}/` : `${siteUrl}/${file}`;
     if (!sitemap.includes(`<loc>${loc}</loc>`)) errors.push(`${file} is missing from sitemap.xml`);
   }
@@ -143,7 +143,7 @@ for (const file of htmlFiles) {
     ) {
       continue;
     }
-    const target = raw.split("#")[0];
+    const target = raw.split(/[?#]/)[0];
     if (!target || target === "/") continue;
     if (target.includes("://")) continue;
     if (!existsSync(resolve(root, target))) {
